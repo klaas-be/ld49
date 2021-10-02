@@ -38,6 +38,8 @@ public class Shocker : Machine
         currentElement.transform.position = DropPoint.position;
 
         currentElement.OnDrop();
+        currentElement.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-1, 1), Random.value, Random.Range(-1, 1)), ForceMode.Impulse);
+        currentElement.GetComponent<Rigidbody>().AddTorque(new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1)), ForceMode.Impulse);
         currentElement = null;
 
         canBeUsed = true;

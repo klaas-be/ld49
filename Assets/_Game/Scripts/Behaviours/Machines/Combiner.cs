@@ -48,16 +48,24 @@ public class Combiner : Machine
 
     public void ProcessMiddle()
     {
-        elementC = ElementSpawner.Instance.Spawn(Recipes.GetResultOf(elementA._element, elementB._element).elementType, AnchorC.position);
-        elementC.transform.SetParent(AnchorC);
-        elementC.transform.localPosition = Vector3.zero;
-        elementC.OnPickUp();
+        Element e = Recipes.GetResultOf(elementA._element, elementB._element);
 
         Destroy(elementA.gameObject);
         Destroy(elementB.gameObject);
 
         elementA = null;
         elementB = null;
+
+        if (e == null)
+        {
+            canBeUsed = true;
+            return;
+        }
+
+        elementC = ElementSpawner.Instance.Spawn(e.elementType, AnchorC.position);
+        elementC.transform.SetParent(AnchorC);
+        elementC.transform.localPosition = Vector3.zero;
+        elementC.OnPickUp();
 
         StartCoroutine(ProcessEnd());
     }
@@ -70,6 +78,8 @@ public class Combiner : Machine
         elementC.transform.position = AnchorOut.position;
 
         elementC.OnDrop();
+        elementC.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-1,1), Random.value, Random.Range(-1, 1)), ForceMode.Impulse);
+        elementC.GetComponent<Rigidbody>().AddTorque(new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1)), ForceMode.Impulse);
         elementC = null;
 
         canBeUsed = true;

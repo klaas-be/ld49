@@ -21,7 +21,6 @@ public class Crater : Machine
         //Throw in Crater
         Rigidbody rigidbody = currentElement.GetComponent<Rigidbody>();
         rigidbody.isKinematic = false;
-        currentElement.transform.SetParent(null);
         rigidbody.AddForce((DropPoint.position - rigidbody.transform.position) * throwForce, ForceMode.Impulse);
 
         Destroy(currentElement.gameObject, 2f);
