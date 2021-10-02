@@ -22,6 +22,7 @@ public class Combiner : Machine
             elementA = elementComponent;
             elementA.transform.SetParent(AnchorA);
             elementA.transform.localPosition = Vector3.zero;
+            elementA.transform.localRotation = Quaternion.identity;
             elementA.OnPickUp();
         }
         else if (!elementB)
@@ -29,6 +30,7 @@ public class Combiner : Machine
             elementB = elementComponent;
             elementB.transform.SetParent(AnchorB);
             elementB.transform.localPosition = Vector3.zero;
+            elementB.transform.localRotation = Quaternion.identity;
             elementB.OnPickUp();
         }
 
@@ -36,6 +38,12 @@ public class Combiner : Machine
         {
             canBeUsed = false;
             animator.SetTrigger("CombinerTrigger");
+            Element e = Recipes.GetResultOf(elementA._element, elementB._element);
+            if (e == null)
+            {
+                animator.SetBool("IsPoof", true);
+            }
+
             StartCoroutine(CombineProcess());
         }
     }

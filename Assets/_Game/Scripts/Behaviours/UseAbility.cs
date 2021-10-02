@@ -22,11 +22,35 @@ public class UseAbility : MonoBehaviour
         }
     }
 
+    /*private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.TryGetComponent<Machine>(out var machine) & _elementContainerComponent.CarriesElement)
+        {
+            currentMachine = machine;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.TryGetComponent<Machine>(out var machine) & _elementContainerComponent.CarriesElement)
+        {
+            currentMachine = null;
+        }
+    }*/
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.TryGetComponent<Machine>(out var machine) & _elementContainerComponent.CarriesElement)
         {
             currentMachine = machine;            
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.TryGetComponent<Machine>(out var machine) & _elementContainerComponent.CarriesElement)
+        {
+            currentMachine = machine;
         }
     }
 
