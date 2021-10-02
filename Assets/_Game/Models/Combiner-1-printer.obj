@@ -4,7 +4,7 @@
 o printer
 
 # material
-mtllib Combiner-0-printer.mtl
+mtllib Combiner-1-printer.mtl
 usemtl palette
 
 # normals
