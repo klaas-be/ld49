@@ -7,7 +7,7 @@ namespace _Game.Scripts.Classes
     {
         private Element.ElementType _type;
         private Element.ElementStatus _status;
-        private GameObject prefab; 
+        private GameObject prefab;
 
         public ElementGameObjectBuilder OfType(Element.ElementType type)
         {
@@ -27,6 +27,12 @@ namespace _Game.Scripts.Classes
             return this; 
         }
 
+        public ElementGameObjectBuilder FromModel(GameObject model)
+        {
+            this.prefab = model;
+            return this;
+        }
+
         public GameObject Build()
         {
             if (prefab == null)
@@ -37,7 +43,7 @@ namespace _Game.Scripts.Classes
                 return go; 
             }
 
-            var instance = prefab;
+            var instance = GameObject.Instantiate(prefab);
             var elementComponent = instance.GetComponent<ElementComponent>();
             if(elementComponent == null)
                 elementComponent = instance.AddComponent<ElementComponent>();
