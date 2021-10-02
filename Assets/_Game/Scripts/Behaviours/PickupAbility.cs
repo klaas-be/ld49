@@ -1,5 +1,4 @@
-﻿using _Game.Scripts.Classes;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace _Game.Scripts.Behaviours
 {

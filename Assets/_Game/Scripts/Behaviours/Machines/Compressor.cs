@@ -1,8 +1,6 @@
 using _Game.Scripts.Behaviours;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static _Game.Scripts.Classes.Element;
 
 public class Compressor : Machine
 {

@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using static _Game.Scripts.Classes.Element;
 
 namespace _Game.Scripts.Classes

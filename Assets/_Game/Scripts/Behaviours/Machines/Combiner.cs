@@ -2,7 +2,6 @@ using _Game.Scripts.Behaviours;
 using _Game.Scripts.Classes;
 using NaughtyAttributes;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Combiner : Machine

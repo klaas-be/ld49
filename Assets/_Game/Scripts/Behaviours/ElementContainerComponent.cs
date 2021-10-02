@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using _Game.Scripts.Classes;
+﻿using System.Collections.Generic;
 using NaughtyAttributes;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace _Game.Scripts.Behaviours
