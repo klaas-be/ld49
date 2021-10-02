@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using _Game.Scripts.Classes;
 using NaughtyAttributes;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace _Game.Scripts.Behaviours
@@ -13,7 +15,17 @@ namespace _Game.Scripts.Behaviours
         public List<ElementSlot> ElementSlots = new List<ElementSlot>();
         public List<ElementComponent> carryingElements = new List<ElementComponent>();
 
-        
+        public KeyCode DropElementKeyCode;
+
+
+        private void Update()
+        {
+            if(Input.GetKeyDown(DropElementKeyCode))
+            {
+                Drop();
+            }
+        }
+
         public bool Add(ElementComponent element)
         {
             
@@ -40,6 +52,7 @@ namespace _Game.Scripts.Behaviours
         private void PickupElement(ElementComponent element)
         {
             var slotIndex = carryingElements.Count - 1;
+            if (slotIndex < 0) return;
             element.transform.position = ElementSlots[slotIndex].transform.position;
             element.transform.parent = ElementSlots[slotIndex].transform;
             element.OmPickUp();
@@ -49,7 +62,7 @@ namespace _Game.Scripts.Behaviours
         //use element with something
         public void Use(Element e)
         {
-            //_elementContainer.
+            
         }
         
         
@@ -60,11 +73,11 @@ namespace _Game.Scripts.Behaviours
         public void Drop()
         {
             var slotIndex = carryingElements.Count-1;
-            
+            if(slotIndex < 0) return;
             carryingElements[slotIndex].transform.parent = null;
-         carryingElements[slotIndex].OnDrop();
+            carryingElements[slotIndex].OnDrop();
          
-         var element =  RemoveLastAdded();
+            var element =  RemoveLastAdded();
             
            
             
