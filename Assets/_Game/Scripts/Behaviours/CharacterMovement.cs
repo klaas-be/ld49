@@ -24,6 +24,7 @@ public class CharacterMovement : MonoBehaviour
 
     [SerializeField] private MovementState _movementState = MovementState.Walking;
 
+    public AnimationCurve curve;
 
     public enum MovementState
     {
@@ -85,7 +86,7 @@ public class CharacterMovement : MonoBehaviour
         switch (_movementState)
         {
             case MovementState.Slowed:
-                float _sSpeed = Mathf.Lerp(_slowedSpeed, _standardSpeed, Mathf.Clamp01(_stateTime / _slowedTime));
+                float _sSpeed = Mathf.Lerp(_slowedSpeed, _standardSpeed, curve.Evaluate(Mathf.Clamp01(_stateTime / _slowedTime)));
                 _stateTime += Time.deltaTime;
                 if (_stateTime > _slowedTime)
                     SwitchState(MovementState.Walking);
@@ -100,7 +101,7 @@ public class CharacterMovement : MonoBehaviour
                 return 0f;
 
             case MovementState.Dashing:
-                float _dSpeed = Mathf.Lerp(_dashSpeed, _standardSpeed, Mathf.Clamp01(_stateTime / _dashTime));
+                float _dSpeed = Mathf.Lerp(_dashSpeed, _standardSpeed, curve.Evaluate(Mathf.Clamp01(_stateTime / _dashTime)));
                 _stateTime += Time.deltaTime;
 
                 if (_stateTime > _dashTime)
