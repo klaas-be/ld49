@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ElementSlot : MonoBehaviour
 {
-    private Element _element; 
+    public Element _element; 
     
     // Start is called before the first frame update
     private void OnDrawGizmos()
