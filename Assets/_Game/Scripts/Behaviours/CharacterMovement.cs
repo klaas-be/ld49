@@ -7,6 +7,7 @@ public class CharacterMovement : MonoBehaviour
     // Start is called before the first frame update
 
     private CharacterController _characterController;
+    [SerializeField] Animator animator;
     [ReadOnly]
     [SerializeField] private float _currentSpeed;
     [Space(20)]
@@ -46,6 +47,7 @@ public class CharacterMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.LeftShift))
         {
             SwitchState(MovementState.Dashing);
+            animator.SetTrigger("DashTrigger");
         }
         //SlowTest
         if (Input.GetKeyDown(KeyCode.F))
