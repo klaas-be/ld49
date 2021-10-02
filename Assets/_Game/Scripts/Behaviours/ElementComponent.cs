@@ -8,15 +8,15 @@ namespace _Game.Scripts.Behaviours
     [AddComponentMenu("Element")]
     public class ElementComponent : MonoBehaviour
     {
-
         public Element _element;
 
         public bool previouslyDropped; 
-        public void OmPickUp()
+        public void OnPickUp()
         {
             GetComponent<Rigidbody>().isKinematic = true;
             GetComponent<Collider>().enabled = false;
         }
+
 
         public void OnDrop()
         {
