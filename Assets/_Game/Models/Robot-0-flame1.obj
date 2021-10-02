@@ -4,7 +4,7 @@
 o flame1
 
 # material
-mtllib Flame-0-flame1.mtl
+mtllib Robot-0-flame1.mtl
 usemtl palette
 
 # normals
