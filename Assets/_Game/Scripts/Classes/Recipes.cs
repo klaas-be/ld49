@@ -38,7 +38,7 @@ namespace _Game.Scripts.Classes
             }
 
             //TEST STEEL STEEL 
-            if (A.elementType == ElementType.Steel && A.elementStatus == ElementStatus.Compressed &&
+            if (A.elementType == ElementType.Steel && A.elementStatus == ElementStatus.Default &&
                 B.elementType == ElementType.Steel && B.elementStatus == ElementStatus.Default)
             {
                 return new Element(ElementType.Steel);

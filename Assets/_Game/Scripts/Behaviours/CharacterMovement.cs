@@ -18,8 +18,12 @@ public class CharacterMovement : MonoBehaviour
     [Space(20)]
     [SerializeField] private float _standardSpeed;
     [Space(20)]
+    [SerializeField] public bool canDash;
     [SerializeField] private float _dashSpeed;
     [SerializeField] private float _dashTime;
+    [ReadOnly]
+    [SerializeField] private float _dashCooldownTimer;
+    [SerializeField] private float _dashCooldown;
     [ReadOnly]
     [SerializeField] private float _stateTime = 0f;
 
@@ -44,11 +48,23 @@ public class CharacterMovement : MonoBehaviour
     void Update()
     {
         //Dash
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
             SwitchState(MovementState.Dashing);
+            _dashCooldownTimer = _dashCooldown;
+            canDash = false;
             animator.SetTrigger("DashTrigger");
         }
+        if (_dashCooldownTimer > 0)
+        {
+            _dashCooldownTimer -= Time.deltaTime;
+        }
+        else
+        {
+            canDash = true;
+        }
+
+
         //SlowTest
         if (Input.GetKeyDown(KeyCode.F))
         {
