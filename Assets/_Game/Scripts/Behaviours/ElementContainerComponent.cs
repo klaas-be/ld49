@@ -13,6 +13,7 @@ namespace _Game.Scripts.Behaviours
         public List<ElementSlot> ElementSlots = new List<ElementSlot>();
         public List<ElementComponent> carryingElements = new List<ElementComponent>();
 
+        public bool CarriesElement { get { return carryingElements.Count > 0; } }
 
         public bool Add(ElementComponent element)
         {
@@ -49,7 +50,11 @@ namespace _Game.Scripts.Behaviours
         //use element with a machine
         public void Use(Machine machine)
         {
+            if (carryingElements.Count == 0)
+                return;
+
             var slotIndex = carryingElements.Count - 1;
+
             carryingElements[slotIndex].transform.SetParent(null);
             var element = RemoveLastAdded();
 
