@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6515495697464821531}
   - component: {fileID: 4704933272853002531}
   - component: {fileID: 2743190012454399011}
+  - component: {fileID: 2549833983495370647}
   m_Layer: 6
   m_Name: Starsteel
   m_TagString: Untagged
@@ -114,3 +115,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: c81690225e314374fa6cecd281207f6e, type: 3}
+--- !u!114 &2549833983495370647
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4408754465308740094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ca5cb46147f439e9e38fe9487fc67d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _element:
+    elementType: 4
+    elementStatus: 0
+  previouslyDropped: 0
