@@ -18,8 +18,8 @@ namespace _Game.Scripts.Behaviours
         {
             if ( other.TryGetComponent<ElementComponent>(out var c))
             {
-                if(!c.previouslyDropped)
-                    if (PickUp(c)) ;
+                if (!c.previouslyDropped)
+                    PickUp(c);
             }
         }
     }
