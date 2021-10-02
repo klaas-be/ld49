@@ -19,14 +19,14 @@ namespace _Game.Scripts.Behaviours
 
         public bool Add(ElementComponent element)
         {
-
             if (_elementContainer.Add(element))
             {
-                var slotIndex = _elementContainer.carryingElements.Count-1;
-                element.transform.position =  ElementSlots[slotIndex].transform.position;
-               element.transform.parent = ElementSlots[slotIndex].transform;
-               element.GetComponent<Rigidbody>().isKinematic = true; 
-               return true;
+                var slotIndex = _elementContainer.carryingElements.Count - 1;
+                element.transform.position = ElementSlots[slotIndex].transform.position;
+                element.transform.parent = ElementSlots[slotIndex].transform;
+                element.GetComponent<Rigidbody>().isKinematic = true;
+                element.GetComponent<Collider>().enabled = false;
+                return true;
                
             }
 
