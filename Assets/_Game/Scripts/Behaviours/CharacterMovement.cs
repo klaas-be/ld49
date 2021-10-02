@@ -1,3 +1,4 @@
+using _Game.Scripts.Behaviours;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class CharacterMovement : MonoBehaviour
     // Start is called before the first frame update
 
     private CharacterController _characterController;
+    [SerializeField] private ElementContainerComponent elementContainerComponent;
     [SerializeField] Animator animator;
     [ReadOnly]
     [SerializeField] private float _currentSpeed;
@@ -19,6 +21,8 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private float _standardSpeed;
     [Space(20)]
     [SerializeField] public bool canDash;
+    [ReadOnly]
+    [SerializeField] private bool dashFlag;
     [SerializeField] private float _dashSpeed;
     [SerializeField] private float _dashTime;
     [ReadOnly]
@@ -26,6 +30,9 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private float _dashCooldown;
     [ReadOnly]
     [SerializeField] private float _stateTime = 0f;
+    [SerializeField] private Transform _animTargetPivot;
+    [SerializeField] private Vector3 velocity;
+    [SerializeField] public float wiggle;
 
     [SerializeField] private MovementState _movementState = MovementState.Walking;
 
@@ -44,16 +51,26 @@ public class CharacterMovement : MonoBehaviour
         _characterController = GetComponent<CharacterController>();
     }
 
+    private void FixedUpdate()
+    {
+        if (dashFlag)
+        {
+            dashFlag = false;
+            SwitchState(MovementState.Dashing);
+            _dashCooldownTimer = _dashCooldown;
+            animator.SetTrigger("DashTrigger");
+            elementContainerComponent.DashDrop();
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
         //Dash
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
-            SwitchState(MovementState.Dashing);
-            _dashCooldownTimer = _dashCooldown;
+            dashFlag = true;
             canDash = false;
-            animator.SetTrigger("DashTrigger");
         }
         if (_dashCooldownTimer > 0)
         {
@@ -87,9 +104,15 @@ public class CharacterMovement : MonoBehaviour
         var verticalMovement = Input.GetAxis("Vertical");
 
         Vector3 movementDirection = new Vector3(horizontalMovement, 0, verticalMovement);
+        velocity = Vector3.ClampMagnitude(movementDirection, 1);
         movementDirection = Vector3.ClampMagnitude(movementDirection, 1);
 
         _characterController.Move(movementDirection * GetCurrentMovementSpeed() * 0.01f);
+
+        //stackAnimation
+        Quaternion animRot = Quaternion.Euler(new Vector3(Mathf.Lerp(0, -15, velocity.magnitude), 0, wiggle));
+        _animTargetPivot.localRotation = animRot;
+
         return movementDirection;
     }
 
