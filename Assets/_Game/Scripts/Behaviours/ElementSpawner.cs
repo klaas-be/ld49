@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using _Game.Scripts.Behaviours;
 using _Game.Scripts.Classes;
@@ -11,6 +12,8 @@ public class ElementSpawner : MonoBehaviour
     public static ElementSpawner Instance;
 
     private void Awake() => Instance = this;
+
+    private void OnDestroy() => Destroy(Instance);
 
     public List<ElementSettings> ElementSettings = new List<ElementSettings>(); 
 

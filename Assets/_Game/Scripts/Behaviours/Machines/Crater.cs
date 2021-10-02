@@ -1,5 +1,7 @@
 using _Game.Scripts.Behaviours;
 using System.Collections;
+using _Game.Scripts.Classes;
+using _Game.Scripts.ScriptableObjects;
 using UnityEngine;
 
 public class Crater : Machine
@@ -22,11 +24,31 @@ public class Crater : Machine
         rigidbody.isKinematic = false;
         rigidbody.AddForce((DropPoint.position - rigidbody.transform.position) * throwForce, ForceMode.Impulse);
 
+        RemoveFromQueue(currentElement); 
         Destroy(currentElement.gameObject, 2f);
         currentElement = null;
 
         //animator.SetTrigger("CraterTrigger");
         StartCoroutine(ThrowProcess());
+
+        
+    }
+
+    private void RemoveFromQueue(ElementComponent elementComponent)
+    {
+        RecipeQueue queue = GetComponent<RecipeQueue>();
+        queue.CheckIfRequested(elementComponent._element); 
+    }
+
+    public void ThrowNewElement(ElementComponent element)
+    {
+        element.transform.position = DropPoint.position;
+
+        element.OnDrop();
+        element.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-1, 1), Random.value, Random.Range(-1, 1)), ForceMode.Impulse);
+        element.GetComponent<Rigidbody>().AddTorque(new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1)), ForceMode.Impulse);
+
+        canBeUsed = true;
     }
 
     private IEnumerator ThrowProcess()
