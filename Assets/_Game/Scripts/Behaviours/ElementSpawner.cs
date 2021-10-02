@@ -14,8 +14,8 @@ public class ElementSpawner : MonoBehaviour
     {
         var instance = Instantiate(elementPrefab);
         var elementComponent = instance.GetComponent<ElementComponent>();
-        var element = new Element(type);
-
+        var element = An.Element.OfType(type); 
+            
         elementComponent._element = element;
 
         instance.transform.position = position; 
