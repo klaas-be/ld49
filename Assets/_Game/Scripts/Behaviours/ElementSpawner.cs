@@ -20,14 +20,15 @@ public class ElementSpawner : MonoBehaviour
     {
         Spawn(Element.ElementType.Uran, transform.position);
     }
-    
-    public void Spawn(Element.ElementType type, Vector3 position)
+    public ElementComponent Spawn(Element.ElementType type, Vector3 position)
     {
         GameObject instance =An.ElementGameObject.
             OfType(type).
             FromModel(ElementSettings.Find(settings => settings.Type == type).model);
 
-        instance.transform.position = position; 
+        instance.transform.position = position;
+
+        return instance.GetComponent<ElementComponent>();
     }
 }
 

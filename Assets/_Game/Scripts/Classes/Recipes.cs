@@ -37,6 +37,12 @@ namespace _Game.Scripts.Classes
                 return new Element(ElementType.Whitestar);
             }
 
+            //TEST STEEL STEEL 
+            if (A.elementType == ElementType.Steel && A.elementStatus == ElementStatus.Default &&
+                B.elementType == ElementType.Steel && B.elementStatus == ElementStatus.Default)
+            {
+                return new Element(ElementType.Steel);
+            }
 
 
             if (recursive)
