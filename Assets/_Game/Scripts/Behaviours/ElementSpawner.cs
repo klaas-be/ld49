@@ -16,7 +16,7 @@ public class ElementSpawner : MonoBehaviour
 
 
     [Button()]
-    private void SpawnElement()
+    private void SpawnUranium()
     {
         Spawn(Element.ElementType.Uran, transform.position);
     }

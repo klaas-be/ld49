@@ -29,7 +29,8 @@ namespace _Game.Scripts.Classes
 
         public ElementGameObjectBuilder FromModel(GameObject model)
         {
-            this.prefab = model;
+            if (model != null) 
+                this.prefab = model;
             return this;
         }
 
