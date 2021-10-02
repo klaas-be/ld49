@@ -1,6 +1,4 @@
-﻿using System;
-using _Game.Scripts.Classes;
-using Unity.VisualScripting;
+﻿using _Game.Scripts.Classes;
 using UnityEngine;
 
 namespace _Game.Scripts.Behaviours
@@ -9,16 +7,18 @@ namespace _Game.Scripts.Behaviours
     {
         [SerializeField] private ElementContainerComponent _eLementContainerComponent;
         
-        private void PickUp(Element element)
+        
+        
+        private bool PickUp(ElementComponent element)
         {
-            _eLementContainerComponent.Add(element); 
+            return _eLementContainerComponent.Add(element); 
         }
         
         private void OnTriggerEnter(Collider other)
         {
             if ( other.TryGetComponent<ElementComponent>(out var c))
             {
-                PickUp(c._element);
+                if (PickUp(c)) ;
             }
         }
     }

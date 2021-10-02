@@ -6,26 +6,38 @@ namespace _Game.Scripts.Behaviours
 {
     public class ElementContainerComponent : MonoBehaviour
     {
-        [NaughtyAttributes.ReadOnly]
-        public List<Element> carryingElements = new List<Element>();
         public int maxStack = 5;
-        public int maxWalkStack = 2; 
-        
-        public void Add(Element element)
+        public int maxWalkStack = 2;
+
+        private ElementContainer _elementContainer;
+        public List<ElementSlot> ElementSlots;
+
+        private void Awake()
         {
-            if (carryingElements.Count < maxStack)
-            {
-                carryingElements.Add(element);
-            }
+            _elementContainer = new ElementContainer(maxStack, maxWalkStack); 
         }
 
-
-        /// <summary>
-        /// Use an Element with another object
-        /// </summary>
-        public void Use()
+        public bool Add(ElementComponent element)
         {
-            
+
+            if (_elementContainer.Add(element))
+            {
+                var slotIndex = _elementContainer.carryingElements.Count-1;
+                element.transform.position =  ElementSlots[slotIndex].transform.position;
+               element.transform.parent = ElementSlots[slotIndex].transform;
+               element.GetComponent<Rigidbody>().isKinematic = true; 
+               return true;
+               
+            }
+
+            return false;
+        }
+        
+
+        //use element with something
+        public void Use(Element e)
+        {
+            //_elementContainer.
         }
         
         /// <summary>
