@@ -1,3 +1,4 @@
+using _Game.Scripts.Behaviours;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -7,6 +8,7 @@ public class CharacterMovement : MonoBehaviour
     // Start is called before the first frame update
 
     private CharacterController _characterController;
+    [SerializeField] private ElementContainerComponent elementContainerComponent;
     [SerializeField] Animator animator;
     [ReadOnly]
     [SerializeField] private float _currentSpeed;
@@ -19,6 +21,8 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private float _standardSpeed;
     [Space(20)]
     [SerializeField] public bool canDash;
+    [ReadOnly]
+    [SerializeField] private bool dashFlag;
     [SerializeField] private float _dashSpeed;
     [SerializeField] private float _dashTime;
     [ReadOnly]
@@ -44,16 +48,26 @@ public class CharacterMovement : MonoBehaviour
         _characterController = GetComponent<CharacterController>();
     }
 
+    private void FixedUpdate()
+    {
+        if (dashFlag)
+        {
+            dashFlag = false;
+            SwitchState(MovementState.Dashing);
+            _dashCooldownTimer = _dashCooldown;
+            animator.SetTrigger("DashTrigger");
+            elementContainerComponent.DashDrop();
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
         //Dash
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
-            SwitchState(MovementState.Dashing);
-            _dashCooldownTimer = _dashCooldown;
+            dashFlag = true;
             canDash = false;
-            animator.SetTrigger("DashTrigger");
         }
         if (_dashCooldownTimer > 0)
         {

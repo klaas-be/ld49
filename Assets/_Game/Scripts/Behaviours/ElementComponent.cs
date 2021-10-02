@@ -19,14 +19,15 @@ namespace _Game.Scripts.Behaviours
 
         public void OnDrop()
         {
+            GetComponent<Rigidbody>().isKinematic = false;
+            GetComponent<Collider>().enabled = true;
+            previouslyDropped = true;
+
             StartCoroutine(DelayedDrop()); 
         }
 
         public IEnumerator DelayedDrop()
         {
-            GetComponent<Rigidbody>().isKinematic = false;
-            GetComponent<Collider>().enabled = true;
-            previouslyDropped = true; 
             yield return new WaitForSeconds(1);
             previouslyDropped = false;
         }        

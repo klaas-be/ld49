@@ -42,6 +42,7 @@ namespace _Game.Scripts.Behaviours
             var slotIndex = carryingElements.Count - 1;
             if (slotIndex < 0) return;
             element.transform.position = ElementSlots[slotIndex].transform.position;
+            element.transform.rotation = Quaternion.identity;
             element.transform.SetParent(ElementSlots[slotIndex].transform);
             element.OnPickUp();
         }
@@ -74,10 +75,34 @@ namespace _Game.Scripts.Behaviours
             carryingElements[slotIndex].OnDrop();
          
             var element =  RemoveLastAdded();
-            
-           
-            
+
+            element.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            element.GetComponent<Rigidbody>().AddForce(new Vector3(UnityEngine.Random.Range(-2, 2), 2, UnityEngine.Random.Range(-2, 2)), ForceMode.Impulse);
+            element.GetComponent<Rigidbody>().AddTorque(new Vector3(UnityEngine.Random.Range(-2, 2), UnityEngine.Random.Range(-1, 1), UnityEngine.Random.Range(-2, 2)), ForceMode.Impulse);
         }
 
+        public void DashDrop()
+        {
+            if (carryingElements.Count > 2)
+            {
+                for (int i = carryingElements.Count-1; i >= 2; i--)
+                {
+                    var slotIndex = i;
+
+                    if (slotIndex < 0) return;
+                    carryingElements[slotIndex].OnDrop();
+                    carryingElements[slotIndex].transform.localPosition = Vector3.zero;
+                    carryingElements[slotIndex].transform.localRotation = Quaternion.identity;
+                    carryingElements[slotIndex].transform.SetParent(null);
+
+                    var element = RemoveLastAdded();
+
+                    element.GetComponent<Rigidbody>().velocity = Vector3.zero;
+                    element.GetComponent<Rigidbody>().AddForce(new Vector3(UnityEngine.Random.Range(-2, 2), 2, UnityEngine.Random.Range(-2, 2)), ForceMode.Impulse);
+                    element.GetComponent<Rigidbody>().AddTorque(new Vector3(UnityEngine.Random.Range(-2, 2), UnityEngine.Random.Range(-1, 1), UnityEngine.Random.Range(-2, 2)), ForceMode.Impulse);
+                    //Debug.Break();
+                }
+            }
+        }
     }
 }
