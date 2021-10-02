@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4003112292748685370}
   - component: {fileID: 3281765580957235155}
   - component: {fileID: 5588337005444206456}
+  - component: {fileID: -3105027986420610811}
   m_Layer: 0
   m_Name: Uran
   m_TagString: Untagged
@@ -114,3 +115,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: 5c8539d59d5bb314b9c64570e923390a, type: 3}
+--- !u!114 &-3105027986420610811
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5821275701996158687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ca5cb46147f439e9e38fe9487fc67d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _element:
+    elementType: 1
+    elementStatus: 0
+  previouslyDropped: 0
