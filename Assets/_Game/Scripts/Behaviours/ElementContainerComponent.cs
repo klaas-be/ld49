@@ -9,18 +9,18 @@ namespace _Game.Scripts.Behaviours
     {
         public int maxStack = 5;
         public int maxWalkStack = 2;
-        
+
         public List<ElementSlot> ElementSlots = new List<ElementSlot>();
         public List<ElementComponent> carryingElements = new List<ElementComponent>();
 
-        
+
         public bool Add(ElementComponent element)
         {
-            
+
             if (carryingElements.Count < maxStack)
             {
                 carryingElements.Add(element);
-                Debug.Log("Carrying Elements: "+ carryingElements.Count);
+                Debug.Log("Carrying Elements: " + carryingElements.Count);
                 PickupElement(element);
                 return true;
             }
@@ -28,47 +28,50 @@ namespace _Game.Scripts.Behaviours
             return false;
         }
 
-        
+
         public ElementComponent RemoveLastAdded()
         {
-            var e = carryingElements[carryingElements.Count-1]; 
-            carryingElements.RemoveAt(carryingElements.Count-1);
+            var e = carryingElements[carryingElements.Count - 1];
+            carryingElements.RemoveAt(carryingElements.Count - 1);
             return e;
         }
-        
-        
+
+
         private void PickupElement(ElementComponent element)
         {
             var slotIndex = carryingElements.Count - 1;
             element.transform.position = ElementSlots[slotIndex].transform.position;
-            element.transform.parent = ElementSlots[slotIndex].transform;
-            element.OmPickUp();
+            element.transform.SetParent(ElementSlots[slotIndex].transform);
+            element.OnPickUp();
         }
 
 
-        //use element with something
-        public void Use(Element e)
+        //use element with a machine
+        public void Use(Machine machine)
         {
-            //_elementContainer.
+            var slotIndex = carryingElements.Count - 1;
+            carryingElements[slotIndex].transform.SetParent(null);
+            var element = RemoveLastAdded();
+
+            machine.Use(element);
         }
-        
-        
+
+
         [Button("Drop Last")]
         /// <summary>
         /// Drop Elements to the ground
         /// </summary>
         public void Drop()
         {
-            var slotIndex = carryingElements.Count-1;
-            
-            carryingElements[slotIndex].transform.parent = null;
-         carryingElements[slotIndex].OnDrop();
-         
-         var element =  RemoveLastAdded();
-            
-           
-            
+            var slotIndex = carryingElements.Count - 1;
+
+            carryingElements[slotIndex].transform.SetParent(null);
+            carryingElements[slotIndex].OnDrop();
+
+            var element = RemoveLastAdded();
+
+
         }
-        
+
     }
 }
