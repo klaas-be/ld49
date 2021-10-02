@@ -73,9 +73,5 @@ namespace _Game.Scripts.Classes
         {
             elementStatus = ElementStatus.Compressed;
         }
-        public void Combine() 
-        {
-            
-        }
     }
 }

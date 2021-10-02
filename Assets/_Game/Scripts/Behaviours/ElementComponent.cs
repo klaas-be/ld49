@@ -30,7 +30,6 @@ namespace _Game.Scripts.Behaviours
             previouslyDropped = true; 
             yield return new WaitForSeconds(1);
             previouslyDropped = false;
-
         }
         
     }
