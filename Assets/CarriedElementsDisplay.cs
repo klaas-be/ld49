@@ -15,6 +15,7 @@ public class CarriedElementsDisplay : MonoBehaviour
 {
    public List<ElementIcons> allIconsList = new List<ElementIcons>();
    public ElementContainerComponent ElementContainerComponent;
+   public List<Image> elementDisplays = new List<Image>(); 
    public Image topSlotImage; 
    public List<Image> images;
 
@@ -22,7 +23,9 @@ public class CarriedElementsDisplay : MonoBehaviour
 
    public void Awake()
    {
-       defaultSprite = topSlotImage.sprite; 
+       defaultSprite = topSlotImage.sprite;
+       if(ElementContainerComponent == null)
+            ElementContainerComponent = GameObject.FindWithTag("Player").GetComponent<ElementContainerComponent>();
    }
 
    public void Update()
@@ -41,7 +44,18 @@ public class CarriedElementsDisplay : MonoBehaviour
 
 
        // set all ElementDisplays to disable
+       foreach (var ed in elementDisplays)
+       {
+           ed.gameObject.transform.parent.gameObject.SetActive(false);
+       }
 
+       for (int i = 0; i < ElementContainerComponent.carryingElements.Count-1; i++)
+       {
+           var element = ElementContainerComponent.carryingElements[i]._element;
+           elementDisplays[i].sprite = allIconsList.Find(icons => icons._elementComponent._element.elementType == element.elementType).sprite;
+           elementDisplays[i].gameObject.transform.parent.gameObject.SetActive(true);
+       }
+       
 
 
 
