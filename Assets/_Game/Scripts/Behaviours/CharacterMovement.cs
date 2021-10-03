@@ -124,10 +124,15 @@ public class CharacterMovement : MonoBehaviour
         else
             canDash = true;
 
-        _characterController.Move(movementDirection * GetCurrentMovementSpeed() * 0.01f);
+        Vector3 animDir = movementDirection;
+
+        movementDirection = movementDirection * GetCurrentMovementSpeed() * 0.01f;
+        movementDirection += Physics.gravity * Time.deltaTime;
+
+        _characterController.Move(movementDirection);
 
         //stackAnimation
-        _animTargetPivot.localRotation = Quaternion.Euler(new Vector3(Mathf.Lerp(0, -15, movementDirection.magnitude), 0, wiggle));
+        _animTargetPivot.localRotation = Quaternion.Euler(new Vector3(Mathf.Lerp(0, -15, animDir.magnitude), 0, wiggle));
 
         return movementDirection;
     }
@@ -176,6 +181,7 @@ public class CharacterMovement : MonoBehaviour
     private void RotateToDirection(Vector3 movementDirection)
     {
         Vector3 direction = movementDirection.normalized;
+        direction.y = 0f;
         if (direction != Vector3.zero)
         {
             Quaternion newRotation = Quaternion.LookRotation(direction);
