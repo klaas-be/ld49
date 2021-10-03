@@ -47,19 +47,28 @@ MonoBehaviour:
   ElementSettings:
   - Type: 0
     model: {fileID: 929174996436639252, guid: c0779a8548fbb014990f773c188248e9, type: 3}
+    icon: {fileID: 21300000, guid: 5f0c08b0edf85554eacfc9c07ef7f4c9, type: 3}
   - Type: 1
     model: {fileID: 5821275701996158687, guid: 5c456fab241ccba40931544a67a5218a, type: 3}
+    icon: {fileID: 21300000, guid: f0cefa5dc891cba4bbd9c35c2b7f1a55, type: 3}
   - Type: 2
     model: {fileID: 3297928017511047252, guid: d1c5b6d42df200e44be2639486003458, type: 3}
+    icon: {fileID: 21300000, guid: 820ed45167fd3504a8b45aa9d00e8efa, type: 3}
   - Type: 3
     model: {fileID: 5211787987303950619, guid: 0c7431ce4d3c0e546ba055bf417478b5, type: 3}
+    icon: {fileID: 21300000, guid: d8c964a33630cfb42abec7aaea19653a, type: 3}
   - Type: 4
     model: {fileID: 4408754465308740094, guid: edbeda13e5950a34d817c3e9a2695a94, type: 3}
+    icon: {fileID: 21300000, guid: f2ef9e21985e72743874e41bcf0a6440, type: 3}
   - Type: 5
     model: {fileID: 2323400042534614352, guid: eb94a9ffde1f76b4da9f25e4332ecc0c, type: 3}
+    icon: {fileID: 21300000, guid: f862b1c16a11f824796249e6641cd127, type: 3}
   - Type: 6
     model: {fileID: 929174996436639252, guid: 5d42a620c21f6664381b454cec1c15c8, type: 3}
+    icon: {fileID: 21300000, guid: 3d6a6ac222ce9e744b00529e192afa82, type: 3}
   - Type: 7
     model: {fileID: 5131091777391922654, guid: 5319b496d59b9334fb4e82fe456a5463, type: 3}
+    icon: {fileID: 21300000, guid: 30dba8a4e7c147f48ba9b7baa247f394, type: 3}
   - Type: 8
     model: {fileID: 8238881837655752165, guid: 58a3cfc62e54067458f53ad032ee455f, type: 3}
+    icon: {fileID: 21300000, guid: d0b88e99ad286a54487ab9eb585c8a12, type: 3}
