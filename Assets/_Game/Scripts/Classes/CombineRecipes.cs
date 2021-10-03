@@ -2,7 +2,7 @@ using static _Game.Scripts.Classes.Element;
 
 namespace _Game.Scripts.Classes
 {
-    public static class Recipes
+    public static class CombineRecipes
     {
         public static Element GetResultOf(Element A, Element B, bool recursive = false)
         {

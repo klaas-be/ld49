@@ -31,7 +31,7 @@ public class CharacterMovement : MonoBehaviour
     [ReadOnly]
     [SerializeField] private float _stateTime = 0f;
     [SerializeField] private Transform _animTargetPivot;
-    [SerializeField] private Vector3 velocity;
+    [SerializeField] private Vector3 movementDirection;
     [SerializeField] public float wiggle;
 
     [SerializeField] private MovementState _movementState = MovementState.Walking;
@@ -103,15 +103,13 @@ public class CharacterMovement : MonoBehaviour
         var horizontalMovement = Input.GetAxis("Horizontal");
         var verticalMovement = Input.GetAxis("Vertical");
 
-        Vector3 movementDirection = new Vector3(horizontalMovement, 0, verticalMovement);
-        velocity = Vector3.ClampMagnitude(movementDirection, 1);
+        movementDirection = new Vector3(horizontalMovement, 0, verticalMovement);
         movementDirection = Vector3.ClampMagnitude(movementDirection, 1);
 
         _characterController.Move(movementDirection * GetCurrentMovementSpeed() * 0.01f);
 
         //stackAnimation
-        Quaternion animRot = Quaternion.Euler(new Vector3(Mathf.Lerp(0, -15, velocity.magnitude), 0, wiggle));
-        _animTargetPivot.localRotation = animRot;
+        _animTargetPivot.localRotation = Quaternion.Euler(new Vector3(Mathf.Lerp(0, -15, movementDirection.magnitude), 0, wiggle));
 
         return movementDirection;
     }
@@ -156,8 +154,30 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
+
+    Vector3 direction, slerpedDirection;
+    Vector3 lastDirection= Vector3.zero;
+    [SerializeField] float turnAnimTime;
+    float turnTimer = 0f;
     private void RotateToDirection(Vector3 movementDirection)
     {
+        direction = movementDirection.normalized;
+
+        if (direction != lastDirection && direction != Vector3.zero)
+        {
+            lastDirection = direction;
+            turnTimer = 0f;
+        }
+
+        slerpedDirection = Vector3.Slerp(lastDirection, direction, Mathf.Clamp01(turnTimer / turnAnimTime));
+
+        Vector3 rotateTowards = transform.position + slerpedDirection;
+
+        Debug.DrawLine(transform.position, rotateTowards, Color.blue);
+
+
+
+        turnTimer += Time.deltaTime;
         transform.LookAt(transform.position + movementDirection);
     }
 

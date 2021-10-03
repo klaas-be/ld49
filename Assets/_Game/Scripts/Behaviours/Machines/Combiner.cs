@@ -37,7 +37,7 @@ public class Combiner : Machine
         {
             canBeUsed = false;
             animator.SetTrigger("CombinerTrigger");
-            Element e = Recipes.GetResultOf(elementA._element, elementB._element);
+            Element e = CombineRecipes.GetResultOf(elementA._element, elementB._element);
             if (e == null)
             {
                 animator.SetBool("IsPoof", true);
@@ -55,7 +55,7 @@ public class Combiner : Machine
 
     public void ProcessMiddle()
     {
-        Element e = Recipes.GetResultOf(elementA._element, elementB._element);
+        Element e = CombineRecipes.GetResultOf(elementA._element, elementB._element);
 
         Destroy(elementA.gameObject);
         Destroy(elementB.gameObject);
