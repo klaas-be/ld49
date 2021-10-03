@@ -13,7 +13,7 @@ namespace _Game.Scripts.UI
 
         private void Awake()
         {
-            List<Time>
+            //List<Time>
         }
 
         private void Update()
