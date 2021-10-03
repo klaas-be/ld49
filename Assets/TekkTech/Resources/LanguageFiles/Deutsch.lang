@@ -1,0 +1,33 @@
+{
+    "fileLanguage": 1,
+    "entries": [
+        {
+            "textTag": "MainMenu_NewGame",
+            "textContent": "Neues Spiel"
+        },
+        {
+            "textTag": "MainMenu_HowToPlay",
+            "textContent": "Wie man spielt"
+        },
+        {
+            "textTag": "MainMenu_Settings",
+            "textContent": "Einstellungen"
+        },
+        {
+            "textTag": "MainMenu_Exit",
+            "textContent": "Beenden"
+        },
+        {
+            "textTag": "SettingsMenu_Title",
+            "textContent": "Einstellungen"
+        },
+        {
+            "textTag": "SettingsMenu_Language",
+            "textContent": "Sprache"
+        },
+        {
+            "textTag": "SettingsMenu_Sound",
+            "textContent": "Ton"
+        }
+    ]
+}
