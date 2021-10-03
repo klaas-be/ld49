@@ -71,9 +71,11 @@ namespace _Game.Scripts.Behaviours
         {
             var slotIndex = carryingElements.Count-1;
             if(slotIndex < 0) return;
-            carryingElements[slotIndex].transform.parent = null;
             carryingElements[slotIndex].OnDrop();
-         
+            carryingElements[slotIndex].transform.localPosition = Vector3.zero;
+            carryingElements[slotIndex].transform.localRotation = Quaternion.identity;
+            carryingElements[slotIndex].transform.SetParent(null);
+
             var element =  RemoveLastAdded();
 
             element.GetComponent<Rigidbody>().velocity = Vector3.zero;
@@ -87,7 +89,8 @@ namespace _Game.Scripts.Behaviours
             {
                 for (int i = carryingElements.Count-1; i >= 2; i--)
                 {
-                    var slotIndex = i;
+                    Drop();
+                    /*var slotIndex = i;
 
                     if (slotIndex < 0) return;
                     carryingElements[slotIndex].OnDrop();
@@ -99,8 +102,7 @@ namespace _Game.Scripts.Behaviours
 
                     element.GetComponent<Rigidbody>().velocity = Vector3.zero;
                     element.GetComponent<Rigidbody>().AddForce(new Vector3(UnityEngine.Random.Range(-2, 2), 2, UnityEngine.Random.Range(-2, 2)), ForceMode.Impulse);
-                    element.GetComponent<Rigidbody>().AddTorque(new Vector3(UnityEngine.Random.Range(-2, 2), UnityEngine.Random.Range(-1, 1), UnityEngine.Random.Range(-2, 2)), ForceMode.Impulse);
-                    //Debug.Break();
+                    element.GetComponent<Rigidbody>().AddTorque(new Vector3(UnityEngine.Random.Range(-2, 2), UnityEngine.Random.Range(-1, 1), UnityEngine.Random.Range(-2, 2)), ForceMode.Impulse);*/
                 }
             }
         }

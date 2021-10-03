@@ -9,7 +9,8 @@ namespace _Game.Scripts.Behaviours
     {
         public Element _element;
 
-        public bool previouslyDropped; 
+        public bool previouslyDropped;
+
         public void OnPickUp()
         {
             GetComponent<Rigidbody>().isKinematic = true;
