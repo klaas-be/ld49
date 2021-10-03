@@ -16,8 +16,9 @@ namespace _Game.Scripts.Behaviours
         public List<Recipe> queue;
 
         public Transform spawnPoint;
+        public Transform targetPoint;
         public float throwForce; 
-        public Vector3 forceVector = new Vector3(0,1,-1);
+        [SerializeField, ReadOnly] Vector3 forceVector = new Vector3(0,1,-1);
 
         [Header("Queue Element display")]
         public Transform QueueDisplayParent;
@@ -82,7 +83,9 @@ namespace _Game.Scripts.Behaviours
         private void OnDrawGizmos()
         {
             Gizmos.DrawWireSphere(spawnPoint.position, 0.2f);
-            Gizmos.DrawLine(spawnPoint.position, spawnPoint.position + forceVector);
+            Gizmos.DrawWireSphere(targetPoint.position, 0.2f);
+            forceVector = targetPoint.position - spawnPoint.position;
+            Gizmos.DrawLine(spawnPoint.position, targetPoint.position);
         }
     }
 }
