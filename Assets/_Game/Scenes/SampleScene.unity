@@ -130,10 +130,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5740987053821368956, guid: 64732f399ef80a74091567c64dbc0121, type: 3}
-      propertyPath: ElementSettings.Array.data[6].model
-      value: 
-      objectReference: {fileID: 929174996436639252, guid: 5d42a620c21f6664381b454cec1c15c8, type: 3}
     - target: {fileID: 5740987053821368957, guid: 64732f399ef80a74091567c64dbc0121, type: 3}
       propertyPath: m_Name
       value: ElementSpawner
@@ -253,9 +249,17 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1603454560, guid: ebbc03c485c548845ab8d6b0b5dec2b4, type: 3}
+      propertyPath: topSlotImage
+      value: 
+      objectReference: {fileID: 1393460334}
+    - target: {fileID: 1603454560, guid: ebbc03c485c548845ab8d6b0b5dec2b4, type: 3}
       propertyPath: ElementContainerComponent
       value: 
       objectReference: {fileID: 2065093755}
+    - target: {fileID: 2210902397102488166, guid: ebbc03c485c548845ab8d6b0b5dec2b4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5218533298347008428, guid: ebbc03c485c548845ab8d6b0b5dec2b4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -553,6 +557,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e8813a84f3f71214b82a96a768be9202, type: 3}
+--- !u!114 &1393460334 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2863795207091100117, guid: ebbc03c485c548845ab8d6b0b5dec2b4, type: 3}
+  m_PrefabInstance: {fileID: 579196438}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a12fd60e012f92e48bf2c07754e5ef34, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1445639878 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 199820650973536817, guid: 472c06e792963154db668252ad4802f2, type: 3}

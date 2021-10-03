@@ -7,5 +7,16 @@ public enum LanguageTags
 	MainMenu_Settings=4,
 	SettingsMenu_Language=5,
 	SettingsMenu_Sound=6,
-	SettingsMenu_Title=7
+	SettingsMenu_Title=7,
+	TutorialLevel_Burner=11,
+	TutorialLevel_Chests=10,
+	TutorialLevel_Combiner=12,
+	TutorialLevel_Compressor=13,
+	TutorialLevel_Crater=17,
+	TutorialLevel_Dash=9,
+	TutorialLevel_DashDrop=15,
+	TutorialLevel_Exit=18,
+	TutorialLevel_Movement=8,
+	TutorialLevel_RDrop=16,
+	TutorialLevel_Shocker=14
 }
