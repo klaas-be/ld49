@@ -60,9 +60,9 @@ GameObject:
   m_Component:
   - component: {fileID: 9171027342166845334}
   - component: {fileID: 9171027342166845328}
-  - component: {fileID: 9171027342166845335}
   - component: {fileID: 9171027342166845329}
   - component: {fileID: 9171027342166845330}
+  - component: {fileID: 6084547742303943170}
   m_Layer: 0
   m_Name: ChestSpawner
   m_TagString: Untagged
@@ -104,20 +104,6 @@ CapsuleCollider:
   m_Height: 3.491727
   m_Direction: 1
   m_Center: {x: 0, y: 1.2458636, z: 0}
---- !u!136 &9171027342166845335
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9171027342166845333}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 1.75
-  m_Height: 5.4807305
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.77676606, z: 0}
 --- !u!114 &9171027342166845329
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -160,6 +146,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &6084547742303943170
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9171027342166845333}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2.613301, z: 1.7662723}
+  m_Center: {x: -5.8791727e-10, y: 0.8066505, z: -0.47952402}
 --- !u!1 &9171027342241474763
 GameObject:
   m_ObjectHideFlags: 0
