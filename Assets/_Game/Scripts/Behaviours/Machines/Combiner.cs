@@ -91,5 +91,10 @@ public class Combiner : Machine
 
         canBeUsed = true;
     }
+
+    public override void Interact()
+    {
+        return;
+    }
 }
 

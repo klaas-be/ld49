@@ -56,4 +56,9 @@ public class Crater : Machine
         yield return new WaitForSeconds(throwDelay);
         canBeUsed = true;
     }
+
+    public override void Interact()
+    {
+        return;
+    }
 }

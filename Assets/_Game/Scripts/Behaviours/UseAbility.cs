@@ -15,7 +15,6 @@ public class UseAbility : MonoBehaviour
         {
             if (currentMachine && currentMachine.canBeUsed)
             {
-                Debug.Log("Use on " + currentMachine.name);
                 useFlag = true;
             }
         }
@@ -26,13 +25,13 @@ public class UseAbility : MonoBehaviour
         if (useFlag)
         {
             useFlag = false;
-            _elementContainerComponent.Use(currentMachine);
+            _elementContainerComponent.InteractWith(currentMachine);
         }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<Machine>(out var machine) & _elementContainerComponent.CarriesElement)
+        if (other.TryGetComponent<Machine>(out var machine))
         {
             currentMachine = machine;            
         }
@@ -40,7 +39,7 @@ public class UseAbility : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.TryGetComponent<Machine>(out var machine) & _elementContainerComponent.CarriesElement)
+        if (other.TryGetComponent<Machine>(out var machine))
         {
             currentMachine = machine;
         }
@@ -48,7 +47,7 @@ public class UseAbility : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.TryGetComponent<Machine>(out var machine) & _elementContainerComponent.CarriesElement)
+        if (other.TryGetComponent<Machine>(out var machine))
         {
             currentMachine = null;
         }

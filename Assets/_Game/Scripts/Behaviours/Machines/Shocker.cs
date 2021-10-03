@@ -43,4 +43,9 @@ public class Shocker : Machine
 
         canBeUsed = true;
     }
+
+    public override void Interact()
+    {
+        return;
+    }
 }

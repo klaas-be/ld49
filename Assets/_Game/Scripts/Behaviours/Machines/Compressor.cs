@@ -44,4 +44,9 @@ public class Compressor : Machine
 
         canBeUsed = true;
     }
+
+    public override void Interact()
+    {
+        return;
+    }
 }

@@ -43,4 +43,9 @@ public class Burner : Machine
 
         canBeUsed = true;
     }
+
+    public override void Interact()
+    {
+        return;
+    }
 }
