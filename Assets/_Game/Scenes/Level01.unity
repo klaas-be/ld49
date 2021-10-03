@@ -5297,34 +5297,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5740987053821368956, guid: 64732f399ef80a74091567c64dbc0121, type: 3}
-      propertyPath: StatusIcons.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5740987053821368956, guid: 64732f399ef80a74091567c64dbc0121, type: 3}
-      propertyPath: StatusIcons.Array.data[0].icon
-      value: 
-      objectReference: {fileID: 21300000, guid: a77dd05e624d96863b05faaa201bbbab, type: 3}
-    - target: {fileID: 5740987053821368956, guid: 64732f399ef80a74091567c64dbc0121, type: 3}
-      propertyPath: StatusIcons.Array.data[1].icon
-      value: 
-      objectReference: {fileID: 21300000, guid: 559205d3eaf1d7fbd8829c67d4a5cb33, type: 3}
-    - target: {fileID: 5740987053821368956, guid: 64732f399ef80a74091567c64dbc0121, type: 3}
-      propertyPath: StatusIcons.Array.data[2].icon
-      value: 
-      objectReference: {fileID: 21300000, guid: 2509df45a8487144eaaf24404810a559, type: 3}
-    - target: {fileID: 5740987053821368956, guid: 64732f399ef80a74091567c64dbc0121, type: 3}
-      propertyPath: StatusIcons.Array.data[0].status
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5740987053821368956, guid: 64732f399ef80a74091567c64dbc0121, type: 3}
-      propertyPath: StatusIcons.Array.data[1].status
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5740987053821368956, guid: 64732f399ef80a74091567c64dbc0121, type: 3}
-      propertyPath: StatusIcons.Array.data[2].status
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 5740987053821368957, guid: 64732f399ef80a74091567c64dbc0121, type: 3}
       propertyPath: m_Name
       value: ElementSpawner
