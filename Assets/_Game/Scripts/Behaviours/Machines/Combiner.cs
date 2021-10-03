@@ -15,7 +15,6 @@ public class Combiner : Machine
 
     public override void Use(ElementComponent elementComponent)
     {
-
         if (!elementA)
         {
             elementA = elementComponent;
@@ -35,6 +34,7 @@ public class Combiner : Machine
 
         if (elementA && elementB)
         {
+            animator.SetBool("IsPoof", false);
             canBeUsed = false;
             animator.SetTrigger("CombinerTrigger");
             Element e = CombineRecipes.GetResultOf(elementA._element, elementB._element);

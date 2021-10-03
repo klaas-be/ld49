@@ -10,15 +10,15 @@ public class CharacterMovement : MonoBehaviour
     private CharacterController _characterController;
     [SerializeField] private ElementContainerComponent elementContainerComponent;
     [SerializeField] Animator animator;
-    [ReadOnly]
-    [SerializeField] private float _currentSpeed;
     [Space(20)]
+    [ReadOnly]
+    [SerializeField] private MovementState _movementState = MovementState.Walking;
     [SerializeField] private float _slowedSpeed;
     [SerializeField] private float _slowedTime;
-    [Space(20)]
     [SerializeField] private float _stunnedTime;
-    [Space(20)]
     [SerializeField] private float _standardSpeed;
+    [ReadOnly]
+    [SerializeField] private Vector3 movementDirection;
     [Space(20)]
     [SerializeField] public bool canDash;
     [ReadOnly]
@@ -28,15 +28,17 @@ public class CharacterMovement : MonoBehaviour
     [ReadOnly]
     [SerializeField] private float _dashCooldownTimer;
     [SerializeField] private float _dashCooldown;
+    [Space(20)]
     [ReadOnly]
     [SerializeField] private float _stateTime = 0f;
     [SerializeField] private Transform _animTargetPivot;
-    [SerializeField] private Vector3 movementDirection;
-    [SerializeField] public float wiggle;
-
-    [SerializeField] private MovementState _movementState = MovementState.Walking;
-
     public AnimationCurve curve;
+    [SerializeField] public float wiggle;
+    [Space(20)]
+    [ReadOnly]
+    [SerializeField] private bool dropFlag;
+
+    private float startY = 0;
 
     public enum MovementState
     {
@@ -49,6 +51,7 @@ public class CharacterMovement : MonoBehaviour
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
+        startY = transform.position.y;
     }
 
     private void FixedUpdate()
@@ -57,9 +60,13 @@ public class CharacterMovement : MonoBehaviour
         {
             dashFlag = false;
             SwitchState(MovementState.Dashing);
-            _dashCooldownTimer = _dashCooldown;
             animator.SetTrigger("DashTrigger");
             elementContainerComponent.DashDrop();
+        }
+        if (dropFlag)
+        {
+            elementContainerComponent.Drop();
+            dropFlag = false;
         }
     }
 
@@ -71,6 +78,7 @@ public class CharacterMovement : MonoBehaviour
         {
             dashFlag = true;
             canDash = false;
+            _dashCooldownTimer = _dashCooldown;
         }
         if (_dashCooldownTimer > 0)
         {
@@ -82,6 +90,11 @@ public class CharacterMovement : MonoBehaviour
         }
 
 
+        //DropItem
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            dropFlag = true;
+        }
         //SlowTest
         if (Input.GetKeyDown(KeyCode.F))
         {
@@ -105,6 +118,11 @@ public class CharacterMovement : MonoBehaviour
 
         movementDirection = new Vector3(horizontalMovement, 0, verticalMovement);
         movementDirection = Vector3.ClampMagnitude(movementDirection, 1);
+
+        if (movementDirection == Vector3.zero)
+            canDash = false;
+        else
+            canDash = true;
 
         _characterController.Move(movementDirection * GetCurrentMovementSpeed() * 0.01f);
 
@@ -163,9 +181,6 @@ public class CharacterMovement : MonoBehaviour
             Quaternion newRotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * 8);
         }
-
-        //Old Rotation
-        //transform.LookAt(transform.position + movementDirection);
     }
 
 }

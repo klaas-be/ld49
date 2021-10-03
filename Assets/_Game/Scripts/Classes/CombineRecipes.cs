@@ -21,7 +21,7 @@ namespace _Game.Scripts.Classes
             }
 
             //elec steel + helium = lightsteel
-            if (A.elementType == ElementType.Steel && A.elementStatus == ElementStatus.Electrocuted &&
+            if (A.elementType == ElementType.Steel && A.elementStatus == ElementStatus.Shocked &&
                 B.elementType == ElementType.Helium && B.elementStatus == ElementStatus.Default)
             {
                 return new Element(ElementType.Lightsteel);
@@ -32,6 +32,12 @@ namespace _Game.Scripts.Classes
                 B.elementType == ElementType.Star && B.elementStatus == ElementStatus.Compressed)
             {
                 return new Element(ElementType.Whitestar);
+            }
+            //star burn +star elec = whitestar
+            if (A.elementType == ElementType.Star && A.elementStatus == ElementStatus.Burned &&
+                B.elementType == ElementType.Star && B.elementStatus == ElementStatus.Shocked)
+            {
+                return new Element(ElementType.Shootingstar);
             }
 
             //TEST STEEL STEEL 

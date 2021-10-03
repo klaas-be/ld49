@@ -48,7 +48,8 @@ namespace _Game.Scripts.Classes
             var elementComponent = instance.GetComponent<ElementComponent>();
             if(elementComponent == null)
                 elementComponent = instance.AddComponent<ElementComponent>();
-            elementComponent._element =  new Element(this._type, this._status);
+            elementComponent._element.elementType = this._type; 
+            elementComponent._element.elementStatus = this._status;
             return instance;
 
         }
