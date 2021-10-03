@@ -47,6 +47,8 @@ MonoBehaviour:
   _element:
     elementType: 0
     elementStatus: 0
+    burnParticles: {fileID: 0}
+    shockerGO: {fileID: 0}
 --- !u!1 &259756022
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +96,8 @@ MonoBehaviour:
   _element:
     elementType: 0
     elementStatus: 0
+    burnParticles: {fileID: 0}
+    shockerGO: {fileID: 0}
 --- !u!1 &469355050
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,6 +176,8 @@ MonoBehaviour:
   _element:
     elementType: 0
     elementStatus: 0
+    burnParticles: {fileID: 0}
+    shockerGO: {fileID: 0}
 --- !u!1 &1474960062
 GameObject:
   m_ObjectHideFlags: 0
@@ -219,6 +225,8 @@ MonoBehaviour:
   _element:
     elementType: 0
     elementStatus: 0
+    burnParticles: {fileID: 0}
+    shockerGO: {fileID: 0}
 --- !u!114 &140345691
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,6 +352,8 @@ MonoBehaviour:
   _element:
     elementType: 0
     elementStatus: 0
+    burnParticles: {fileID: 0}
+    shockerGO: {fileID: 0}
 --- !u!1 &199820650973536812
 GameObject:
   m_ObjectHideFlags: 0
@@ -360,7 +370,7 @@ GameObject:
   - component: {fileID: 7949985955340832987}
   m_Layer: 9
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -414,11 +424,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   elementContainerComponent: {fileID: 199820650478887171}
   animator: {fileID: 7949985955340832987}
-  _currentSpeed: 0
+  _movementState: 0
   _slowedSpeed: 1
   _slowedTime: 1.5
   _stunnedTime: 2
   _standardSpeed: 3
+  movementDirection: {x: 0, y: 0, z: 0}
   canDash: 0
   dashFlag: 0
   _dashSpeed: 6
@@ -427,9 +438,6 @@ MonoBehaviour:
   _dashCooldown: 2
   _stateTime: 0
   _animTargetPivot: {fileID: 469355051}
-  movementDirection: {x: 0, y: 0, z: 0}
-  wiggle: 0
-  _movementState: 0
   curve:
     serializedVersion: 2
     m_Curve:
@@ -472,7 +480,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  turnAnimTime: 0.5
+  wiggle: 0
+  dropFlag: 0
 --- !u!114 &199820650478887171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -573,8 +582,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.3, y: 3.46, z: 1.0078729}
-  m_Center: {x: 0, y: -0.19000006, z: 0.52144367}
+  m_Size: {x: 0.9395734, y: 2.3234787, z: 1.2141438}
+  m_Center: {x: 0, y: -0.43185693, z: 0.65446496}
 --- !u!114 &4523088536630368065
 MonoBehaviour:
   m_ObjectHideFlags: 0
