@@ -155,30 +155,17 @@ public class CharacterMovement : MonoBehaviour
     }
 
 
-    Vector3 direction, slerpedDirection;
-    Vector3 lastDirection= Vector3.zero;
-    [SerializeField] float turnAnimTime;
-    float turnTimer = 0f;
     private void RotateToDirection(Vector3 movementDirection)
     {
-        direction = movementDirection.normalized;
-
-        if (direction != lastDirection && direction != Vector3.zero)
+        Vector3 direction = movementDirection.normalized;
+        if (direction != Vector3.zero)
         {
-            lastDirection = direction;
-            turnTimer = 0f;
+            Quaternion newRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * 8);
         }
 
-        slerpedDirection = Vector3.Slerp(lastDirection, direction, Mathf.Clamp01(turnTimer / turnAnimTime));
-
-        Vector3 rotateTowards = transform.position + slerpedDirection;
-
-        Debug.DrawLine(transform.position, rotateTowards, Color.blue);
-
-
-
-        turnTimer += Time.deltaTime;
-        transform.LookAt(transform.position + movementDirection);
+        //Old Rotation
+        //transform.LookAt(transform.position + movementDirection);
     }
 
 }
