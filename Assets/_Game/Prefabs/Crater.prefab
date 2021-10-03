@@ -390,9 +390,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 93d7e856cc865334da5e2d3a6df9681a, type: 2}
   queue: []
   spawnPoint: {fileID: 630450922774742442}
-  throwForce: 10
+  throwForce: 5
   forceVector: {x: -0.58, y: 1.5, z: -1}
-  requestElementDisplay: {fileID: 0}
+  QueueDisplayParent: {fileID: 0}
+  ElementDisplayPrefab: {fileID: 4547583170119364892, guid: 0f7c1891a1f68834991b9cb0cac7be13, type: 3}
 --- !u!64 &7752459798486043991
 MeshCollider:
   m_ObjectHideFlags: 0
