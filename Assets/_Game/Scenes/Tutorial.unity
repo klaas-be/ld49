@@ -15087,7 +15087,7 @@ Light:
     m_CustomResolution: -1
     m_Strength: 1
     m_Bias: 0.05
-    m_NormalBias: 0.4
+    m_NormalBias: 0
     m_NearPlane: 0.2
     m_CullingMatrixOverride:
       e00: 1
@@ -21094,15 +21094,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1454018629778935577, guid: 20a062e0af50f4c4184e230fb6946da5, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.39854845
+      value: 0.39854848
       objectReference: {fileID: 0}
     - target: {fileID: 1454018629778935577, guid: 20a062e0af50f4c4184e230fb6946da5, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -5.0347185e-15
+      value: 0.000000027333117
       objectReference: {fileID: 0}
     - target: {fileID: 1454018629778935577, guid: 20a062e0af50f4c4184e230fb6946da5, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 1.4159284e-15
+      value: -0.0000000118776695
       objectReference: {fileID: 0}
     - target: {fileID: 1454018629778935577, guid: 20a062e0af50f4c4184e230fb6946da5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -23017,9 +23017,9 @@ Transform:
   - {fileID: 749779403}
   - {fileID: 1455142046}
   - {fileID: 492184985}
-  - {fileID: 1888594888}
   - {fileID: 1839317062}
   - {fileID: 959739094}
+  - {fileID: 1888594888}
   - {fileID: 1647785248}
   - {fileID: 1870939796}
   - {fileID: 1677027713}
@@ -23037,13 +23037,13 @@ Transform:
   - {fileID: 664639190}
   - {fileID: 588676409}
   - {fileID: 1672906596}
-  - {fileID: 340004355}
   - {fileID: 1016356234}
+  - {fileID: 340004355}
   - {fileID: 1155191115}
-  - {fileID: 169972746}
   - {fileID: 877657996}
   - {fileID: 840257862}
   - {fileID: 1197805982}
+  - {fileID: 169972746}
   - {fileID: 899848961}
   - {fileID: 1162539209}
   - {fileID: 1094132099}
@@ -23052,7 +23052,6 @@ Transform:
   - {fileID: 384470426}
   - {fileID: 148639433}
   - {fileID: 780459817}
-  - {fileID: 1713171021}
   - {fileID: 2077130948}
   - {fileID: 1603682673}
   - {fileID: 1715572801}
@@ -23070,9 +23069,9 @@ Transform:
   - {fileID: 29215918}
   - {fileID: 762143703}
   - {fileID: 573020465}
+  - {fileID: 1713171021}
   - {fileID: 415245482}
   - {fileID: 1296045353}
-  - {fileID: 160828974}
   - {fileID: 1922343127}
   - {fileID: 1299359339}
   - {fileID: 925098967}
@@ -23081,6 +23080,7 @@ Transform:
   - {fileID: 702015333}
   - {fileID: 917545100}
   - {fileID: 916326854}
+  - {fileID: 160828974}
   - {fileID: 1138213269}
   - {fileID: 618975305}
   - {fileID: 495660411}

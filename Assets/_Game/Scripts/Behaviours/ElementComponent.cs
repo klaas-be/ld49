@@ -13,8 +13,11 @@ namespace _Game.Scripts.Behaviours
 
         public void OnPickUp()
         {
-            GetComponent<Rigidbody>().isKinematic = true;
-            GetComponent<Collider>().enabled = false;
+            if (GetComponent<Rigidbody>())
+            {
+                GetComponent<Rigidbody>().isKinematic = true;
+                GetComponent<Collider>().enabled = false;
+            }
         }
 
 
