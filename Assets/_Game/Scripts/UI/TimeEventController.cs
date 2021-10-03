@@ -22,9 +22,9 @@ namespace _Game.Scripts.UI
             cachedRepeatConstantlyTime = repeatConstantly.time; 
         }
 
-        private void Update()
+        private void FixedUpdate()
         {
-            currentTime += Time.deltaTime;
+            currentTime += Time.fixedDeltaTime;
 
             repeatConstantly.time -= Time.deltaTime; 
             if(repeatConstantly.time <0)
