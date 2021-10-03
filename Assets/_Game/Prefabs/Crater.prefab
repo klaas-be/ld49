@@ -370,7 +370,7 @@ MonoBehaviour:
   isUsable: 1
   animator: {fileID: 0}
   DropPoint: {fileID: 2048517444}
-  throwForce: 13
+  throwForce: 2.5
   throwDelay: 0.5
 --- !u!114 &751176712
 MonoBehaviour:
@@ -390,8 +390,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 93d7e856cc865334da5e2d3a6df9681a, type: 2}
   queue: []
   spawnPoint: {fileID: 630450922774742442}
-  throwForce: 3
-  forceVector: {x: -0.58, y: 2, z: -1}
+  throwForce: 10
+  forceVector: {x: -0.58, y: 1.5, z: -1}
   requestElementDisplay: {fileID: 0}
 --- !u!64 &7752459798486043991
 MeshCollider:

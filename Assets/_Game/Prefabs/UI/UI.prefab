@@ -232,10 +232,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ElementContainerComponent: {fileID: 0}
   elementDisplays:
-  - {fileID: 5390784393190260234}
-  - {fileID: 5733236728635991991}
-  - {fileID: 4530269988190466813}
   - {fileID: 4471907433085851705}
+  - {fileID: 4530269988190466813}
+  - {fileID: 5733236728635991991}
+  - {fileID: 5390784393190260234}
   topSlotImage: {fileID: 2863795207091100117}
   images: []
 --- !u!1 &5783934768169893894
