@@ -119,10 +119,6 @@ public class CharacterMovement : MonoBehaviour
         movementDirection = new Vector3(horizontalMovement, 0, verticalMovement);
         movementDirection = Vector3.ClampMagnitude(movementDirection, 1);
 
-        if (movementDirection == Vector3.zero)
-            canDash = false;
-        else
-            canDash = true;
 
         Vector3 animDir = movementDirection;
 

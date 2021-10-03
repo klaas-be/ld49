@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using _Game.Scripts.Classes;
 using _Game.Scripts.ScriptableObjects;
@@ -14,7 +15,7 @@ namespace _Game.Scripts.Behaviours
         public List<Recipe> recipePool;
         public List<Recipe> queue;
 
-        public Vector3 spawnPoint;
+        public Transform spawnPoint;
         public float throwForce; 
         public Vector3 forceVector = new Vector3(0,1,-1);
 
@@ -32,14 +33,21 @@ namespace _Game.Scripts.Behaviours
             foreach (var e in picked.toSpawn)
             {
                 var element = ElementSpawner.Instance.Spawn(e.elementType, transform.position);
-                element.transform.position = spawnPoint; 
+                element.OnPickUp();
+                element.transform.position = spawnPoint.position; 
                 Rigidbody rigidbody = element.GetComponent<Rigidbody>();
                 rigidbody.isKinematic = false;
-                rigidbody.AddForce(forceVector * throwForce, ForceMode.Impulse);
+                rigidbody.AddForce(forceVector.normalized * throwForce, ForceMode.Impulse);
+                rigidbody.AddTorque(new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1))*throwForce, ForceMode.Impulse);
+                StartCoroutine(EnableCollider(element));
             }
             DisplayRequested();
         }
-        
+        private IEnumerator EnableCollider(ElementComponent elementComponent)
+        {
+            yield return new WaitForSeconds(0.5f);
+            elementComponent.GetComponent<Collider>().enabled = true;
+        }
 
         public void CheckIfRequested(Element element)
         {
@@ -73,7 +81,8 @@ namespace _Game.Scripts.Behaviours
         
         private void OnDrawGizmos()
         {
-            Gizmos.DrawWireSphere(spawnPoint, 0.2f);
+            Gizmos.DrawWireSphere(spawnPoint.position, 0.2f);
+            Gizmos.DrawLine(spawnPoint.position, spawnPoint.position + forceVector);
         }
     }
 }

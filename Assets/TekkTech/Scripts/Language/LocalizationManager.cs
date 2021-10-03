@@ -23,8 +23,8 @@ namespace Assets.TekkTech.Scripts.Language
         
         public bool setLanguageOnStart = true;
 
-        public static readonly string DirectoryPath = "\\TekkTech\\Resources\\LanguageFiles\\";
-        public static readonly string TagEnumPath = "\\TekkTech\\Scripts\\Language\\";
+        public static readonly string DirectoryPath = Path.DirectorySeparatorChar + "TekkTech" + Path.DirectorySeparatorChar + "Resources" + Path.DirectorySeparatorChar + "LanguageFiles" + Path.DirectorySeparatorChar;
+        public static readonly string TagEnumPath = Path.DirectorySeparatorChar + "TekkTech" + Path.DirectorySeparatorChar + "Scripts" + "Language" + Path.DirectorySeparatorChar;
 
         private static LanguageFile s_loadedLanguageFile;
 
@@ -77,13 +77,7 @@ namespace Assets.TekkTech.Scripts.Language
         {
             instance.currentLanguage = languageToLoad;
             newLanguage = languageToLoad;
-            string filePath = "";
-#if UNITY_EDITOR
-            filePath = Application.dataPath + DirectoryPath + languageToLoad.ToString() + ".lang";
-#endif
-#if UNITY_STANDALONE
-            filePath = System.IO.Directory.GetCurrentDirectory() + "\\Assets" + DirectoryPath + languageToLoad.ToString() + ".lang";
-#endif
+            string filePath = GetFilePathForLanguage(languageToLoad);
 
             s_loadedLanguageFile = GetLanguageDataFromFile(filePath);
             if (showOnlyTags) 
@@ -100,13 +94,7 @@ namespace Assets.TekkTech.Scripts.Language
 
         public static LanguageFile GetLanguageDataFromFile(Languages languageToLoad)
         {
-            string filePath = "";
-#if UNITY_EDITOR
-            filePath = Application.dataPath + DirectoryPath + languageToLoad.ToString() + ".lang";
-#endif
-#if UNITY_STANDALONE
-            filePath = System.IO.Directory.GetCurrentDirectory() + "\\Assets" + DirectoryPath + languageToLoad.ToString() + ".lang";
-#endif
+            string filePath = GetFilePathForLanguage(languageToLoad);
             return GetLanguageDataFromFile(filePath);
         }
 
@@ -124,13 +112,7 @@ namespace Assets.TekkTech.Scripts.Language
 
         public static bool LanguageFileExists(Languages languages)
         {
-            string filePath ="";
-#if UNITY_EDITOR
-            filePath = Application.dataPath + DirectoryPath + languages.ToString() + ".lang";
-#endif
-#if UNITY_STANDALONE
-            filePath = System.IO.Directory.GetCurrentDirectory() + "\\Assets" + DirectoryPath + languages.ToString() + ".lang";
-#endif
+            string filePath = GetFilePathForLanguage(languages);
             return File.Exists(filePath);
         }
 
@@ -156,7 +138,7 @@ namespace Assets.TekkTech.Scripts.Language
 
         public static void WriteNewKeysToLanguageFile(Languages language, List<string> keys, List<string> content = null)
         {
-            string filePath = Application.dataPath + DirectoryPath + language.ToString() + ".lang";
+            string filePath = GetFilePathForLanguage(language);
             LanguageFile languagesFile = new LanguageFile();
 
             if (File.Exists(filePath))
@@ -180,7 +162,7 @@ namespace Assets.TekkTech.Scripts.Language
         {
             if (tagsToRemove.Count == 0) return;
 
-            string filePath = Application.dataPath + DirectoryPath + language.ToString() + ".lang";
+            string filePath = GetFilePathForLanguage(language);
 
             LanguageFile languagesFile = new LanguageFile();
 
@@ -197,7 +179,7 @@ namespace Assets.TekkTech.Scripts.Language
         public static LanguageFile WriteNewLanguageFile(Languages language, LanguageFile file)
         {
 
-            string filePath = Application.dataPath + DirectoryPath + language.ToString() + ".lang";
+            string filePath = GetFilePathForLanguage(language);
 
             file.fileLanguage = language;
 
@@ -210,12 +192,22 @@ namespace Assets.TekkTech.Scripts.Language
 
         public static void RemoveLanguageFile(Languages language)
         {
-            string filePath = Application.dataPath + DirectoryPath + language.ToString() + ".lang";
+            string filePath = GetFilePathForLanguage(language);
 
             string metaPath = filePath + ".meta";
 
             File.Delete(filePath);
             File.Delete(metaPath);
+        }
+
+        private static string GetFilePathForLanguage(Languages language)
+        {
+#if UNITY_EDITOR
+            return Application.dataPath + DirectoryPath + language.ToString() + ".lang";
+#endif
+#if UNITY_STANDALONE
+            return System.IO.Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "Assets" + DirectoryPath + language.ToString() + ".lang";
+#endif
         }
     }
 }
