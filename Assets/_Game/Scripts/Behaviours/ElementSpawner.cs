@@ -41,6 +41,7 @@ public struct ElementSettings
 
 }
 
+[System.Serializable]
 public struct StatusIcon
 {
     public Element.ElementStatus status;
