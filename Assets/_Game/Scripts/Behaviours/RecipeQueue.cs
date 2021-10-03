@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using _Game.Scripts.Classes;
 using _Game.Scripts.ScriptableObjects;
 using NaughtyAttributes;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace _Game.Scripts.Behaviours
@@ -29,6 +31,15 @@ namespace _Game.Scripts.Behaviours
             var completed = queue.Find(recipe => recipe.requested.elementType == element.elementType);
             if(completed != null)
                 queue.Remove(completed); 
+        }
+
+        [Button()]
+        public void DisplayRequested()
+        {
+           var requestedElement =  queue.First().requested;
+           var iconToDisplay =
+               ElementSpawner.Instance.ElementSettings.Find(settings => settings.Type == requestedElement.elementType).icon; 
+           Debug.Log(requestedElement);
         }
     }
 }

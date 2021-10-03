@@ -39,6 +39,7 @@ public class ElementSpawner : MonoBehaviour
 public struct ElementSettings
 {
     public Element.ElementType Type;
-    public GameObject model; 
+    public GameObject model;
+    public Sprite icon; 
 
 }
