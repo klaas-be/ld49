@@ -122,6 +122,7 @@ MonoBehaviour:
   animator: {fileID: 9171027342166845330}
   ThrowTarget: {fileID: 9171027343044660390}
   SpawnPoint: {fileID: 9171027343996054037}
+  UseCollider: {fileID: 6084547742303943170}
   throwForce: 5
   throwDelay: 1
   nextSpawnDelay: 1.5
