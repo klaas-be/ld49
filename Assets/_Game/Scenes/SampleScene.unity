@@ -130,13 +130,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5740987053821368956, guid: 64732f399ef80a74091567c64dbc0121, type: 3}
-      propertyPath: ElementSettings.Array.data[6].model
-      value: 
-      objectReference: {fileID: 929174996436639252, guid: 5d42a620c21f6664381b454cec1c15c8, type: 3}
     - target: {fileID: 5740987053821368957, guid: 64732f399ef80a74091567c64dbc0121, type: 3}
       propertyPath: m_Name
       value: ElementSpawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 5740987053821368957, guid: 64732f399ef80a74091567c64dbc0121, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
       objectReference: {fileID: 0}
     - target: {fileID: 5740987053821368959, guid: 64732f399ef80a74091567c64dbc0121, type: 3}
       propertyPath: m_RootOrder
@@ -464,6 +464,51 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ebbc03c485c548845ab8d6b0b5dec2b4, type: 3}
+--- !u!1 &793050362
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 793050364}
+  - component: {fileID: 793050363}
+  m_Layer: 0
+  m_Name: PNGGenerator
+  m_TagString: EditorOnly
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &793050363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793050362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b3fdb6ae03048caa66174236b2d9566, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gameObjects:
+  - {fileID: 929174996436639252, guid: 5d42a620c21f6664381b454cec1c15c8, type: 3}
+--- !u!4 &793050364
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793050362}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.0463798, y: 0.47315463, z: -1.725793}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1121296303
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -894,7 +939,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 2.1107419, y: 1}
+    m_SensorSize: {x: 2.1447155, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0

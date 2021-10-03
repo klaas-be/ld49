@@ -1,21 +1,17 @@
-using System;
 using System.Collections.Generic;
 using _Game.Scripts.Behaviours;
 using _Game.Scripts.Classes;
+using _Game.Scripts.Util;
 using NaughtyAttributes;
 using UnityEngine;
 
-public class ElementSpawner : MonoBehaviour
+public class ElementSpawner : MonoSingleton<ElementSpawner>
 {
     public GameObject elementPrefab;
+    
 
-    public static ElementSpawner Instance;
-
-    private void Awake() => Instance = this;
-
-    private void OnDestroy() => Destroy(Instance);
-
-    public List<ElementSettings> ElementSettings = new List<ElementSettings>(); 
+    public List<ElementSettings> ElementSettings = new List<ElementSettings>();
+    private static ElementSpawner _instance;
 
 
     [Button()]
