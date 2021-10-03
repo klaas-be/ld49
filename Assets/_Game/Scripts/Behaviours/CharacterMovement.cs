@@ -32,6 +32,7 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private float _stateTime = 0f;
     [SerializeField] private Transform _animTargetPivot;
     [SerializeField] private Vector3 velocity;
+    [SerializeField] public float wiggle;
 
     [SerializeField] private MovementState _movementState = MovementState.Walking;
 
@@ -107,12 +108,11 @@ public class CharacterMovement : MonoBehaviour
         movementDirection = Vector3.ClampMagnitude(movementDirection, 1);
 
         _characterController.Move(movementDirection * GetCurrentMovementSpeed() * 0.01f);
+
         //stackAnimation
-        float angleX, angleY;
-        Quaternion animRot = Quaternion.Euler(new Vector3(Mathf.Lerp(15, -15, (velocity.z + 1) / 2), 0, Mathf.Lerp(-15, 15, (velocity.x + 1) / 2)));
-        
-        
-        _animTargetPivot.rotation = animRot * transform.rotation;
+        Quaternion animRot = Quaternion.Euler(new Vector3(Mathf.Lerp(0, -15, velocity.magnitude), 0, wiggle));
+        _animTargetPivot.localRotation = animRot;
+
         return movementDirection;
     }
 
