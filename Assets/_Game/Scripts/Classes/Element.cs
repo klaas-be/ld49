@@ -37,6 +37,9 @@ namespace _Game.Scripts.Classes
         [ReadOnly]
         [SerializeField]
         private GameObject burnParticles;
+        [ReadOnly]
+        [SerializeField]
+        private GameObject shockerGO;
 
         public Element(ElementType type, ElementStatus status = ElementStatus.Default)
         {
@@ -67,6 +70,7 @@ namespace _Game.Scripts.Classes
         public void Electrocute()
         {
             elementStatus = ElementStatus.Shocked;
+            shockerGO.SetActive(true);
         }
         public void Compress()
         {

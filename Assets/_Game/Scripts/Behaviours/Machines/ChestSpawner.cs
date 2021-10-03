@@ -12,6 +12,7 @@ public class ChestSpawner : Machine
     [SerializeField] Animator animator;
     [SerializeField] Transform ThrowTarget;
     [SerializeField] Transform SpawnPoint;
+    [SerializeField] Collider UseCollider;
     [SerializeField] float throwForce;
     [SerializeField] float throwDelay;
     [SerializeField] float nextSpawnDelay;
@@ -49,7 +50,7 @@ public class ChestSpawner : Machine
         elementComponent.GetComponent<Rigidbody>().isKinematic = false;
 
         Rigidbody rigidbody = elementComponent.GetComponent<Rigidbody>();
-        rigidbody.AddForce((ThrowTarget.position - rigidbody.position) * throwForce, ForceMode.Impulse);
+        rigidbody.AddForce((ThrowTarget.position - rigidbody.position).normalized * throwForce, ForceMode.Impulse);
         StartCoroutine(EnableCollider(elementComponent));
 
         yield return new WaitForSeconds(nextSpawnDelay);
@@ -65,5 +66,7 @@ public class ChestSpawner : Machine
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(SpawnPoint.position, ThrowTarget.position);
+        Gizmos.color = Color.white;
+        Gizmos.DrawLine(transform.position, transform.position - transform.forward);
     }
 }
