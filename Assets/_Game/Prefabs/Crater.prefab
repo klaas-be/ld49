@@ -126,6 +126,102 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000005, y: 1, z: 1.0000005}
   m_Center: {x: -0.000015258796, y: 0, z: 0.00000023841812}
+--- !u!1 &2540040627696337778
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3045975801210466204}
+  - component: {fileID: 8844249608813344543}
+  - component: {fileID: 1127817085648971982}
+  - component: {fileID: 7721251749964737530}
+  m_Layer: 0
+  m_Name: Cube (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3045975801210466204
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2540040627696337778}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.338, y: 2.46, z: -0.277}
+  m_LocalScale: {x: 0.6894059, y: 0.096025325, z: 0.567572}
+  m_Children: []
+  m_Father: {fileID: 4076919337133666915}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!33 &8844249608813344543
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2540040627696337778}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!23 &1127817085648971982
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2540040627696337778}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 0c4dfb87a6bcffb44b79431c9c801684, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7721251749964737530
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2540040627696337778}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000005, y: 1, z: 1.0000005}
+  m_Center: {x: -0.000015258796, y: 0, z: 0.00000023841812}
 --- !u!65 &6299237991349694953
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -137,8 +233,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.79754335, y: 3.9673145, z: 1.1946179}
-  m_Center: {x: -1.4280226, y: 1.4836572, z: 1.1383185}
+  m_Size: {x: 0.7975433, y: 3.9673145, z: 1.0166235}
+  m_Center: {x: -1.4280226, y: 1.4836572, z: 1.2273157}
 --- !u!65 &6792118417574570200
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -163,8 +259,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.79754335, y: 3.9673145, z: 1.205831}
-  m_Center: {x: -1.4280226, y: 1.4836572, z: -1.4943935}
+  m_Size: {x: 0.77072835, y: 3.9673145, z: 1.0509934}
+  m_Center: {x: -1.4146152, y: 1.4836572, z: -1.5718124}
 --- !u!65 &9216862781644484792
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -176,8 +272,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 3.123347, y: 3.1754816, z: 4.4652085}
-  m_Center: {x: 0.50796413, y: 1.8810436, z: -0.24815989}
+  m_Size: {x: 2.9541714, y: 3.1754816, z: 4.4652085}
+  m_Center: {x: 0.59255207, y: 1.8810436, z: -0.24815989}
 --- !u!1 &2991243773636645154
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,7 +339,7 @@ MonoBehaviour:
   isUsable: 1
   animator: {fileID: 0}
   DropPoint: {fileID: 2048517444}
-  throwForce: 1
+  throwForce: 3
   throwDelay: 0.5
 --- !u!114 &751176712
 MonoBehaviour:

@@ -28,6 +28,50 @@
         {
             "textTag": "SettingsMenu_Sound",
             "textContent": "Sounds"
+        },
+        {
+            "textTag": "TutorialLevel_Movement",
+            "textContent": "Move with WASD"
+        },
+        {
+            "textTag": "TutorialLevel_Dash",
+            "textContent": "Dash with SHIFT"
+        },
+        {
+            "textTag": "TutorialLevel_Chests",
+            "textContent": "Open Chests with SPACE to get the shown Element"
+        },
+        {
+            "textTag": "TutorialLevel_Burner",
+            "textContent": "Use SPACE to burn an Element here"
+        },
+        {
+            "textTag": "TutorialLevel_Shocker",
+            "textContent": "Use SPACE to electrify an Element here"
+        },
+        {
+            "textTag": "TutorialLevel_Compressor",
+            "textContent": "Use SPACE to compress an Element here"
+        },
+        {
+            "textTag": "TutorialLevel_Combiner",
+            "textContent": "Put TWO Elements here to forge them together"
+        },
+        {
+            "textTag": "TutorialLevel_RDrop",
+            "textContent": "With R you can drop the lastmost Element from your hand"
+        },
+        {
+            "textTag": "TutorialLevel_DashDrop",
+            "textContent": "If you DASH with THREE or more Elements you'll lose up to three of them"
+        },
+        {
+            "textTag": "TutorialLevel_Crater",
+            "textContent": "The crater asks for specific Elements and Status - Throw them with SPACE inside"
+        },
+        {
+            "textTag": "TutorialLevel_Exit",
+            "textContent": "To main menu"
         }
     ]
 }
