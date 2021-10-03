@@ -58,7 +58,7 @@ MonoBehaviour:
   - Type: 5
     model: {fileID: 2323400042534614352, guid: eb94a9ffde1f76b4da9f25e4332ecc0c, type: 3}
   - Type: 6
-    model: {fileID: 0}
+    model: {fileID: 929174996436639252, guid: 5d42a620c21f6664381b454cec1c15c8, type: 3}
   - Type: 7
     model: {fileID: 5131091777391922654, guid: 5319b496d59b9334fb4e82fe456a5463, type: 3}
   - Type: 8

@@ -1,3 +1,4 @@
+using _Game.Scripts.Behaviours;
 using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,7 +9,8 @@ public class Teleporter : MonoBehaviour
     [SerializeField] private Transform targetPos;
     [SerializeField] private LineRenderer lineRenderer;
     [ReadOnly] [SerializeField] private Transform player;
-    [SerializeField] private bool teleport = false;
+    [SerializeField] private bool dropItemsOnPort = false;
+    [ReadOnly] [SerializeField] private bool teleport = false;
     [SerializeField] private float lineUp = 1.5f;
 
     private void LateUpdate()
@@ -16,6 +18,10 @@ public class Teleporter : MonoBehaviour
         if (teleport)
         {
             teleport = false;
+            if (dropItemsOnPort)
+            {
+                player.GetComponent<ElementContainerComponent>().DropAll();
+            }
             CharacterController charController = player.gameObject.GetComponent<CharacterController>();
             charController.enabled = false;
             player.position = targetPos.position + Vector3.up;

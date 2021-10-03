@@ -94,5 +94,15 @@ namespace _Game.Scripts.Behaviours
                 }
             }
         }
+        public void DropAll()
+        {
+            if (carryingElements.Count > 0)
+            {
+                for (int i = carryingElements.Count-1; i >= 0; i--)
+                {
+                    Drop();
+                }
+            }
+        }
     }
 }
