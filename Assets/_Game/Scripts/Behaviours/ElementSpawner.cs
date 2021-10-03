@@ -11,6 +11,7 @@ public class ElementSpawner : MonoSingleton<ElementSpawner>
     
 
     public List<ElementSettings> ElementSettings = new List<ElementSettings>();
+    public List<StatusIcon> StatusIcons = new List<StatusIcon>(); 
     private static ElementSpawner _instance;
 
 
@@ -38,4 +39,10 @@ public struct ElementSettings
     public GameObject model;
     public Sprite icon; 
 
+}
+
+public struct StatusIcon
+{
+    public Element.ElementStatus status;
+    public Sprite icon; 
 }
