@@ -72,3 +72,10 @@ MonoBehaviour:
   - Type: 8
     model: {fileID: 8238881837655752165, guid: 58a3cfc62e54067458f53ad032ee455f, type: 3}
     icon: {fileID: 21300000, guid: 584ceed5ee976dd32b1fcf37aa1feeb1, type: 3}
+  StatusIcons:
+  - status: 1
+    icon: {fileID: 21300000, guid: a77dd05e624d96863b05faaa201bbbab, type: 3}
+  - status: 2
+    icon: {fileID: 21300000, guid: 559205d3eaf1d7fbd8829c67d4a5cb33, type: 3}
+  - status: 3
+    icon: {fileID: 21300000, guid: 2509df45a8487144eaaf24404810a559, type: 3}
