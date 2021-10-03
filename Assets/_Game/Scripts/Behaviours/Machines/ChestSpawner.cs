@@ -50,7 +50,7 @@ public class ChestSpawner : Machine
         elementComponent.GetComponent<Rigidbody>().isKinematic = false;
 
         Rigidbody rigidbody = elementComponent.GetComponent<Rigidbody>();
-        rigidbody.AddForce((ThrowTarget.position - rigidbody.position) * throwForce, ForceMode.Impulse);
+        rigidbody.AddForce((ThrowTarget.position - rigidbody.position).normalized * throwForce, ForceMode.Impulse);
         StartCoroutine(EnableCollider(elementComponent));
 
         yield return new WaitForSeconds(nextSpawnDelay);

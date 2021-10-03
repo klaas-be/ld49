@@ -20,9 +20,9 @@ public class Crater : Machine
         currentElement.GetComponent<Collider>().enabled = false;
 
         //Throw in Crater
-        Rigidbody rigidbody = currentElement.GetComponent<Rigidbody>();
+        Rigidbody rigidbody = elementComponent.GetComponent<Rigidbody>();
         rigidbody.isKinematic = false;
-        rigidbody.AddForce((DropPoint.position - rigidbody.transform.position) * throwForce, ForceMode.Impulse);
+        rigidbody.AddForce((DropPoint.position - rigidbody.position).normalized * throwForce, ForceMode.Impulse);
 
         RemoveFromQueue(currentElement); 
         Destroy(currentElement.gameObject, 2f);
