@@ -132,6 +132,7 @@ GameObject:
   - component: {fileID: 2991243773636645153}
   - component: {fileID: 1744435012}
   - component: {fileID: 1744435011}
+  - component: {fileID: 751176712}
   m_Layer: 0
   m_Name: Crater
   m_TagString: Untagged
@@ -185,6 +186,23 @@ MonoBehaviour:
   DropPoint: {fileID: 2048517444}
   throwForce: 1
   throwDelay: 0.5
+--- !u!114 &751176712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2991243773636645154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43047632ada04ec29228fda990b94135, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  recipePool:
+  - {fileID: 11400000, guid: 31264aa20f086364fa081b2c8b8b3fab, type: 2}
+  - {fileID: 11400000, guid: 4a6b5e0edb51202448f52089e156d331, type: 2}
+  - {fileID: 11400000, guid: 93d7e856cc865334da5e2d3a6df9681a, type: 2}
+  queue: []
 --- !u!64 &2991243774425877083
 MeshCollider:
   m_ObjectHideFlags: 0
