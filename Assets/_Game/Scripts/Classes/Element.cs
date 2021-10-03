@@ -1,4 +1,5 @@
-﻿using NaughtyAttributes;
+﻿using _Game.Scripts.Behaviours;
+using NaughtyAttributes;
 using UnityEngine;
 
 namespace _Game.Scripts.Classes
@@ -22,7 +23,7 @@ namespace _Game.Scripts.Classes
         {
             Default,
             Burned,
-            Electrocuted,
+            Shocked,
             Compressed,
         }
 
@@ -33,6 +34,13 @@ namespace _Game.Scripts.Classes
         [SerializeField]
         public ElementStatus elementStatus = ElementStatus.Default;
 
+        [ReadOnly]
+        [SerializeField]
+        private GameObject burnParticles;
+        [ReadOnly]
+        [SerializeField]
+        private GameObject shockerGO;
+
         public Element(ElementType type, ElementStatus status = ElementStatus.Default)
         {
             elementType = type;
@@ -41,7 +49,7 @@ namespace _Game.Scripts.Classes
                 case ElementStatus.Burned:
                     Burn();
                     break;
-                case ElementStatus.Electrocuted:
+                case ElementStatus.Shocked:
                     Electrocute();
                     break;
                 case ElementStatus.Compressed:
@@ -54,20 +62,15 @@ namespace _Game.Scripts.Classes
         }
 
         //Mechanismen
-        //star + burning = shooting star
         public void Burn()
         {
-            if (elementType == ElementType.Star)
-            {
-                elementType = ElementType.Shootingstar;
-                return;
-            }
-
             elementStatus = ElementStatus.Burned;
+            burnParticles.SetActive(true);
         }
         public void Electrocute()
         {
-            elementStatus = ElementStatus.Electrocuted;
+            elementStatus = ElementStatus.Shocked;
+            shockerGO.SetActive(true);
         }
         public void Compress()
         {

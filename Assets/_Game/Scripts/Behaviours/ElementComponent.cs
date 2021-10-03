@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using _Game.Scripts.Classes;
 using UnityEngine;
 
@@ -10,7 +9,8 @@ namespace _Game.Scripts.Behaviours
     {
         public Element _element;
 
-        public bool previouslyDropped; 
+        public bool previouslyDropped;
+
         public void OnPickUp()
         {
             GetComponent<Rigidbody>().isKinematic = true;
@@ -20,14 +20,15 @@ namespace _Game.Scripts.Behaviours
 
         public void OnDrop()
         {
+            GetComponent<Rigidbody>().isKinematic = false;
+            GetComponent<Collider>().enabled = true;
+            previouslyDropped = true;
+
             StartCoroutine(DelayedDrop()); 
         }
 
         public IEnumerator DelayedDrop()
         {
-            GetComponent<Rigidbody>().isKinematic = false;
-            GetComponent<Collider>().enabled = true;
-            previouslyDropped = true; 
             yield return new WaitForSeconds(1);
             previouslyDropped = false;
         }        

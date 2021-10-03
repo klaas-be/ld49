@@ -1,6 +1,5 @@
 using _Game.Scripts.Behaviours;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Shocker : Machine
@@ -43,5 +42,10 @@ public class Shocker : Machine
         currentElement = null;
 
         canBeUsed = true;
+    }
+
+    public override void Interact()
+    {
+        return;
     }
 }

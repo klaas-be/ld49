@@ -1,7 +1,5 @@
 using _Game.Scripts.Behaviours;
 using NaughtyAttributes;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UseAbility : MonoBehaviour
@@ -9,6 +7,7 @@ public class UseAbility : MonoBehaviour
     [SerializeField] private ElementContainerComponent _elementContainerComponent;
     [ReadOnly] [SerializeField] private Machine currentMachine;
 
+    bool useFlag = false;
 
     private void Update()
     {
@@ -16,31 +15,23 @@ public class UseAbility : MonoBehaviour
         {
             if (currentMachine && currentMachine.canBeUsed)
             {
-                Debug.Log("Use on " + currentMachine.name);
-                _elementContainerComponent.Use(currentMachine);
+                useFlag = true;
             }
         }
     }
 
-    /*private void OnCollisionEnter(Collision collision)
+    private void FixedUpdate()
     {
-        if (collision.gameObject.TryGetComponent<Machine>(out var machine) & _elementContainerComponent.CarriesElement)
+        if (useFlag)
         {
-            currentMachine = machine;
+            useFlag = false;
+            _elementContainerComponent.InteractWith(currentMachine);
         }
     }
 
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.TryGetComponent<Machine>(out var machine) & _elementContainerComponent.CarriesElement)
-        {
-            currentMachine = null;
-        }
-    }*/
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.TryGetComponent<Machine>(out var machine) & _elementContainerComponent.CarriesElement)
+        if (other.TryGetComponent<Machine>(out var machine))
         {
             currentMachine = machine;            
         }
@@ -48,7 +39,7 @@ public class UseAbility : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.TryGetComponent<Machine>(out var machine) & _elementContainerComponent.CarriesElement)
+        if (other.TryGetComponent<Machine>(out var machine))
         {
             currentMachine = machine;
         }
@@ -56,7 +47,7 @@ public class UseAbility : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.TryGetComponent<Machine>(out var machine) & _elementContainerComponent.CarriesElement)
+        if (other.TryGetComponent<Machine>(out var machine))
         {
             currentMachine = null;
         }

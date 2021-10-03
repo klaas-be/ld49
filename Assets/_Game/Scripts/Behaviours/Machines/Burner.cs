@@ -1,6 +1,5 @@
 using _Game.Scripts.Behaviours;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Burner : Machine
@@ -43,5 +42,10 @@ public class Burner : Machine
         currentElement = null;
 
         canBeUsed = true;
+    }
+
+    public override void Interact()
+    {
+        return;
     }
 }

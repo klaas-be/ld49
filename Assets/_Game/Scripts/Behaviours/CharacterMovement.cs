@@ -1,3 +1,4 @@
+using _Game.Scripts.Behaviours;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -7,29 +8,37 @@ public class CharacterMovement : MonoBehaviour
     // Start is called before the first frame update
 
     private CharacterController _characterController;
+    [SerializeField] private ElementContainerComponent elementContainerComponent;
     [SerializeField] Animator animator;
-    [ReadOnly]
-    [SerializeField] private float _currentSpeed;
     [Space(20)]
+    [ReadOnly]
+    [SerializeField] private MovementState _movementState = MovementState.Walking;
     [SerializeField] private float _slowedSpeed;
     [SerializeField] private float _slowedTime;
-    [Space(20)]
     [SerializeField] private float _stunnedTime;
-    [Space(20)]
     [SerializeField] private float _standardSpeed;
+    [ReadOnly]
+    [SerializeField] private Vector3 movementDirection;
     [Space(20)]
     [SerializeField] public bool canDash;
+    [ReadOnly]
+    [SerializeField] private bool dashFlag;
     [SerializeField] private float _dashSpeed;
     [SerializeField] private float _dashTime;
     [ReadOnly]
     [SerializeField] private float _dashCooldownTimer;
     [SerializeField] private float _dashCooldown;
+    [Space(20)]
     [ReadOnly]
     [SerializeField] private float _stateTime = 0f;
-
-    [SerializeField] private MovementState _movementState = MovementState.Walking;
-
+    [SerializeField] private Transform _animTargetPivot;
     public AnimationCurve curve;
+    [SerializeField] public float wiggle;
+    [Space(20)]
+    [ReadOnly]
+    [SerializeField] private bool dropFlag;
+
+    private float startY = 0;
 
     public enum MovementState
     {
@@ -42,6 +51,23 @@ public class CharacterMovement : MonoBehaviour
     private void Awake()
     {
         _characterController = GetComponent<CharacterController>();
+        startY = transform.position.y;
+    }
+
+    private void FixedUpdate()
+    {
+        if (dashFlag)
+        {
+            dashFlag = false;
+            SwitchState(MovementState.Dashing);
+            animator.SetTrigger("DashTrigger");
+            elementContainerComponent.DashDrop();
+        }
+        if (dropFlag)
+        {
+            elementContainerComponent.Drop();
+            dropFlag = false;
+        }
     }
 
     // Update is called once per frame
@@ -50,10 +76,9 @@ public class CharacterMovement : MonoBehaviour
         //Dash
         if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
         {
-            SwitchState(MovementState.Dashing);
-            _dashCooldownTimer = _dashCooldown;
+            dashFlag = true;
             canDash = false;
-            animator.SetTrigger("DashTrigger");
+            _dashCooldownTimer = _dashCooldown;
         }
         if (_dashCooldownTimer > 0)
         {
@@ -65,6 +90,11 @@ public class CharacterMovement : MonoBehaviour
         }
 
 
+        //DropItem
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            dropFlag = true;
+        }
         //SlowTest
         if (Input.GetKeyDown(KeyCode.F))
         {
@@ -86,10 +116,19 @@ public class CharacterMovement : MonoBehaviour
         var horizontalMovement = Input.GetAxis("Horizontal");
         var verticalMovement = Input.GetAxis("Vertical");
 
-        Vector3 movementDirection = new Vector3(horizontalMovement, 0, verticalMovement);
+        movementDirection = new Vector3(horizontalMovement, 0, verticalMovement);
         movementDirection = Vector3.ClampMagnitude(movementDirection, 1);
 
+        if (movementDirection == Vector3.zero)
+            canDash = false;
+        else
+            canDash = true;
+
         _characterController.Move(movementDirection * GetCurrentMovementSpeed() * 0.01f);
+
+        //stackAnimation
+        _animTargetPivot.localRotation = Quaternion.Euler(new Vector3(Mathf.Lerp(0, -15, movementDirection.magnitude), 0, wiggle));
+
         return movementDirection;
     }
 
@@ -133,9 +172,15 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
+
     private void RotateToDirection(Vector3 movementDirection)
     {
-        transform.LookAt(transform.position + movementDirection);
+        Vector3 direction = movementDirection.normalized;
+        if (direction != Vector3.zero)
+        {
+            Quaternion newRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, newRotation, Time.deltaTime * 8);
+        }
     }
 
 }

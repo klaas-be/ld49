@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using _Game.Scripts.Classes;
+﻿using System.Collections.Generic;
 using NaughtyAttributes;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace _Game.Scripts.Behaviours
@@ -23,7 +20,6 @@ namespace _Game.Scripts.Behaviours
             if (carryingElements.Count < maxStack)
             {
                 carryingElements.Add(element);
-                Debug.Log("Carrying Elements: " + carryingElements.Count);
                 PickupElement(element);
                 return true;
             }
@@ -45,15 +41,18 @@ namespace _Game.Scripts.Behaviours
             var slotIndex = carryingElements.Count - 1;
             if (slotIndex < 0) return;
             element.transform.position = ElementSlots[slotIndex].transform.position;
+            element.transform.rotation = Quaternion.identity;
             element.transform.SetParent(ElementSlots[slotIndex].transform);
             element.OnPickUp();
         }
 
 
         //use element with a machine
-        public void Use(Machine machine)
+        public void InteractWith(Machine machine)
         {
-            if (carryingElements.Count == 0)
+            machine.Interact();
+            
+            if (!CarriesElement || !machine.isUsable)
                 return;
 
             var slotIndex = carryingElements.Count - 1;
@@ -73,14 +72,27 @@ namespace _Game.Scripts.Behaviours
         {
             var slotIndex = carryingElements.Count-1;
             if(slotIndex < 0) return;
-            carryingElements[slotIndex].transform.parent = null;
             carryingElements[slotIndex].OnDrop();
-         
+            carryingElements[slotIndex].transform.localPosition = Vector3.zero;
+            carryingElements[slotIndex].transform.localRotation = Quaternion.identity;
+            carryingElements[slotIndex].transform.SetParent(null);
+
             var element =  RemoveLastAdded();
-            
-           
-            
+
+            element.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            element.GetComponent<Rigidbody>().AddForce(new Vector3(UnityEngine.Random.Range(-2, 2), 2, UnityEngine.Random.Range(-2, 2)), ForceMode.Impulse);
+            element.GetComponent<Rigidbody>().AddTorque(new Vector3(UnityEngine.Random.Range(-2, 2), UnityEngine.Random.Range(-1, 1), UnityEngine.Random.Range(-2, 2)), ForceMode.Impulse);
         }
 
+        public void DashDrop()
+        {
+            if (carryingElements.Count > 2)
+            {
+                for (int i = carryingElements.Count-1; i >= 2; i--)
+                {
+                    Drop();
+                }
+            }
+        }
     }
 }
