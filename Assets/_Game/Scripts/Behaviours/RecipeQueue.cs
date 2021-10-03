@@ -3,6 +3,7 @@ using System.Linq;
 using _Game.Scripts.Classes;
 using _Game.Scripts.ScriptableObjects;
 using NaughtyAttributes;
+using Unity.VisualScripting;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -17,8 +18,10 @@ namespace _Game.Scripts.Behaviours
         public float throwForce; 
         public Vector3 forceVector = new Vector3(0,1,-1);
 
-        
-        public ElementDisplay requestElementDisplay; 
+        [Header("Queue Element display")]
+        public Transform QueueDisplayParent;
+
+        public GameObject ElementDisplayPrefab;
 
         [Button]
         public void PickRecipeToQueue()
@@ -49,18 +52,22 @@ namespace _Game.Scripts.Behaviours
         [Button()]
         public void DisplayRequested()
         {
-            if (queue.Count == 0)
-            {
-                requestElementDisplay.gameObject.SetActive(false);
-                return;
-            }
-           var requestedElement =  queue.First().requested;
-           var iconToDisplay =
-               ElementSpawner.Instance.ElementSettings.Find(settings => settings.Type == requestedElement.elementType).icon; 
-           Debug.Log(requestedElement);
-           requestElementDisplay.element = requestedElement;
-           requestElementDisplay.Icon.sprite = iconToDisplay;
-           requestElementDisplay.gameObject.SetActive(true);
+            
+           foreach (Transform o in QueueDisplayParent.transform)
+           {
+               Destroy(o.gameObject);
+           }
+
+           foreach (var recipe in queue)
+           {
+               var elementDisplayGo = Instantiate(ElementDisplayPrefab, QueueDisplayParent, false);
+               var elementDisplay = elementDisplayGo.GetComponent<ElementDisplay>();
+               
+               elementDisplay.element = recipe.requested;
+               elementDisplay.Icon.sprite = ElementSpawner.Instance.ElementSettings
+                   .Find(settings => settings.Type == recipe.requested.elementType).icon;
+               elementDisplay.Init();
+           }
 
         }
         
