@@ -10,11 +10,23 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     int newGame, howToPlay;
     [SerializeField]
+    GameObject MenuCanvas;
+    [SerializeField]
     GameObject SettingsPanel;
     [SerializeField]
     GameObject CreditsPanel;
     [SerializeField]
     TextMeshProUGUI currentLanguageTextField;
+
+    private void Start()
+    {
+        Invoke("CanvasSetActive", 0.1f);
+    }
+
+    private void CanvasSetActive()
+    {
+        MenuCanvas.SetActive(true);
+    }
 
     public void CircleLeft() {
         if(LocalizationManager.instance.currentLanguage > 0) {
