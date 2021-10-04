@@ -74,10 +74,6 @@
             "textContent": "To main menu"
         },
         {
-            "textTag": "GameUI_CraterScanner",
-            "textContent": "Crater Scanner"
-        },
-        {
             "textTag": "PauseMenu_Title",
             "textContent": "Pause"
         },
@@ -128,6 +124,18 @@
         {
             "textTag": "StartupCount_Go",
             "textContent": "Go!"
+        },
+        {
+            "textTag": "Level01Story_Teil4",
+            "textContent": "Test story 04"
+        },
+        {
+            "textTag": "Level01Story_Teil5",
+            "textContent": "Test story 05"
+        },
+        {
+            "textTag": "GameUI_CraterScanner",
+            "textContent": "Crater Scanner"
         }
     ]
 }

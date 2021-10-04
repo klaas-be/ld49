@@ -7,6 +7,8 @@ public enum LanguageTags
 	Level01Story_Teil1=26,
 	Level01Story_Teil2=27,
 	Level01Story_Teil3=28,
+	Level01Story_Teil4=33,
+	Level01Story_Teil5=34,
 	MainMenu_Credits=23,
 	MainMenu_Exit=1,
 	MainMenu_HowToPlay=2,

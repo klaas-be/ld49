@@ -55,15 +55,15 @@
         },
         {
             "textTag": "Level01Story_Teil1",
-            "textContent": "Test Geschichte 01"
+            "textContent": "Hey mein \nkleiner Roboter..\nDer Planet ist am kochen!"
         },
         {
             "textTag": "Level01Story_Teil2",
-            "textContent": "Test Geschichte 02"
+            "textContent": "Schnell!\nDu musst mir helfen den Planeten wieder abzukühlen!"
         },
         {
             "textTag": "Level01Story_Teil3",
-            "textContent": "Test Geschichte 03"
+            "textContent": "Das Abtastergerät \nzeigt dir an, welche Elemente den Krater besänftigen!"
         },
         {
             "textTag": "StartupCount_3",
@@ -80,6 +80,18 @@
         {
             "textTag": "StartupCount_Go",
             "textContent": "Los!"
+        },
+        {
+            "textTag": "Level01Story_Teil4",
+            "textContent": "Sammle sie \nund nutze die Maschinen, um sie umzuwandeln und genau die Richtigen für den Krater zu finden!"
+        },
+        {
+            "textTag": "Level01Story_Teil5",
+            "textContent": "Steige die \nTreppen zum Krater auf \nund wirf sie dort hinein!"
+        },
+        {
+            "textTag": "GameUI_CraterScanner",
+            "textContent": "Krater Abtastgerät"
         }
     ]
 }

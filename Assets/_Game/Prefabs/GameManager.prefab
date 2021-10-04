@@ -33,10 +33,10 @@ RectTransform:
   m_Father: {fileID: 2203834034128111046}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -100, y: -177}
-  m_SizeDelta: {x: 700, y: 350}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -30, y: 65}
+  m_SizeDelta: {x: 500, y: 175}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2203834034126146291
 CanvasRenderer:
@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -209,10 +209,10 @@ RectTransform:
   m_Father: {fileID: 2203834034128111046}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 10}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 302, y: -78}
-  m_SizeDelta: {x: 500, y: 500}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 254.7, y: 125.6}
+  m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2203834034172105161
 CanvasRenderer:
@@ -288,7 +288,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 600, y: 300}
+  m_SizeDelta: {x: 475, y: 130}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2203834034724478032
 CanvasRenderer:
@@ -320,8 +320,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 275f10315dcd02f4cac17bbf7010058d, type: 2}
-  m_sharedMaterial: {fileID: -1535782684014845178, guid: 275f10315dcd02f4cac17bbf7010058d, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 5929bff834df0ff4ba84ec8a6608b00b, type: 2}
+  m_sharedMaterial: {fileID: 3728977523792241887, guid: 5929bff834df0ff4ba84ec8a6608b00b, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -345,8 +345,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 20
+  m_fontSizeBase: 20
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -355,9 +355,9 @@ MonoBehaviour:
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 256
   m_textAlignment: 65535
-  m_characterSpacing: 0
+  m_characterSpacing: -10
   m_wordSpacing: 0
-  m_lineSpacing: 0
+  m_lineSpacing: 30
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -450,5 +450,6 @@ MonoBehaviour:
   gameState: 0
   storyCanvasGameobject: {fileID: 2203834034128111047}
   uiTextSetter: {fileID: 2203834034724478034}
-  languageTagsLevelStory: 1a0000001b0000001c000000
+  languageTagsLevelStory: 1a0000001b0000001c0000002100000022000000
   storyIndex: -1
+  startupCounter: 3
