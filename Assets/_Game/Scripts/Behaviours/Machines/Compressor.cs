@@ -8,6 +8,8 @@ public class Compressor : Machine
     [SerializeField] Transform Anchor;
     [SerializeField] Transform DropPoint;
     [SerializeField] float compressTime;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _audioClip; 
 
     ElementComponent currentElement;
 
@@ -19,8 +21,9 @@ public class Compressor : Machine
         currentElement.transform.SetParent(Anchor);
         currentElement.transform.localPosition = Vector3.zero;
         currentElement.OnPickUp();
-
+        
         animator.SetTrigger("PressTrigger");
+        _audioSource.PlayOneShot(_audioClip);
         StartCoroutine(CompressProcess());
     }
 

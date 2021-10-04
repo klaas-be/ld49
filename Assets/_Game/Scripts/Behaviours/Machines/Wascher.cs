@@ -10,7 +10,11 @@ public class Wascher : Machine
     [SerializeField] Transform DropPoint;
     [SerializeField] float washTime;
 
+    [SerializeField] private AudioSource _audioSource;
+    
     ElementComponent currentElement;
+    
+    
 
     public override void Interact()
     {
@@ -28,6 +32,7 @@ public class Wascher : Machine
 
         animator.SetTrigger("WascherTrigger");
         StartCoroutine(WaschProcess());
+        _audioSource.Play();
     }
     private IEnumerator WaschProcess()
     {

@@ -8,7 +8,9 @@ public class Burner : Machine
     [SerializeField] Transform Anchor;
     [SerializeField] Transform DropPoint;
     [SerializeField] float burnTime;
+    [SerializeField] private AudioSource _audioSource; 
 
+    
     ElementComponent currentElement;
 
     public override void Use(ElementComponent elementComponent)
@@ -21,12 +23,14 @@ public class Burner : Machine
         currentElement.OnPickUp();
 
         animator.SetTrigger("BurnerTrigger");
+        _audioSource.Play();
         StartCoroutine(BurnProcess());
     }
 
     private IEnumerator BurnProcess()
     {
         yield return new WaitForSeconds(burnTime);
+        _audioSource.Stop();
         ProcessEnd();
     }
 

@@ -19,6 +19,7 @@ public class ChestSpawner : Machine
     [Space(20)]
     [SerializeField] Transform HologramPoint;
     [SerializeField] Material holoMaterial;
+    [SerializeField] private AudioSource _audioSource;
 
     public void Start()
     {
@@ -40,7 +41,7 @@ public class ChestSpawner : Machine
 
         ElementComponent elementComponent = ElementSpawner.Instance.Spawn(spawnType, SpawnPoint.position);
         elementComponent.OnPickUp();
-
+        
         StartCoroutine(SpawnThrowProcess(elementComponent));
     }
 
@@ -49,6 +50,9 @@ public class ChestSpawner : Machine
         yield return new WaitForSeconds(throwDelay);
         elementComponent.GetComponent<Rigidbody>().isKinematic = false;
 
+        _audioSource.Play();
+
+        
         Rigidbody rigidbody = elementComponent.GetComponent<Rigidbody>();
         rigidbody.AddForce((ThrowTarget.position - rigidbody.position).normalized * throwForce, ForceMode.Impulse);
         StartCoroutine(EnableCollider(elementComponent));
