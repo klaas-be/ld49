@@ -99,15 +99,15 @@
         },
         {
             "textTag": "Level01Story_Teil1",
-            "textContent": "Test story 01"
+            "textContent": "Hey my little \nRobot-friend!\nThe Planet is heating up!"
         },
         {
             "textTag": "Level01Story_Teil2",
-            "textContent": "Test story 02"
+            "textContent": "Fast!\nYou gotta help me cool it down!"
         },
         {
             "textTag": "Level01Story_Teil3",
-            "textContent": "Test story 03"
+            "textContent": "The Scanner shows you which Elements sooth the Crater!"
         },
         {
             "textTag": "StartupCount_3",
@@ -127,11 +127,11 @@
         },
         {
             "textTag": "Level01Story_Teil4",
-            "textContent": "Test story 04"
+            "textContent": "Collect them and use \nthe Machines to craft \nthe right ones for the Crater!"
         },
         {
             "textTag": "Level01Story_Teil5",
-            "textContent": "Test story 05"
+            "textContent": "Climb the Stairs to \nthe Crater and throw them in!"
         },
         {
             "textTag": "GameUI_CraterScanner",
