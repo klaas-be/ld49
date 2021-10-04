@@ -168,6 +168,14 @@
         {
             "textTag": "GameWon_YouWin",
             "textContent": "DU HAST\nGEWONNEN!"
+        },
+        {
+            "textTag": "GameLost_YouLose",
+            "textContent": "DU HAST\nVERLOREN!"
+        },
+        {
+            "textTag": "GameLost_Story",
+            "textContent": "Der Planet ist explodiert und jeder ist gestorben. :("
         }
     ]
 }
