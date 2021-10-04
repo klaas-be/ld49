@@ -76,6 +76,18 @@
         {
             "textTag": "GameUI_CraterScanner",
             "textContent": "Crater Scanner"
+        },
+        {
+            "textTag": "PauseMenu_Title",
+            "textContent": "Pause"
+        },
+        {
+            "textTag": "PauseMenu_Resume",
+            "textContent": "Resume"
+        },
+        {
+            "textTag": "PauseMenu_BackToMainMenu",
+            "textContent": "Main Menu"
         }
     ]
 }
