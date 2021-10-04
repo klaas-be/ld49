@@ -156,6 +156,14 @@
         {
             "textTag": "GameUI_TimeLeft",
             "textContent": "Time left:"
+        },
+        {
+            "textTag": "TutorialLevel_Wascher",
+            "textContent": "To remove a status-\neffect put the Element in the washer and wait"
+        },
+        {
+            "textTag": "CreditsMenu_MadeForLD",
+            "textContent": "Made for LudumDare 49 in 72 hours."
         }
     ]
 }

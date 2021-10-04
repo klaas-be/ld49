@@ -2,6 +2,7 @@ public enum LanguageTags
 {
 	None=0,
 	CreditsMenu_aGameBy=24,
+	CreditsMenu_MadeForLD=40,
 	CreditsMenu_Title=25,
 	GameoverMenu_GameoverText=38,
 	GameUI_CraterScanner=19,
@@ -38,6 +39,7 @@ public enum LanguageTags
 	TutorialLevel_Movement=8,
 	TutorialLevel_RDrop=16,
 	TutorialLevel_Shocker=14,
+	TutorialLevel_Wascher=40,
 	WinMenu_KeyText=36,
 	WinMenu_WinText=37
 }
