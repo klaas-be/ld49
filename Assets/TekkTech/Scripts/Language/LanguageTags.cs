@@ -21,6 +21,7 @@ public enum LanguageTags
 	Level02Story_Teil2=45,
 	Level02Story_Teil3=46,
 	Level02Story_Teil4=47,
+	Level02Story_Teil5=51,
 	MainMenu_Credits=23,
 	MainMenu_Exit=1,
 	MainMenu_HowToPlay=2,
