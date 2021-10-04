@@ -21,7 +21,6 @@ public class GameManager : MonoBehaviour
     [Space(20), Header("Level Settings")]
     [SerializeField, ReadOnly] private GameState gameState;
     [SerializeField, ReadOnly] private GameState stateBeforePause;
-    [SerializeField] private int LevelIndex = 0;
     [SerializeField] private bool isTutorial = false;
     [SerializeField] private int nextSceneAfterWinID;
     [SerializeField] private int secondsUntilWin = 120;

@@ -54,7 +54,7 @@ namespace _Game.Scripts.Behaviours
 
         public void CheckIfRequested(Element element)
         {
-            var completed = queue.Find(recipe => recipe.requested.elementType == element.elementType);
+            var completed = queue.Find(recipe => recipe.requested.elementType == element.elementType && recipe.requested.elementStatus == element.elementStatus);
             if(completed != null)
             {
                 GameManager.instance.CraterAddBonusFromItem(completed.FinishInstabilityBonus);
