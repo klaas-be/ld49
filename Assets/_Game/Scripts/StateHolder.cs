@@ -31,6 +31,7 @@ public class StateHolder : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this);
+        DontDestroyOnLoad(LocalizationManager.instance.gameObject);
         
         MainMenuSoundManager.instance.SetSound(playSoundSetting);
     }
