@@ -88,6 +88,18 @@
         {
             "textTag": "PauseMenu_BackToMainMenu",
             "textContent": "Main Menu"
+        },
+        {
+            "textTag": "MainMenu_Credits",
+            "textContent": "Credits"
+        },
+        {
+            "textTag": "CreditsMenu_Title",
+            "textContent": "Credits"
+        },
+        {
+            "textTag": "CreditsMenu_aGameBy",
+            "textContent": "A Game by:"
         }
     ]
 }

@@ -1,7 +1,10 @@
 public enum LanguageTags
 {
 	None=0,
+	CreditsMenu_aGameBy=24,
+	CreditsMenu_Title=25,
 	GameUI_CraterScanner=19,
+	MainMenu_Credits=23,
 	MainMenu_Exit=1,
 	MainMenu_HowToPlay=2,
 	MainMenu_NewGame=3,

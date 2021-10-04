@@ -12,6 +12,8 @@ public class UIManager : MonoBehaviour
     [SerializeField]
     GameObject SettingsPanel;
     [SerializeField]
+    GameObject CreditsPanel;
+    [SerializeField]
     TextMeshProUGUI currentLanguageTextField;
 
     public void CircleLeft() {
@@ -49,6 +51,18 @@ public class UIManager : MonoBehaviour
             SettingsPanel.SetActive(false);
         } else {
             SettingsPanel.SetActive(true);
+            CreditsPanel.SetActive(false);
+        }
+    }
+
+    public void ToggleCredits() {
+        if (!CreditsPanel) return;
+
+        if (CreditsPanel.activeSelf == true) {
+            CreditsPanel.SetActive(false);
+        } else {
+            CreditsPanel.SetActive(true);
+            SettingsPanel.SetActive(false);
         }
     }
 
