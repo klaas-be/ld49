@@ -211,15 +211,15 @@
         },
         {
             "textTag": "Level03Story_Teil1",
-            "textContent": "Oh, this time it looks like \nwe need to use some Teleporters \nto get to all of our equipment."
+            "textContent": "Oh, this time it looks like we need to use some Teleporters \n\rto get to all of our equipment."
         },
         {
             "textTag": "Level03Story_Teil2",
-            "textContent": "Also that seems to be a Compressor over there!\nThat means we can use new recipes!"
+            "textContent": "Also that seems \nto be a Compressor over there!\nThat means we can use new recipes!"
         },
         {
             "textTag": "Level03Story_Teil3",
-            "textContent": "The state of this crater looks similar to the last one.\nThat means we have only 4 Minutes!"
+            "textContent": "The state of this \ncrater looks similar to the last one.\nThat means we have only 4 Minutes!"
         },
         {
             "textTag": "Level03Story_Teil4",
