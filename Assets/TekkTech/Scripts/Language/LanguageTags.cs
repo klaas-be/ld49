@@ -4,6 +4,8 @@ public enum LanguageTags
 	CreditsMenu_aGameBy=24,
 	CreditsMenu_MadeForLD=41,
 	CreditsMenu_Title=25,
+	GameLost_Story=50,
+	GameLost_YouLose=49,
 	GameoverMenu_GameoverText=38,
 	GameUI_CraterScanner=19,
 	GameUI_TimeLeft=39,
