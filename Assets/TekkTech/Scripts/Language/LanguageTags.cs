@@ -7,6 +7,7 @@ public enum LanguageTags
 	GameoverMenu_GameoverText=38,
 	GameUI_CraterScanner=19,
 	GameUI_TimeLeft=39,
+	GameWon_YouWin=48,
 	Level01Story_Teil1=26,
 	Level01Story_Teil2=27,
 	Level01Story_Teil3=28,

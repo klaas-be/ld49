@@ -15,6 +15,7 @@ public class StateHolder : MonoBehaviour
             instance = this;
         else
             Destroy(this.gameObject);
+
     }
     public void ToggleSound() {
         playSoundSetting = !playSoundSetting;
@@ -26,7 +27,8 @@ public class StateHolder : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this);
-        DontDestroyOnLoad(LocalizationManager.instance.gameObject);
+
+        Debug.Log("Switching Sound to " + playSoundSetting);
+        MainMenuSoundManager.instance.SetSound(playSoundSetting);
     }
-    
 }
