@@ -31,14 +31,22 @@ public class UseAbility : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (currentMachine != null) {
+            return;
+        }
+
         if (other.TryGetComponent<Machine>(out var machine))
         {
-            currentMachine = machine;            
+            currentMachine = machine;
         }
     }
 
     private void OnTriggerStay(Collider other)
     {
+        if (currentMachine != null) {
+            return;
+        }
+
         if (other.TryGetComponent<Machine>(out var machine))
         {
             currentMachine = machine;
@@ -49,7 +57,9 @@ public class UseAbility : MonoBehaviour
     {
         if (other.TryGetComponent<Machine>(out var machine))
         {
-            currentMachine = null;
+            if (currentMachine == machine) {
+                currentMachine = null;
+            }
         }
     }
 }
