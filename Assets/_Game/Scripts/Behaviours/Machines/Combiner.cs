@@ -2,6 +2,7 @@ using _Game.Scripts.Behaviours;
 using _Game.Scripts.Classes;
 using NaughtyAttributes;
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
 public class Combiner : Machine
@@ -13,6 +14,8 @@ public class Combiner : Machine
     [SerializeField] ElementComponent elementA, elementB, elementC;
     [SerializeField] float combineTime;
     [SerializeField] bool isPoof = false;
+
+    [SerializeField] private AudioSource _audioSource; 
 
     public override void Use(ElementComponent elementComponent)
     {
@@ -50,8 +53,10 @@ public class Combiner : Machine
 
     private IEnumerator CombineProcess()
     {
+        _audioSource.Play();
         yield return new WaitForSeconds(combineTime*0.8f);
         ProcessMiddle();
+        _audioSource.Stop();
     }
 
     public void ProcessMiddle()
