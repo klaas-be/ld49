@@ -23,6 +23,7 @@ public class GameManager : MonoBehaviour
     [SerializeField, ReadOnly] private GameState stateBeforePause;
     [SerializeField] private bool isTutorial = false;
     [SerializeField] private int nextSceneAfterWinID;
+    [SerializeField] private int loseSceneID;
     [SerializeField] private int secondsUntilWin = 120;
     [SerializeField, ReadOnly] private float secondsTimer = 0;
     [Space(10)]
@@ -67,7 +68,6 @@ public class GameManager : MonoBehaviour
         InGame,
         Gameover,
         Win,
-        TransitionToNext,
     }
 
     private void Awake()
@@ -128,13 +128,13 @@ public class GameManager : MonoBehaviour
                 IngameUpdate();
                 break;
             case GameState.Win:
-            case GameState.Gameover:
                 if (Input.anyKeyDown && canContinue)
                 {
-                    SetTransition();
+                    SetTransition(nextSceneAfterWinID);
                 }
                 break;
-            case GameState.TransitionToNext:
+            case GameState.Gameover:
+                SetTransition(loseSceneID);
                 break;
             default:
                 break;
@@ -238,19 +238,7 @@ public class GameManager : MonoBehaviour
     [Button()]
     public void SetGameOver()
     {
-        canContinue = false;
         gameState = GameState.Gameover;
-        craterTimeController.isOn = false;
-        IngameUI.SetActive(false);
-
-        GameoverMenu.SetActive(true);
-        GameoverMenuKeyText.SetActive(false);
-        Invoke("SetGameoverKeyText", timeToContinue);
-    }
-    private void SetGameoverKeyText()
-    {
-        canContinue = true;
-        GameoverMenuKeyText.SetActive(true);
     }
 
     [Button()]
@@ -271,10 +259,9 @@ public class GameManager : MonoBehaviour
         WinMenuKeyText.SetActive(true);
     }
 
-    public void SetTransition()
+    public void SetTransition(int id)
     {
-        gameState = GameState.TransitionToNext;
-        SceneManager.LoadScene(nextSceneAfterWinID, LoadSceneMode.Single);
+        SceneManager.LoadScene(id, LoadSceneMode.Single);
     }
 
     public void CraterAddBonusFromItem(float bonus)
