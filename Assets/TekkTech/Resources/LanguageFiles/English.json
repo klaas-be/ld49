@@ -188,6 +188,10 @@
         {
             "textTag": "Level02Story_Teil4",
             "textContent": "Hope you \nremembered the recipe from the first planet ;)"
+        },
+        {
+            "textTag": "GameWon_YouWin",
+            "textContent": "YOU WIN!"
         }
     ]
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Assets.TekkTech.Scripts.Language;
+using UnityEngine.SceneManagement;
 
 public class StateHolder : MonoBehaviour
 {
@@ -11,10 +12,14 @@ public class StateHolder : MonoBehaviour
     public bool playSoundSetting = true;
 
     private void Awake() {
-        if (instance == null)
+        if (instance == null) {
             instance = this;
-        else
+        } else {
             Destroy(this.gameObject);
+            return;
+        }
+
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
     public void ToggleSound() {
         playSoundSetting = !playSoundSetting;
@@ -26,7 +31,16 @@ public class StateHolder : MonoBehaviour
     void Start()
     {
         DontDestroyOnLoad(this);
-        DontDestroyOnLoad(LocalizationManager.instance.gameObject);
+        
+        MainMenuSoundManager.instance.SetSound(playSoundSetting);
     }
-    
+
+
+    void OnSceneLoaded(Scene scene, LoadSceneMode mode) {
+        MainMenuSoundManager.instance.SetSound(playSoundSetting);
+    }
+
+    private void OnDestroy() {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
 }
