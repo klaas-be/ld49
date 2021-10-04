@@ -19306,7 +19306,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8074316927968466874, guid: d83940901edbfdc43a602e7bf895f98a, type: 3}
       propertyPath: languageTagsLevelStory.Array.size
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8074316927968466874, guid: d83940901edbfdc43a602e7bf895f98a, type: 3}
       propertyPath: languageTagsLevelStory.Array.data[0]
@@ -19326,7 +19326,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8074316927968466874, guid: d83940901edbfdc43a602e7bf895f98a, type: 3}
       propertyPath: languageTagsLevelStory.Array.data[4]
-      value: 47
+      value: 51
+      objectReference: {fileID: 0}
+    - target: {fileID: 8074316927968466874, guid: d83940901edbfdc43a602e7bf895f98a, type: 3}
+      propertyPath: languageTagsLevelStory.Array.data[5]
+      value: 52
       objectReference: {fileID: 0}
     - target: {fileID: 8701262675057373982, guid: d83940901edbfdc43a602e7bf895f98a, type: 3}
       propertyPath: m_AnchorMax.y

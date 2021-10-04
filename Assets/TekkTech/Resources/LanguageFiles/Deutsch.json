@@ -127,7 +127,7 @@
         },
         {
             "textTag": "Level01Story_Teil4",
-            "textContent": "Sammle sie \nund nutze die Maschinen, um sie umzuwandeln \nund genau die Richtigen für den Krater zu finden!"
+            "textContent": "Sammle Elemente \nund nutze die Maschinen, um sie umzuwandeln \nund genau die Richtigen für den Krater zu finden!"
         },
         {
             "textTag": "Level01Story_Teil5",
@@ -204,6 +204,10 @@
         {
             "textTag": "Level02Story_Teil5",
             "textContent": "Hoffentlich hast \ndu dir das Rezept vom ersten Planeten gemerkt ;)"
+        },
+        {
+            "textTag": "Level02Story_Teil6",
+            "textContent": "Viel Erfolg!"
         }
     ]
 }

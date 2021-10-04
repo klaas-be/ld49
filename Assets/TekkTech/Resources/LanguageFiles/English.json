@@ -127,7 +127,7 @@
         },
         {
             "textTag": "Level01Story_Teil4",
-            "textContent": "Collect them and use \nthe Machines to craft \nthe right ones for the Crater!"
+            "textContent": "Collect elements and \nuse the Machines to craft \nthe right ones for the Crater!"
         },
         {
             "textTag": "Level01Story_Teil5",
@@ -204,6 +204,10 @@
         {
             "textTag": "Level02Story_Teil5",
             "textContent": "Hope you \nremembered the recipe from the first planet ;)"
+        },
+        {
+            "textTag": "Level02Story_Teil6",
+            "textContent": "Good Luck!"
         }
     ]
 }
