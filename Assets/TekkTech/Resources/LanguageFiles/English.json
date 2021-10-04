@@ -192,6 +192,14 @@
         {
             "textTag": "GameWon_YouWin",
             "textContent": "YOU WIN!"
+        },
+        {
+            "textTag": "GameLost_YouLose",
+            "textContent": "YOU LOSE!"
+        },
+        {
+            "textTag": "GameLost_Story",
+            "textContent": "The Planet exploded and everyone died. :("
         }
     ]
 }
