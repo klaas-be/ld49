@@ -143,11 +143,11 @@
         },
         {
             "textTag": "WinMenu_WinText",
-            "textContent": "* Sieg *"
+            "textContent": "Du hast gewonnen!\nAuf zum nächsten Planeten!"
         },
         {
             "textTag": "WinMenu_KeyText",
-            "textContent": "drücke eine Taste zu fortfahren.."
+            "textContent": "drücke eine Taste zum Fortfahren.."
         },
         {
             "textTag": "GameoverMenu_GameoverText",

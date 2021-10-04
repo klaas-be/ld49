@@ -10,6 +10,8 @@ public class Shocker : Machine
     [SerializeField] float shockTime;
 
     ElementComponent currentElement;
+    [SerializeField] private AudioSource _audioSource;
+    [SerializeField] private AudioClip _audioClip; 
 
     public override void Use(ElementComponent elementComponent)
     {
@@ -19,7 +21,9 @@ public class Shocker : Machine
         currentElement.transform.SetParent(Anchor);
         currentElement.transform.localPosition = Vector3.zero;
         currentElement.OnPickUp();
-
+        
+        _audioSource.Play();
+        
         animator.SetTrigger("ShockerTrigger");
         StartCoroutine(ShockProcess());
     }
@@ -27,6 +31,7 @@ public class Shocker : Machine
     private IEnumerator ShockProcess()
     {
         yield return new WaitForSeconds(shockTime);
+        _audioSource.Stop();
         ProcessEnd();
     }
 
