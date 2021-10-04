@@ -130,7 +130,7 @@ public class CharacterMovement : MonoBehaviour
 
         Vector3 animDir = movementDirection;
 
-        movementDirection = movementDirection * GetCurrentMovementSpeed() * 0.01f;
+        movementDirection = movementDirection * GetCurrentMovementSpeed() * Time.deltaTime * 1.5f;
         movementDirection += Physics.gravity * Time.deltaTime;
 
         _characterController.Move(movementDirection);

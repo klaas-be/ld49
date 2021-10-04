@@ -14,7 +14,8 @@ public class GameManager : MonoBehaviour
 
     [Space(20), Header("Links")]
     [SerializeField, ReadOnly] private CharacterMovement PlayerController;
-    [SerializeField, ReadOnly] private RecipeQueue CraterController;
+    [SerializeField, ReadOnly] private RecipeQueue CraterQueueController;
+    [SerializeField, ReadOnly] private Crater CraterController;
     [SerializeField] TimeEventController craterTimeController;
 
     [Space(20), Header("Level Settings")]
@@ -76,7 +77,8 @@ public class GameManager : MonoBehaviour
             instance = this;
 
         PlayerController = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>();
-        CraterController = GameObject.FindGameObjectWithTag("Crater").GetComponent<RecipeQueue>();
+        CraterQueueController = GameObject.FindGameObjectWithTag("Crater").GetComponent<RecipeQueue>();
+        CraterController = GameObject.FindGameObjectWithTag("Crater").GetComponent<Crater>();
     }
 
     private void Start()
@@ -160,14 +162,16 @@ public class GameManager : MonoBehaviour
         TimeLeftTimeText.text = time.ToString(@"mm\:ss\:fff");
 
         //Crater Instabilty
-        craterCurrentInstability -= Time.deltaTime * instabilityDowngradeMultiplier * CraterController.queue.Count;
+        craterCurrentInstability -= Time.deltaTime * instabilityDowngradeMultiplier * CraterQueueController.queue.Count;
         if (craterCurrentInstability <= 0f)
         {
             SetGameOver();
         }
 
         craterCurrentInstability = Mathf.Clamp(craterCurrentInstability, 0, craterMaxInstability);
-        instabilityBarTransform.localScale = new Vector3(1- craterCurrentInstability / craterMaxInstability, 1, 1);
+        float instabiltity01 = 1 - craterCurrentInstability / craterMaxInstability;
+        instabilityBarTransform.localScale = new Vector3(instabiltity01, 1, 1);
+        CraterController.SetLavaLevel(instabiltity01);
     }
 
     public void AdvanceStory()
