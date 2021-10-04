@@ -3,15 +3,23 @@ using System.Collections;
 using _Game.Scripts.Classes;
 using _Game.Scripts.ScriptableObjects;
 using UnityEngine;
+using NaughtyAttributes;
 
 public class Crater : Machine
 {
     [SerializeField] Animator animator;
     [SerializeField] Transform DropPoint;
+    [SerializeField] Transform Lava;
+    [SerializeField,ReadOnly] Vector3 LavaStartHeight;
     [SerializeField] float throwForce;
     [SerializeField] float throwDelay;
 
     ElementComponent currentElement;
+
+    private void Start()
+    {
+        LavaStartHeight = Lava.position;
+    }
 
     public override void Use(ElementComponent elementComponent)
     {
@@ -60,5 +68,10 @@ public class Crater : Machine
     public override void Interact()
     {
         return;
+    }
+
+    public void SetLavaLevel(float to)
+    {
+        Lava.position = Vector3.Lerp(LavaStartHeight, LavaStartHeight + Vector3.up * 0.85f, Mathf.Clamp01(to));
     }
 }
