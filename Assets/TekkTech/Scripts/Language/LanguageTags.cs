@@ -2,7 +2,7 @@ public enum LanguageTags
 {
 	None=0,
 	CreditsMenu_aGameBy=24,
-	CreditsMenu_MadeForLD=40,
+	CreditsMenu_MadeForLD=41,
 	CreditsMenu_Title=25,
 	GameoverMenu_GameoverText=38,
 	GameUI_CraterScanner=19,
@@ -13,6 +13,11 @@ public enum LanguageTags
 	Level01Story_Teil4=33,
 	Level01Story_Teil5=34,
 	Level01Story_Teil6=35,
+	Level01Story_Teil7=43,
+	Level02Story_Teil1=44,
+	Level02Story_Teil2=45,
+	Level02Story_Teil3=46,
+	Level02Story_Teil4=47,
 	MainMenu_Credits=23,
 	MainMenu_Exit=1,
 	MainMenu_HowToPlay=2,
@@ -39,6 +44,7 @@ public enum LanguageTags
 	TutorialLevel_Movement=8,
 	TutorialLevel_RDrop=16,
 	TutorialLevel_Shocker=14,
+	TutorialLevel_StatusSymbol=42,
 	TutorialLevel_Wascher=40,
 	WinMenu_KeyText=36,
 	WinMenu_WinText=37

@@ -72,15 +72,19 @@ namespace _Game.Scripts.Classes
         {
             elementStatus = ElementStatus.Burned;
             burnParticles.SetActive(true);
+            shockerGO.SetActive(false);
         }
         public void Electrocute()
         {
             elementStatus = ElementStatus.Shocked;
+            burnParticles.SetActive(false);
             shockerGO.SetActive(true);
         }
         public void Compress()
         {
             elementStatus = ElementStatus.Compressed;
+            burnParticles.SetActive(false);
+            shockerGO.SetActive(false);
         }
     }
 }

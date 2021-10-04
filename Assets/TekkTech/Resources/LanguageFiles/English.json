@@ -55,7 +55,7 @@
         },
         {
             "textTag": "TutorialLevel_Combiner",
-            "textContent": "Put TWO Elements here to forge them together"
+            "textContent": "Put TWO Elements here to forge them together. The recipe is close by on a projector"
         },
         {
             "textTag": "TutorialLevel_RDrop",
@@ -67,7 +67,7 @@
         },
         {
             "textTag": "TutorialLevel_Crater",
-            "textContent": "The crater asks for specific Elements and Status - Throw them with SPACE inside"
+            "textContent": "The crater asks for specific Elements and Status, see TOP LEFT - Throw them with SPACE inside"
         },
         {
             "textTag": "TutorialLevel_Exit",
@@ -139,7 +139,7 @@
         },
         {
             "textTag": "Level01Story_Teil6",
-            "textContent": "Let's go!"
+            "textContent": "If the stability \r\ndrops too much, we will lose the planet! Watch out for the red bar at the bottom!"
         },
         {
             "textTag": "WinMenu_WinText",
@@ -164,6 +164,30 @@
         {
             "textTag": "CreditsMenu_MadeForLD",
             "textContent": "Made for LudumDare 49 in 72 hours."
+        },
+        {
+            "textTag": "TutorialLevel_StatusSymbol",
+            "textContent": "If an Element got a status, you can see it in the list on the left aswell"
+        },
+        {
+            "textTag": "Level01Story_Teil7",
+            "textContent": "Let's go!"
+        },
+        {
+            "textTag": "Level02Story_Teil1",
+            "textContent": "We were called again\r\ncalled to help out! Here is something new!"
+        },
+        {
+            "textTag": "Level02Story_Teil2",
+            "textContent": "You now have the shocker at your disposal. With it you can create a whole new status effect!"
+        },
+        {
+            "textTag": "Level02Story_Teil3",
+            "textContent": "The new associated recipe is now also displayed!"
+        },
+        {
+            "textTag": "Level02Story_Teil4",
+            "textContent": "Hope you remembered the recipe from the first planet ;)"
         }
     ]
 }

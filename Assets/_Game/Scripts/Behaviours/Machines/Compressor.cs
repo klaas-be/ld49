@@ -27,6 +27,7 @@ public class Compressor : Machine
     private IEnumerator CompressProcess()
     {
         yield return new WaitForSeconds(compressTime);
+        currentElement._element.ResetStatus();
         currentElement.transform.localScale = new Vector3(1, 0.4f, 1);
         ProcessEnd();
     }

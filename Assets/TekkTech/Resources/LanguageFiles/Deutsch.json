@@ -47,7 +47,7 @@
         },
         {
             "textTag": "TutorialLevel_Shocker",
-            "textContent": "Lege hier ZWEI Elemente hin, um sie zu vereinen"
+            "textContent": "Nutze LEERTASTE hier, um ein Element zu schocken"
         },
         {
             "textTag": "TutorialLevel_Compressor",
@@ -55,7 +55,7 @@
         },
         {
             "textTag": "TutorialLevel_Combiner",
-            "textContent": "Nutze LEERTASTE hier, um ein Element zu schocken"
+            "textContent": "Lege hier ZWEI Elemente hin, um sie zu vereinen. Das Rezept findest du auf den Projektoren in der Nähe"
         },
         {
             "textTag": "TutorialLevel_RDrop",
@@ -67,7 +67,7 @@
         },
         {
             "textTag": "TutorialLevel_Crater",
-            "textContent": "Der Krater fragt dich nach bestimmten Elementen und Status - Wirf sie mit LEERTASTE hinein"
+            "textContent": "Der Krater fragt dich nach bestimmten Elementen und Status, siehe OBEN LINKS - Wirf sie mit LEERTASTE hinein"
         },
         {
             "textTag": "TutorialLevel_Exit",
@@ -103,11 +103,11 @@
         },
         {
             "textTag": "Level01Story_Teil2",
-            "textContent": "Schnell!\nDu musst mir helfen den Planeten wieder abzukühlen!"
+            "textContent": "Schnell!\nDu musst mir helfen ihn wieder abzukühlen!"
         },
         {
             "textTag": "Level01Story_Teil3",
-            "textContent": "Das Abtastergerät \nzeigt dir an, welche Elemente den Krater besänftigen!"
+            "textContent": "Das Abtastergerät \noben links zeigt dir an, welche Elemente den Krater stabilisieren!"
         },
         {
             "textTag": "StartupCount_3",
@@ -139,7 +139,7 @@
         },
         {
             "textTag": "Level01Story_Teil6",
-            "textContent": "Los geht's!"
+            "textContent": "Wenn die Stabilität \nzu sehr absinkt, verlieren wir den Planeten! Achte auf die rote Leiste unten!"
         },
         {
             "textTag": "WinMenu_WinText",
@@ -164,6 +164,30 @@
         {
             "textTag": "CreditsMenu_MadeForLD",
             "textContent": "Gemacht für LudumDare 49 in 72 Stunden."
+        },
+        {
+            "textTag": "TutorialLevel_StatusSymbol",
+            "textContent": "Wenn ein Element einen Status hat, kann man dieses auch als Symbol links in der Liste sehen"
+        },
+        {
+            "textTag": "Level01Story_Teil7",
+            "textContent": "Los geht's!"
+        },
+        {
+            "textTag": "Level02Story_Teil1",
+            "textContent": "Wir wurden erneut\ngerufen, um auszuhelfen! Hier gibt es etwas neues!"
+        },
+        {
+            "textTag": "Level02Story_Teil2",
+            "textContent": "Dir steht jetzt der Schocker zu Verfügung. Damit kannst du einen ganz neuen Status erzeugen!"
+        },
+        {
+            "textTag": "Level02Story_Teil3",
+            "textContent": "Das neue dazugehörige Rezept wird nun auch angezeigt!"
+        },
+        {
+            "textTag": "Level02Story_Teil4",
+            "textContent": "Hoffentlich hast du dir das Rezept vom ersten Planeten gemerkt ;)"
         }
     ]
 }
