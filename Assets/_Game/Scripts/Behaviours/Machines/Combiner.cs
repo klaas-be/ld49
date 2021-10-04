@@ -12,6 +12,7 @@ public class Combiner : Machine
     [ReadOnly]
     [SerializeField] ElementComponent elementA, elementB, elementC;
     [SerializeField] float combineTime;
+    [SerializeField] bool isPoof = false;
 
     public override void Use(ElementComponent elementComponent)
     {
@@ -34,13 +35,13 @@ public class Combiner : Machine
 
         if (elementA && elementB)
         {
-            animator.SetBool("IsPoof", false);
-            canBeUsed = false;
+            animator.SetBool("IsPoof", false); isPoof = false;
+             canBeUsed = false;
             animator.SetTrigger("CombinerTrigger");
             Element e = CombineRecipes.GetResultOf(elementA._element, elementB._element);
             if (e == null)
             {
-                animator.SetBool("IsPoof", true);
+                animator.SetBool("IsPoof", true); isPoof = true;
             }
 
             StartCoroutine(CombineProcess());
@@ -57,8 +58,23 @@ public class Combiner : Machine
     {
         Element e = CombineRecipes.GetResultOf(elementA._element, elementB._element);
 
-        Destroy(elementA.gameObject);
-        Destroy(elementB.gameObject);
+        if (!isPoof)
+        {
+            Destroy(elementA.gameObject);
+            Destroy(elementB.gameObject);
+        }
+        else
+        {
+            elementA.transform.SetParent(null);
+            elementA.OnDrop();
+            elementA.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-1, 1), Random.value, Random.Range(-1, 1)), ForceMode.Impulse);
+            elementA.GetComponent<Rigidbody>().AddTorque(new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1)), ForceMode.Impulse);
+
+            elementB.transform.SetParent(null);
+            elementB.OnDrop();
+            elementB.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-1, 1), Random.value, Random.Range(-1, 1)), ForceMode.Impulse);
+            elementB.GetComponent<Rigidbody>().AddTorque(new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1)), ForceMode.Impulse);
+        }
 
         elementA = null;
         elementB = null;
