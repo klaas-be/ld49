@@ -318,7 +318,7 @@ GameObject:
   - component: {fileID: 751176712}
   m_Layer: 10
   m_Name: Crater
-  m_TagString: Untagged
+  m_TagString: Crater
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -387,13 +387,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   recipePool:
   - {fileID: 11400000, guid: 31264aa20f086364fa081b2c8b8b3fab, type: 2}
+  - {fileID: 11400000, guid: bf6f1ab1c91aa3a47a9d3ede350fe01c, type: 2}
   - {fileID: 11400000, guid: 4a6b5e0edb51202448f52089e156d331, type: 2}
-  - {fileID: 11400000, guid: 93d7e856cc865334da5e2d3a6df9681a, type: 2}
   queue: []
   spawnPoint: {fileID: 630450922774742442}
   targetPoint: {fileID: 1554291048083574292}
   throwForce: 10
-  forceVector: {x: -0.036999702, y: 1.5810002, z: -1.2350006}
   QueueDisplayParent: {fileID: 0}
   ElementDisplayPrefab: {fileID: 4547583170119364892, guid: 0f7c1891a1f68834991b9cb0cac7be13, type: 3}
 --- !u!64 &7752459798486043991

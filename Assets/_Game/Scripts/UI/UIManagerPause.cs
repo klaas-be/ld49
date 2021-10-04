@@ -3,19 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class UIManagerIngame : MonoBehaviour
+public class UIManagerPause : MonoBehaviour
 {
     [SerializeField]
-    private Canvas IngameMenu;
+    private Canvas PauseMenu;
     bool toggleCanvas;
 
     // Update is called once per frame
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.Escape) || toggleCanvas) {
-            IngameMenu.gameObject.SetActive(!IngameMenu.gameObject.activeSelf);
+            PauseMenu.gameObject.SetActive(!PauseMenu.gameObject.activeSelf);
 
-            if (IngameMenu.gameObject.activeSelf)
+            if (PauseMenu.gameObject.activeSelf)
             {
                 //gamemanager event "pause" mit "true" aufrufen
                 //timescale 0

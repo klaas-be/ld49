@@ -30,6 +30,50 @@
             "textContent": "Ton"
         },
         {
+            "textTag": "TutorialLevel_Movement",
+            "textContent": "Bewegen mit WASD"
+        },
+        {
+            "textTag": "TutorialLevel_Dash",
+            "textContent": "Boost mit UMSCHALT"
+        },
+        {
+            "textTag": "TutorialLevel_Chests",
+            "textContent": "Öffne Kisten mit LEERTASTE, um das gezeigte Element zu bekommen"
+        },
+        {
+            "textTag": "TutorialLevel_Burner",
+            "textContent": "Nutze LEERTASTE hier, um ein Element zu verbrennen"
+        },
+        {
+            "textTag": "TutorialLevel_Shocker",
+            "textContent": "Lege hier ZWEI Elemente hin, um sie zu vereinen"
+        },
+        {
+            "textTag": "TutorialLevel_Compressor",
+            "textContent": "Nutze LEERTASTE hier, um ein Element zu komprimieren"
+        },
+        {
+            "textTag": "TutorialLevel_Combiner",
+            "textContent": "Nutze LEERTASTE hier, um ein Element zu schocken"
+        },
+        {
+            "textTag": "TutorialLevel_RDrop",
+            "textContent": "Wenn du mit drei oder mehr Elementen DASH ausführst, verlierst du bis zu drei davon"
+        },
+        {
+            "textTag": "TutorialLevel_DashDrop",
+            "textContent": "Mit R kannst du das zuletzt aufgenommene Element fallen lassen"
+        },
+        {
+            "textTag": "TutorialLevel_Crater",
+            "textContent": "Der Krater fragt dich nach bestimmten Elementen und Status - Wirf sie mit LEERTASTE hinein"
+        },
+        {
+            "textTag": "TutorialLevel_Exit",
+            "textContent": "Zum Hauptmenü"
+        },
+        {
             "textTag": "PauseMenu_Title",
             "textContent": "Pause"
         },
@@ -83,7 +127,7 @@
         },
         {
             "textTag": "Level01Story_Teil4",
-            "textContent": "Sammle sie \nund nutze die Maschinen, um sie umzuwandeln und genau die Richtigen für den Krater zu finden!"
+            "textContent": "Sammle sie \nund nutze die Maschinen, um sie umzuwandeln \nund genau die Richtigen für den Krater zu finden!"
         },
         {
             "textTag": "Level01Story_Teil5",
@@ -92,6 +136,26 @@
         {
             "textTag": "GameUI_CraterScanner",
             "textContent": "Krater Abtastgerät"
+        },
+        {
+            "textTag": "Level01Story_Teil6",
+            "textContent": "Los geht's!"
+        },
+        {
+            "textTag": "WinMenu_WinText",
+            "textContent": "* Sieg *"
+        },
+        {
+            "textTag": "WinMenu_KeyText",
+            "textContent": "drücke eine Taste zu fortfahren.."
+        },
+        {
+            "textTag": "GameoverMenu_GameoverText",
+            "textContent": "Spiel verloren.."
+        },
+        {
+            "textTag": "GameUI_TimeLeft",
+            "textContent": "Zeit übrig:"
         }
     ]
 }

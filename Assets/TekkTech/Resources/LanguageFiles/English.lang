@@ -136,6 +136,26 @@
         {
             "textTag": "GameUI_CraterScanner",
             "textContent": "Crater Scanner"
+        },
+        {
+            "textTag": "Level01Story_Teil6",
+            "textContent": "Let's go!"
+        },
+        {
+            "textTag": "WinMenu_WinText",
+            "textContent": "* Win *"
+        },
+        {
+            "textTag": "WinMenu_KeyText",
+            "textContent": "press any key to continue.."
+        },
+        {
+            "textTag": "GameoverMenu_GameoverText",
+            "textContent": "Game over.."
+        },
+        {
+            "textTag": "GameUI_TimeLeft",
+            "textContent": "Time left:"
         }
     ]
 }

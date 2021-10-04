@@ -37,7 +37,7 @@ namespace Assets.TekkTech.Scripts.Language
 
         private void Awake()
         {
-            if (instance == null) 
+            if (instance == null)
                 instance = this;
             else
                 Destroy(this.gameObject);

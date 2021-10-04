@@ -48,7 +48,7 @@ namespace _Game.Scripts.Util
         if (m_Instance == null) {
 			m_Instance = this as T;
 		} else if (m_Instance != this) {
-			Debug.LogError ("Another instance of " + GetType () + " is already exist! Destroying self...");
+			//Debug.LogError ("Another instance of " + GetType () + " is already exist! Destroying self...");
 			DestroyImmediate (this);
 			return;
 		}

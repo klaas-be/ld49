@@ -12957,7 +12957,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81beb7f0475c5e4ba645eeb581bd8ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newGame: 1
+  newGame: 2
   howToPlay: 1
   SettingsPanel: {fileID: 394640164}
   CreditsPanel: {fileID: 1629603421}

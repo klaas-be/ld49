@@ -1,26 +1,61 @@
+using _Game.Scripts.Behaviours;
 using _Game.Scripts.UI;
 using Assets.TekkTech.Scripts.Utility;
 using NaughtyAttributes;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
 
-    [SerializeField] private int LevelIndex = 0;
+    [Space(20), Header("Links")]
+    [SerializeField, ReadOnly] private CharacterMovement PlayerController;
+    [SerializeField, ReadOnly] private RecipeQueue CraterController;
     [SerializeField] TimeEventController craterTimeController;
-    [Space(20)]
+
+    [Space(20), Header("Level Settings")]
     [SerializeField, ReadOnly] private GameState gameState;
-    private GameState stateBeforePause;
-    [Space(20)]
+    [SerializeField, ReadOnly] private GameState stateBeforePause;
+    [SerializeField] private int LevelIndex = 0;
+    [SerializeField] private bool isTutorial = false;
+    [SerializeField] private int nextSceneAfterWinID;
+    [SerializeField] private int secondsUntilWin = 120;
+    [SerializeField, ReadOnly] private float secondsTimer = 0;
+    [Space(10)]
+    [SerializeField] private float craterMaxInstability = 100f;
+    [SerializeField, ReadOnly] private float craterCurrentInstability;
+    [SerializeField] private float instabilityDowngradeMultiplier = 1f;
+
+    [Space(20), Header("Story UI Settings")]
     [SerializeField] private GameObject storyCanvasGameobject;
     [SerializeField] private UiTextSetter uiTextSetter;
     [SerializeField] private List<LanguageTags> languageTagsLevelStory;
     [SerializeField, ReadOnly] private int storyIndex = -1;
+
+    [Space(20), Header("Ingame UI Settings")]
+    [SerializeField] private GameObject IngameUI;
+    [SerializeField] private GameObject CraterScannerUI;
+    [SerializeField] private GameObject InstabilityUI;
+    [SerializeField] private RectTransform boostBarTransform;
+    [SerializeField] private TMPro.TextMeshProUGUI TimeLeftTimeText;
+    [SerializeField] private RectTransform instabilityBarTransform;
+
+    [Space(20), Header("Win Menu Settings")]
+    [SerializeField] private GameObject WinMenu;
+    [SerializeField] private GameObject WinMenuKeyText;
+    [SerializeField] private float timeToContinue = 2f;
+    [SerializeField, ReadOnly] private bool canContinue = false;
+
+    [Space(20), Header("Gameover Menu Settings")]
+    [SerializeField] private GameObject GameoverMenu;
+    [SerializeField] private GameObject GameoverMenuKeyText;
+
     [Space(20)]
-    [SerializeField, ReadOnly] private int startupCounter = 3;
+    private int startupCounter = 3;
 
     public bool CanPlayerMove { get { return gameState == GameState.InGame; } }
 
@@ -32,17 +67,28 @@ public class GameManager : MonoBehaviour
         InGame,
         Gameover,
         Win,
+        TransitionToNext,
     }
 
     private void Awake()
     {
         if (!instance)
             instance = this;
+
+        PlayerController = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>();
+        CraterController = GameObject.FindGameObjectWithTag("Crater").GetComponent<RecipeQueue>();
     }
 
     private void Start()
     {
-        gameState = GameState.StoryIntro;
+        IngameUI.SetActive(false);
+
+        if (isTutorial)
+        {
+            SetIngame();
+            return;
+        }
+
         AdvanceStory();
     }
 
@@ -78,25 +124,60 @@ public class GameManager : MonoBehaviour
             case GameState.Pause:
                 break;
             case GameState.InGame:
-                storyCanvasGameobject.SetActive(false);
-                break;
-            case GameState.Gameover:
+                IngameUpdate();
                 break;
             case GameState.Win:
+            case GameState.Gameover:
+                if (Input.anyKeyDown && canContinue)
+                {
+                    SetTransition();
+                }
+                break;
+            case GameState.TransitionToNext:
                 break;
             default:
                 break;
         }
     }
 
+    private void IngameUpdate()
+    {
+
+        secondsTimer += Time.deltaTime;
+
+        if (secondsTimer >= secondsUntilWin)
+        {
+            SetWinLevel();
+        }
+
+        boostBarTransform.anchoredPosition = Vector2.Lerp(Vector2.zero, new Vector2(0, -boostBarTransform.sizeDelta.y), PlayerController._dashCooldownTimer / PlayerController._dashCooldown);
+
+        if (isTutorial)
+            return;
+
+        //Timer
+        TimeSpan time = TimeSpan.FromSeconds(secondsUntilWin - secondsTimer);
+        TimeLeftTimeText.text = time.ToString(@"mm\:ss\:fff");
+
+        //Crater Instabilty
+        craterCurrentInstability -= Time.deltaTime * instabilityDowngradeMultiplier * CraterController.queue.Count;
+        if (craterCurrentInstability <= 0f)
+        {
+            SetGameOver();
+        }
+
+        craterCurrentInstability = Mathf.Clamp(craterCurrentInstability, 0, craterMaxInstability);
+        instabilityBarTransform.localScale = new Vector3(1- craterCurrentInstability / craterMaxInstability, 1, 1);
+    }
+
     public void AdvanceStory()
     {
+        storyCanvasGameobject.SetActive(true);
         storyIndex++;
         if (storyIndex >= languageTagsLevelStory.Count)
         {
             gameState = GameState.StartUp;
-            Debug.Log(gameState.ToString());
-            InvokeRepeating("StartUpTimer", 0f,1f);
+            InvokeRepeating("StartUpTimer", 0f, 1f);
             return;
         }
 
@@ -138,5 +219,65 @@ public class GameManager : MonoBehaviour
     public void SetIngame()
     {
         gameState = GameState.InGame;
+        storyCanvasGameobject.SetActive(false);
+        IngameUI.SetActive(true);
+        craterCurrentInstability = craterMaxInstability;
+
+        if (isTutorial)
+        {
+            CraterScannerUI.SetActive(false);
+            InstabilityUI.SetActive(false);
+        }
+        else
+        {
+            craterTimeController.isOn = true;
+        }
+    }
+    [Button()]
+    public void SetGameOver()
+    {
+        canContinue = false;
+        gameState = GameState.Gameover;
+        craterTimeController.isOn = false;
+        IngameUI.SetActive(false);
+
+        GameoverMenu.SetActive(true);
+        GameoverMenuKeyText.SetActive(false);
+        Invoke("SetGameoverKeyText", timeToContinue);
+    }
+    private void SetGameoverKeyText()
+    {
+        canContinue = true;
+        GameoverMenuKeyText.SetActive(true);
+    }
+
+    [Button()]
+    public void SetWinLevel()
+    {
+        canContinue = false;
+        gameState = GameState.Win;
+        craterTimeController.isOn = false;
+        IngameUI.SetActive(false);
+
+        WinMenu.SetActive(true);
+        WinMenuKeyText.SetActive(false);
+        Invoke("SetWinKeyTextOn", timeToContinue);
+    }
+    private void SetWinKeyTextOn()
+    {
+        canContinue = true;
+        WinMenuKeyText.SetActive(true);
+    }
+
+    public void SetTransition()
+    {
+        gameState = GameState.TransitionToNext;
+        SceneManager.LoadScene(nextSceneAfterWinID, LoadSceneMode.Single);
+    }
+
+    public void CraterAddBonusFromItem(float bonus)
+    {
+        craterCurrentInstability += bonus;
+        craterCurrentInstability = Mathf.Clamp(craterCurrentInstability, 0, craterMaxInstability);
     }
 }

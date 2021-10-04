@@ -18,7 +18,6 @@ namespace _Game.Scripts.Behaviours
         public Transform spawnPoint;
         public Transform targetPoint;
         public float throwForce; 
-        [SerializeField, ReadOnly] Vector3 forceVector = new Vector3(0,1,-1);
 
         [Header("Queue Element display")]
         public Transform QueueDisplayParent;
@@ -31,16 +30,19 @@ namespace _Game.Scripts.Behaviours
             if(recipePool.Count == 0) return;
             var picked = recipePool[Random.Range(0, recipePool.Count)];
             queue.Add(picked);
-            foreach (var e in picked.toSpawn)
+            if (picked.toSpawn.Count > 0)
             {
-                var element = ElementSpawner.Instance.Spawn(e.elementType, transform.position);
-                element.OnPickUp();
-                element.transform.position = spawnPoint.position; 
-                Rigidbody rigidbody = element.GetComponent<Rigidbody>();
-                rigidbody.isKinematic = false;
-                rigidbody.AddForce(forceVector.normalized * throwForce, ForceMode.Impulse);
-                rigidbody.AddTorque(new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1))*throwForce, ForceMode.Impulse);
-                StartCoroutine(EnableCollider(element));
+                foreach (var e in picked.toSpawn)
+                {
+                    var element = ElementSpawner.Instance.Spawn(e.elementType, transform.position);
+                    element.OnPickUp();
+                    element.transform.position = spawnPoint.position;
+                    Rigidbody rigidbody = element.GetComponent<Rigidbody>();
+                    rigidbody.isKinematic = false;
+                    rigidbody.AddForce((targetPoint.position - spawnPoint.position).normalized * throwForce, ForceMode.Impulse);
+                    rigidbody.AddTorque(new Vector3(Random.Range(-1, 1), Random.Range(-1, 1), Random.Range(-1, 1)) * throwForce, ForceMode.Impulse);
+                    StartCoroutine(EnableCollider(element));
+                }
             }
             DisplayRequested();
         }
@@ -54,7 +56,10 @@ namespace _Game.Scripts.Behaviours
         {
             var completed = queue.Find(recipe => recipe.requested.elementType == element.elementType);
             if(completed != null)
-                queue.Remove(completed); 
+            {
+                GameManager.instance.CraterAddBonusFromItem(completed.FinishInstabilityBonus);
+                queue.Remove(completed);
+            }
             DisplayRequested();
         }
 
@@ -84,7 +89,6 @@ namespace _Game.Scripts.Behaviours
         {
             Gizmos.DrawWireSphere(spawnPoint.position, 0.2f);
             Gizmos.DrawWireSphere(targetPoint.position, 0.2f);
-            forceVector = targetPoint.position - spawnPoint.position;
             Gizmos.DrawLine(spawnPoint.position, targetPoint.position);
         }
     }
