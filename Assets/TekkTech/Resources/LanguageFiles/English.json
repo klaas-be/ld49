@@ -156,6 +156,10 @@
         {
             "textTag": "GameUI_TimeLeft",
             "textContent": "Time left:"
+        },
+        {
+            "textTag": "TutorialLevel_Wascher",
+            "textContent": "To remove a status-\neffect put the Element in the washer and wait"
         }
     ]
 }

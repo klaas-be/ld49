@@ -38,6 +38,7 @@ public enum LanguageTags
 	TutorialLevel_Movement=8,
 	TutorialLevel_RDrop=16,
 	TutorialLevel_Shocker=14,
+	TutorialLevel_Wascher=40,
 	WinMenu_KeyText=36,
 	WinMenu_WinText=37
 }

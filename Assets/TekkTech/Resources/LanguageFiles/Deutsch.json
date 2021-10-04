@@ -156,6 +156,10 @@
         {
             "textTag": "GameUI_TimeLeft",
             "textContent": "Zeit übrig:"
+        },
+        {
+            "textTag": "TutorialLevel_Wascher",
+            "textContent": "Um einen Status-\neffekt zu entfernen, lege das Element in die Spüle"
         }
     ]
 }

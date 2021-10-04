@@ -62,6 +62,12 @@ namespace _Game.Scripts.Classes
         }
 
         //Mechanismen
+        public void ResetStatus()
+        {
+            elementStatus = ElementStatus.Default;
+            burnParticles.SetActive(false);
+            shockerGO.SetActive(false);
+        }
         public void Burn()
         {
             elementStatus = ElementStatus.Burned;

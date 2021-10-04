@@ -143,6 +143,10 @@ public class GameManager : MonoBehaviour
 
     private void IngameUpdate()
     {
+        boostBarTransform.anchoredPosition = Vector2.Lerp(Vector2.zero, new Vector2(0, -boostBarTransform.sizeDelta.y), PlayerController._dashCooldownTimer / PlayerController._dashCooldown);
+
+        if (isTutorial)
+            return;
 
         secondsTimer += Time.deltaTime;
 
@@ -150,11 +154,6 @@ public class GameManager : MonoBehaviour
         {
             SetWinLevel();
         }
-
-        boostBarTransform.anchoredPosition = Vector2.Lerp(Vector2.zero, new Vector2(0, -boostBarTransform.sizeDelta.y), PlayerController._dashCooldownTimer / PlayerController._dashCooldown);
-
-        if (isTutorial)
-            return;
 
         //Timer
         TimeSpan time = TimeSpan.FromSeconds(secondsUntilWin - secondsTimer);
