@@ -156,6 +156,10 @@
         {
             "textTag": "GameUI_TimeLeft",
             "textContent": "Time left:"
+        },
+        {
+            "textTag": "CreditsMenu_MadeForLD",
+            "textContent": "Made for LudumDare 49 in 72 hours."
         }
     ]
 }

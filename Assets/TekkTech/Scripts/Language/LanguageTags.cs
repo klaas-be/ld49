@@ -2,6 +2,7 @@ public enum LanguageTags
 {
 	None=0,
 	CreditsMenu_aGameBy=24,
+	CreditsMenu_MadeForLD=40,
 	CreditsMenu_Title=25,
 	GameoverMenu_GameoverText=38,
 	GameUI_CraterScanner=19,
