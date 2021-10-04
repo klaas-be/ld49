@@ -99,7 +99,7 @@
         },
         {
             "textTag": "Level01Story_Teil1",
-            "textContent": "Hey my little \nRobot-friend!\nThe Planet is heating up!"
+            "textContent": "Hey my little \nRobot-friend!\nThe planet is heating up!"
         },
         {
             "textTag": "Level01Story_Teil2",
@@ -107,7 +107,7 @@
         },
         {
             "textTag": "Level01Story_Teil3",
-            "textContent": "The Scanner \nshows you which Elements sooth the Crater!\nWatch the status!"
+            "textContent": "The Scanner \nshows you which Elements sooth the crater!\nWatch the status!"
         },
         {
             "textTag": "StartupCount_3",
@@ -127,11 +127,11 @@
         },
         {
             "textTag": "Level01Story_Teil4",
-            "textContent": "Collect elements and \nuse the Machines to craft \nthe right ones for the Crater!"
+            "textContent": "Collect elements and \nuse the machines to craft \nthe right ones for the crater!"
         },
         {
             "textTag": "Level01Story_Teil5",
-            "textContent": "Climb the Stairs to \nthe Crater and throw them in!"
+            "textContent": "Climb the stairs to \nthe crater and throw them in!"
         },
         {
             "textTag": "GameUI_CraterScanner",
@@ -143,7 +143,7 @@
         },
         {
             "textTag": "WinMenu_WinText",
-            "textContent": "You won! Onto the next level!"
+            "textContent": "You won! \nOnto the next planet!"
         },
         {
             "textTag": "WinMenu_KeyText",
@@ -211,15 +211,15 @@
         },
         {
             "textTag": "Level03Story_Teil1",
-            "textContent": "Oh, this time it looks like we need to use some Teleporters \n\rto get to all of our equipment."
+            "textContent": "Oh, this time it looks like we need to use some teleporters \n\rto get to all of our equipment."
         },
         {
             "textTag": "Level03Story_Teil2",
-            "textContent": "Also that seems \nto be a Compressor over there!\nThat means we can use new recipes!"
+            "textContent": "Also that seems \nto be a compressor over there!\nThat means we can use new recipes!"
         },
         {
             "textTag": "Level03Story_Teil3",
-            "textContent": "The state of this \ncrater looks similar to the last one.\nThat means we have only 4 Minutes!"
+            "textContent": "The state of this \ncrater looks similar to the last one.\nThat means we have only 4 minutes!"
         },
         {
             "textTag": "Level03Story_Teil4",
