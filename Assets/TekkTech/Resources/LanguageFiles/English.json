@@ -179,15 +179,15 @@
         },
         {
             "textTag": "Level02Story_Teil2",
-            "textContent": "You now have the shocker at your disposal. With it you can create a whole new status effect!"
+            "textContent": "You now have \nthe shocker at your disposal. With it you can create a whole new status effect!"
         },
         {
             "textTag": "Level02Story_Teil3",
-            "textContent": "The new associated recipe is now also displayed!"
+            "textContent": "The new \nassociated recipe is now also displayed!"
         },
         {
             "textTag": "Level02Story_Teil4",
-            "textContent": "Hope you remembered the recipe from the first planet ;)"
+            "textContent": "Hope you \nremembered the recipe from the first planet ;)"
         }
     ]
 }

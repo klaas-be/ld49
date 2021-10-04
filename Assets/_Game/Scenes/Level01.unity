@@ -20287,6 +20287,10 @@ PrefabInstance:
       value: 180
       objectReference: {fileID: 0}
     - target: {fileID: 8074316927968466874, guid: d83940901edbfdc43a602e7bf895f98a, type: 3}
+      propertyPath: nextSceneAfterWinID
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8074316927968466874, guid: d83940901edbfdc43a602e7bf895f98a, type: 3}
       propertyPath: languageTagsLevelStory.Array.size
       value: 7
       objectReference: {fileID: 0}

@@ -179,15 +179,15 @@
         },
         {
             "textTag": "Level02Story_Teil2",
-            "textContent": "Dir steht jetzt der Schocker zu Verfügung. Damit kannst du einen ganz neuen Status erzeugen!"
+            "textContent": "Dir steht jetzt \nder Schocker zu Verfügung. Damit kannst du einen ganz neuen Status erzeugen!"
         },
         {
             "textTag": "Level02Story_Teil3",
-            "textContent": "Das neue dazugehörige Rezept wird nun auch angezeigt!"
+            "textContent": "Das neue \ndazugehörige Rezept wird nun auch angezeigt!"
         },
         {
             "textTag": "Level02Story_Teil4",
-            "textContent": "Hoffentlich hast du dir das Rezept vom ersten Planeten gemerkt ;)"
+            "textContent": "Hoffentlich hast \ndu dir das Rezept vom ersten Planeten gemerkt ;)"
         }
     ]
 }
