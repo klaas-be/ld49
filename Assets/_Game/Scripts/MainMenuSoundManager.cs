@@ -20,7 +20,5 @@ public class MainMenuSoundManager : MonoBehaviour
         for (int i = 0; i < audioSources.Count; i++) {
             audioSources[i].mute = !state;
         }
-
-        Debug.Log("Sound Setting switched!");
     }
 }
