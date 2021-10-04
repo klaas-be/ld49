@@ -20,7 +20,7 @@ namespace Assets.TekkTech.Scripts.Language
         [HideInInspector]
         public Languages currentLanguage;
         public static Languages newLanguage;
-        
+
         public bool setLanguageOnStart = true;
 
         public static readonly string DirectoryPath = Path.DirectorySeparatorChar + "TekkTech" + Path.DirectorySeparatorChar + "Resources" + Path.DirectorySeparatorChar + "LanguageFiles" + Path.DirectorySeparatorChar;
@@ -77,10 +77,11 @@ namespace Assets.TekkTech.Scripts.Language
         {
             instance.currentLanguage = languageToLoad;
             newLanguage = languageToLoad;
-            string filePath = GetFilePathForLanguage(languageToLoad);
 
-            s_loadedLanguageFile = GetLanguageDataFromFile(filePath);
-            if (showOnlyTags) 
+            //string filePath = GetFilePathForLanguage(languageToLoad);
+            s_loadedLanguageFile = GetLanguageDataFromFile(languageToLoad);
+
+            if (showOnlyTags)
                 s_loadedLanguageFile = new LanguageFile(s_loadedLanguageFile);
 
             if (s_loadedLanguageFile == null) return;
@@ -94,11 +95,19 @@ namespace Assets.TekkTech.Scripts.Language
 
         public static LanguageFile GetLanguageDataFromFile(Languages languageToLoad)
         {
-            string filePath = GetFilePathForLanguage(languageToLoad);
-            return GetLanguageDataFromFile(filePath);
+            //string filePath = GetFilePathForLanguage(languageToLoad);
+            if (!LanguageFileExists(languageToLoad))
+            {
+                Debug.LogWarning("TekkTech: Language File " + languageToLoad.ToString() + " does not exist.");
+                return null;
+            }
+
+            LanguageFile tempLanguageFile = JsonUtility.FromJson<LanguageFile>(GetTextAssetFromLanguage(languageToLoad).text);
+
+            return tempLanguageFile;
         }
 
-        public static LanguageFile GetLanguageDataFromFile(string filePath)
+        /*public static LanguageFile GetLanguageDataFromFile(Languages language)
         {
             if (!File.Exists(filePath))
             {
@@ -106,15 +115,11 @@ namespace Assets.TekkTech.Scripts.Language
                 return null;
             }
 
-            LanguageFile tempLanguageFile = JsonUtility.FromJson<LanguageFile>(File.ReadAllText(filePath));
+            //LanguageFile tempLanguageFile = JsonUtility.FromJson<LanguageFile>(File.ReadAllText(filePath));
+            LanguageFile tempLanguageFile = JsonUtility.FromJson<LanguageFile>(GetTextAssetFromLanguage(language).text);
             return tempLanguageFile;
-        }
+        }*/
 
-        public static bool LanguageFileExists(Languages languages)
-        {
-            string filePath = GetFilePathForLanguage(languages);
-            return File.Exists(filePath);
-        }
 
         public static string GetTextForTag(LanguageTags tag)
         {
@@ -127,6 +132,14 @@ namespace Assets.TekkTech.Scripts.Language
             return returnText;
         }
 
+
+        public static bool LanguageFileExists(Languages languages)
+        {
+            return GetTextAssetFromLanguage(languages);
+
+        }
+
+#if UNITY_EDITOR
         public static void GenerateKeysFromEnum()
         {
             fileKeys.Clear();
@@ -135,6 +148,7 @@ namespace Assets.TekkTech.Scripts.Language
                 fileKeys.Add(tag.ToString());
             });
         }
+
 
         public static void WriteNewKeysToLanguageFile(Languages language, List<string> keys, List<string> content = null)
         {
@@ -157,7 +171,7 @@ namespace Assets.TekkTech.Scripts.Language
             File.WriteAllText(filePath, languagesFile.GetJsonFormat());
         }
 
-#if UNITY_EDITOR
+
         public static void RemoveTagsFromLanguageFile(Languages language, List<string> tagsToRemove)
         {
             if (tagsToRemove.Count == 0) return;
@@ -188,7 +202,7 @@ namespace Assets.TekkTech.Scripts.Language
             AssetDatabase.Refresh();
             return file;
         }
-#endif
+
 
         public static void RemoveLanguageFile(Languages language)
         {
@@ -199,15 +213,24 @@ namespace Assets.TekkTech.Scripts.Language
             File.Delete(filePath);
             File.Delete(metaPath);
         }
+#endif
 
         private static string GetFilePathForLanguage(Languages language)
         {
 #if UNITY_EDITOR
-            return Application.dataPath + DirectoryPath + language.ToString() + ".lang";
+            return Application.dataPath + DirectoryPath + language.ToString() + ".json";
 #endif
-#if UNITY_STANDALONE
-            return System.IO.Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "Assets" + DirectoryPath + language.ToString() + ".lang";
+#if UNITY_STANDALONE || UNITY_WEBGL
+            return "";
+            //eturn System.IO.Directory.GetCurrentDirectory() + Path.DirectorySeparatorChar + "Assets" + DirectoryPath + language.ToString() + ".json";
 #endif
+        }
+
+        private static TextAsset GetTextAssetFromLanguage(Languages language)
+        {
+            //#if UNITY_STANDALONE || UNITY_WEBGL
+            return Resources.Load<TextAsset>("LanguageFiles/" + language.ToString());
+            //#endif
         }
     }
 }

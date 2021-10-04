@@ -1060,14 +1060,15 @@ namespace Assets.TekkTech.Editor
 
         private LanguageFile LoadOrCreateLanguageFile(Languages languageToLoad)
         {
-            string path = Application.dataPath + LANGUAGES_RESOURCE_PATH + languageToLoad.ToString() + ".lang";
-            if (!File.Exists(path))
+            //string path = Application.dataPath + LANGUAGES_RESOURCE_PATH + languageToLoad.ToString() + ".json";
+            if (!LocalizationManager.LanguageFileExists(languageToLoad))
             {
+                Debug.Log("File ist leer, neu machen");
                 LanguageFile newFile = new LanguageFile(m_englishFile, languageToLoad);
                 return LocalizationManager.WriteNewLanguageFile(languageToLoad, newFile);
             }
 
-            LanguageFile file = LocalizationManager.GetLanguageDataFromFile(path);
+            LanguageFile file = LocalizationManager.GetLanguageDataFromFile(languageToLoad);
             return file;
         }
 
