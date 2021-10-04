@@ -14,17 +14,23 @@ public class UIManagerIngame : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.Escape) || toggleCanvas) {
             IngameMenu.gameObject.SetActive(!IngameMenu.gameObject.activeSelf);
-            toggleCanvas = false;
-        }
 
-        if(IngameMenu.gameObject.activeSelf) {
-            //gamemanager event "pause" mit "true" aufrufen
-            //timescale 0
-            Time.timeScale = 0;
-        } else {
-            //gamemanager event "pause" mit "false" aufrufen
-            //timescale normal
-            Time.timeScale = 1;
+            if (IngameMenu.gameObject.activeSelf)
+            {
+                //gamemanager event "pause" mit "true" aufrufen
+                //timescale 0
+                GameManager.instance.Pause(true);
+                Time.timeScale = 0;
+            }
+            else
+            {
+                //gamemanager event "pause" mit "false" aufrufen
+                //timescale normal
+                GameManager.instance.Pause(false);
+                Time.timeScale = 1;
+            }
+
+            toggleCanvas = false;
         }
     }
 

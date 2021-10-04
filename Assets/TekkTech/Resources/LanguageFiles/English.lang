@@ -100,6 +100,34 @@
         {
             "textTag": "CreditsMenu_aGameBy",
             "textContent": "A Game by:"
+        },
+        {
+            "textTag": "Level01Story_Teil1",
+            "textContent": "Test story 01"
+        },
+        {
+            "textTag": "Level01Story_Teil2",
+            "textContent": "Test story 02"
+        },
+        {
+            "textTag": "Level01Story_Teil3",
+            "textContent": "Test story 03"
+        },
+        {
+            "textTag": "StartupCount_3",
+            "textContent": "3.."
+        },
+        {
+            "textTag": "StartupCount_2",
+            "textContent": "2.."
+        },
+        {
+            "textTag": "StartupCount_1",
+            "textContent": "1.."
+        },
+        {
+            "textTag": "StartupCount_Go",
+            "textContent": "Go!"
         }
     ]
 }
