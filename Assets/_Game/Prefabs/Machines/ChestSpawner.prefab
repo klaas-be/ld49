@@ -119,7 +119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canBeUsed: 1
   isUsable: 0
-  spawnType: 2
+  spawnType: 0
   animator: {fileID: 9171027342166845330}
   ThrowTarget: {fileID: 9171027343044660390}
   SpawnPoint: {fileID: 9171027343996054037}
