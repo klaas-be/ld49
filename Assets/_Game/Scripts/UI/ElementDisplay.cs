@@ -20,11 +20,19 @@ public class ElementDisplay : MonoBehaviour
     {
         foreach (var icon in statusIcons) icon.gameObject.SetActive(false);
 
-        if (element.elementStatus != Element.ElementStatus.Default)
+        if (element != null)
         {
-            statusIcons[0].sprite =
-                ElementSpawner.Instance.StatusIcons.Find(stat => stat.status == element.elementStatus).icon;
-            statusIcons[0].gameObject.SetActive(true);
+            if (element.elementStatus != Element.ElementStatus.Default)
+            {
+                statusIcons[0].sprite =
+                    ElementSpawner.Instance.StatusIcons.Find(stat => stat.status == element.elementStatus).icon;
+                statusIcons[0].gameObject.SetActive(true);
+            }
         }
+        else
+        {
+            statusIcons[0].gameObject.SetActive(false);
+        }
+
     }
 }

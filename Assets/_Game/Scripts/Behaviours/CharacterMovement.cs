@@ -73,48 +73,55 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Dash
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
-        {
-            dashFlag = true;
-            canDash = false;
-            _dashCooldownTimer = _dashCooldown;
-        }
-        if (_dashCooldownTimer > 0)
-        {
-            _dashCooldownTimer -= Time.deltaTime;
-        }
-        else
-        {
-            canDash = true;
-        }
+        
+            //Dash
+            if (Input.GetKeyDown(KeyCode.LeftShift) && canDash)
+            {
+                dashFlag = true;
+                canDash = false;
+                _dashCooldownTimer = _dashCooldown;
+            }
+            if (_dashCooldownTimer > 0)
+            {
+                _dashCooldownTimer -= Time.deltaTime;
+            }
+            else
+            {
+                canDash = true;
+            }
 
 
-        //DropItem
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            dropFlag = true;
-        }
-        //SlowTest
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            SwitchState(MovementState.Slowed);
-        }
-        //StunnedTest
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            SwitchState(MovementState.Stunned);
-        }
+            //DropItem
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                dropFlag = true;
+            }
 
-        var movementDirection = UpdateMovementPosition();
-        RotateToDirection(movementDirection);
+            /*/SlowTest
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                SwitchState(MovementState.Slowed);
+            }
+            //StunnedTest
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                SwitchState(MovementState.Stunned);
+            }*/
+
+            var movementDirection = UpdateMovementPosition();
+            RotateToDirection(movementDirection);
+        
     }
 
 
     private Vector3 UpdateMovementPosition()
     {
-        var horizontalMovement = Input.GetAxis("Horizontal");
-        var verticalMovement = Input.GetAxis("Vertical");
+        float horizontalMovement=0f, verticalMovement = 0f;
+        if (GameManager.instance.CanPlayerMove)
+        {
+            horizontalMovement = Input.GetAxis("Horizontal");
+            verticalMovement = Input.GetAxis("Vertical");
+        }
 
         movementDirection = new Vector3(horizontalMovement, 0, verticalMovement);
         movementDirection = Vector3.ClampMagnitude(movementDirection, 1);

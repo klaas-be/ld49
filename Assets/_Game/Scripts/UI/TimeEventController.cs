@@ -14,36 +14,38 @@ namespace _Game.Scripts.UI
         public List<TimeEvent> TimeEvents = new List<TimeEvent>();
 
         public TimeEvent repeatConstantly = new TimeEvent();
-        public float cachedRepeatConstantlyTime; 
+        [ReadOnly] public float cachedRepeatConstantlyTime;
 
+        [ReadOnly] public bool isOn = false;
 
         public void Awake()
         {
-            cachedRepeatConstantlyTime = repeatConstantly.time; 
+            cachedRepeatConstantlyTime = repeatConstantly.time;
         }
 
         private void FixedUpdate()
         {
-            currentTime += Time.fixedDeltaTime;
-
-            repeatConstantly.time -= Time.deltaTime; 
-            if(repeatConstantly.time <0)
+            if (isOn)
             {
-                repeatConstantly.e.Invoke();
-                repeatConstantly.time = cachedRepeatConstantlyTime; 
-            }
+                currentTime += Time.fixedDeltaTime;
 
-
-            for (var i = 0; i < TimeEvents.Count; i++)
-            {
-                if (TimeEvents[i].time < currentTime)
+                repeatConstantly.time -= Time.deltaTime;
+                if (repeatConstantly.time < 0)
                 {
-                    TimeEvents[i].e.Invoke();
-                    TimeEvents.Remove(TimeEvents[i]);
-                    break; 
+                    repeatConstantly.e.Invoke();
+                    repeatConstantly.time = cachedRepeatConstantlyTime;
                 }
 
-               
+
+                for (var i = 0; i < TimeEvents.Count; i++)
+                {
+                    if (TimeEvents[i].time < currentTime)
+                    {
+                        TimeEvents[i].e.Invoke();
+                        TimeEvents.Remove(TimeEvents[i]);
+                        break;
+                    }
+                }
             }
         }
     }
@@ -51,7 +53,7 @@ namespace _Game.Scripts.UI
     [System.Serializable]
     public struct TimeEvent
     {
-        public float time; 
-        public UnityEvent e; 
+        public float time;
+        public UnityEvent e;
     }
 }

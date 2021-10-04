@@ -30,6 +30,54 @@
             "textContent": "Ton"
         },
         {
+            "textTag": "TutorialLevel_Movement",
+            "textContent": "Bewegen mit WASD"
+        },
+        {
+            "textTag": "TutorialLevel_Dash",
+            "textContent": "Boost mit UMSCHALT"
+        },
+        {
+            "textTag": "TutorialLevel_Chests",
+            "textContent": "Öffne Kisten mit LEERTASTE, um das gezeigte Element zu bekommen"
+        },
+        {
+            "textTag": "TutorialLevel_Burner",
+            "textContent": "Nutze LEERTASTE hier, um ein Element zu verbrennen"
+        },
+        {
+            "textTag": "TutorialLevel_Shocker",
+            "textContent": "Nutze LEERTASTE hier, um ein Element zu schocken"
+        },
+        {
+            "textTag": "TutorialLevel_Compressor",
+            "textContent": "Nutze LEERTASTE hier, um ein Element zu komprimieren"
+        },
+        {
+            "textTag": "TutorialLevel_Combiner",
+            "textContent": "Lege hier ZWEI Elemente hin, um sie zu vereinen"
+        },
+        {
+            "textTag": "TutorialLevel_RDrop",
+            "textContent": "Mit R kannst du das zuletzt aufgenommene Element fallen lassen"
+        },
+        {
+            "textTag": "TutorialLevel_DashDrop",
+            "textContent": "Wenn du mit drei oder mehr Elementen DASH ausführst, verlierst du bis zu drei davon"
+        },
+        {
+            "textTag": "TutorialLevel_Crater",
+            "textContent": "Der Krater fragt dich nach bestimmten Elementen und Status - Wirf sie mit LEERTASTE hinein"
+        },
+        {
+            "textTag": "TutorialLevel_Exit",
+            "textContent": "Zum Hauptmenü"
+        },
+        {
+            "textTag": "GameUI_CraterScanner",
+            "textContent": "Krater Abtaster"
+        },
+        {
             "textTag": "PauseMenu_Title",
             "textContent": "Pause"
         },
