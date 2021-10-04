@@ -89,12 +89,12 @@ GameObject:
   - component: {fileID: 2203834034128111044}
   - component: {fileID: 2203834034128111045}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: CanvasSTORY
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2203834034128111046
 RectTransform:
   m_ObjectHideFlags: 0
@@ -445,11 +445,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b90171999685d6409bf23eaa8ff9675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LevelIndex: 1
+  PlayerController: {fileID: 0}
+  CraterController: {fileID: 0}
   craterTimeController: {fileID: 0}
   gameState: 0
+  stateBeforePause: 0
+  LevelIndex: 1
+  isTutorial: 0
+  nextSceneAfterWinID: 0
+  secondsUntilWin: 120
+  secondsTimer: 0
+  craterMaxInstability: 100
+  craterCurrentInstability: 0
+  instabilityDowngradeMultiplier: 1
   storyCanvasGameobject: {fileID: 2203834034128111047}
   uiTextSetter: {fileID: 2203834034724478034}
-  languageTagsLevelStory: 1a0000001b0000001c0000002100000022000000
+  languageTagsLevelStory: 1a0000001b0000001c000000210000002200000023000000
   storyIndex: -1
-  startupCounter: 3
+  IngameUI: {fileID: 0}
+  boostBarTransform: {fileID: 0}
+  TimeLeftTimeText: {fileID: 0}
+  instabilityBarTransform: {fileID: 0}
+  WinMenu: {fileID: 0}
+  WinMenuKeyText: {fileID: 0}
+  timeToContinue: 2
+  canContinue: 0
+  GameoverMenu: {fileID: 0}
+  GameoverMenuKeyText: {fileID: 0}

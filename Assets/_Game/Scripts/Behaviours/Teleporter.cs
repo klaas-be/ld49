@@ -3,6 +3,7 @@ using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Teleporter : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class Teleporter : MonoBehaviour
     [SerializeField] private bool dropItemsOnPort = false;
     [ReadOnly] [SerializeField] private bool teleport = false;
     [SerializeField] private float lineUp = 1.5f;
+    [SerializeField] private UnityEvent unityEvent;
 
     private void LateUpdate()
     {
@@ -26,6 +28,7 @@ public class Teleporter : MonoBehaviour
             charController.enabled = false;
             player.position = targetPos.position + Vector3.up;
             charController.enabled = true;
+            unityEvent.Invoke();
         }
     }
 

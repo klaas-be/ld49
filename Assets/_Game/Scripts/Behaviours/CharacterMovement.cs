@@ -25,9 +25,9 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] private bool dashFlag;
     [SerializeField] private float _dashSpeed;
     [SerializeField] private float _dashTime;
-    [ReadOnly]
-    [SerializeField] private float _dashCooldownTimer;
-    [SerializeField] private float _dashCooldown;
+
+    [SerializeField, ReadOnly] public float _dashCooldownTimer;
+    [SerializeField] public float _dashCooldown;
     [Space(20)]
     [ReadOnly]
     [SerializeField] private float _stateTime = 0f;
@@ -87,7 +87,8 @@ public class CharacterMovement : MonoBehaviour
             }
             else
             {
-                canDash = true;
+                _dashCooldownTimer = 0f;    
+               canDash = true;
             }
 
 

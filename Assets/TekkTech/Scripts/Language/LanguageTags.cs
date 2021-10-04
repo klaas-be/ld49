@@ -3,12 +3,15 @@ public enum LanguageTags
 	None=0,
 	CreditsMenu_aGameBy=24,
 	CreditsMenu_Title=25,
+	GameoverMenu_GameoverText=38,
 	GameUI_CraterScanner=19,
+	GameUI_TimeLeft=39,
 	Level01Story_Teil1=26,
 	Level01Story_Teil2=27,
 	Level01Story_Teil3=28,
 	Level01Story_Teil4=33,
 	Level01Story_Teil5=34,
+	Level01Story_Teil6=35,
 	MainMenu_Credits=23,
 	MainMenu_Exit=1,
 	MainMenu_HowToPlay=2,
@@ -34,5 +37,7 @@ public enum LanguageTags
 	TutorialLevel_Exit=18,
 	TutorialLevel_Movement=8,
 	TutorialLevel_RDrop=16,
-	TutorialLevel_Shocker=14
+	TutorialLevel_Shocker=14,
+	WinMenu_KeyText=36,
+	WinMenu_WinText=37
 }

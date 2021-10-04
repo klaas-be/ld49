@@ -1,0 +1,53 @@
+Category,Tag,English,Deutsch
+MainMenu,Exit,"Quit","Beenden"
+MainMenu,HowToPlay,"Tutorial","Tutorial"
+MainMenu,NewGame,"New Game","Neues Spiel"
+MainMenu,Settings,"Settings","Einstellungen"
+SettingsMenu,Language,"Language","Sprache"
+SettingsMenu,Sound,"Sounds","Ton"
+SettingsMenu,Title,"Settings","Einstellungen"
+TutorialLevel,Movement,"Move with WASD",""
+TutorialLevel,Dash,"Dash with SHIFT",""
+TutorialLevel,Chests,"Open Chests with SPACE to get the shown Element",""
+TutorialLevel,Burner,"Use SPACE to burn an Element here",""
+TutorialLevel,Combiner,"Put TWO Elements here to forge them together",""
+TutorialLevel,Compressor,"Use SPACE to compress an Element here",""
+TutorialLevel,Shocker,"Use SPACE to electrify an Element here",""
+TutorialLevel,DashDrop,"If you DASH with THREE or more Elements you'll lose up to three of them",""
+TutorialLevel,RDrop,"With R you can drop the lastmost Element from your hand",""
+TutorialLevel,Crater,"The crater asks for specific Elements and Status - Throw them with SPACE inside",""
+TutorialLevel,Exit,"To main menu",""
+GameUI,CraterScanner,"Crater Scanner","Krater Abtastgerät"
+PauseMenu,BackToMainMenu,"Main Menu","Hauptmenü"
+PauseMenu,Resume,"Resume","Weiter"
+PauseMenu,Title,"Pause","Pause"
+MainMenu,Credits,"Credits","Credits"
+CreditsMenu,aGameBy,"A Game by:","Ein Spiel von:"
+CreditsMenu,Title,"Credits","Credits"
+Level01Story,Teil1,"Hey my little 
+Robot-friend!
+The Planet is heating up!","Hey mein 
+kleiner Roboter..
+Der Planet ist am kochen!"
+Level01Story,Teil2,"Fast!
+You gotta help me cool it down!","Schnell!
+Du musst mir helfen den Planeten wieder abzukühlen!"
+Level01Story,Teil3,"The Scanner shows you which Elements sooth the Crater!","Das Abtastergerät 
+zeigt dir an, welche Elemente den Krater besänftigen!"
+StartupCount,1,"1..","1.."
+StartupCount,2,"2..","2.."
+StartupCount,3,"3..","3.."
+StartupCount,Go,"Go!","Los!"
+Level01Story,Teil4,"Collect them and use 
+the Machines to craft 
+the right ones for the Crater!","Sammle sie 
+und nutze die Maschinen, um sie umzuwandeln 
+und genau die Richtigen für den Krater zu finden!"
+Level01Story,Teil5,"Climb the Stairs to 
+the Crater and throw them in!","Steige die 
+Treppen zum Krater auf 
+und wirf sie dort hinein!"
+Level01Story,Teil6,"Let's go!","Los geht's!"
+WinMenu,KeyText,"press any key to continue..","drücke eine Taste zu fortfahren.."
+WinMenu,WinText,"* Win *","* Sieg *"
+GameoverMenu,GameoverText,"Game over..","Spiel verloren.."

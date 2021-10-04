@@ -10,11 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 209c07724db34dde957e9e1a12d71920, type: 3}
-  m_Name: Star - Star
+  m_Name: Star - StarBurned
   m_EditorClassIdentifier: 
+  FinishInstabilityBonus: 20
   toSpawn:
   - elementType: 2
     elementStatus: 0
+    burnParticles: {fileID: 0}
+    shockerGO: {fileID: 0}
   requested:
     elementType: 2
-    elementStatus: 0
+    elementStatus: 1
+    burnParticles: {fileID: 0}
+    shockerGO: {fileID: 0}
