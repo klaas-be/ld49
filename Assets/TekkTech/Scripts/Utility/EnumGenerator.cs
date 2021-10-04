@@ -12,7 +12,7 @@ namespace Assets.TekkTech.Scripts.Utility
         {
             if (enumValuesList.Count == 0) return;
         
-            StreamWriter sw = new StreamWriter(filePath + "/" + enumName + ".cs", false);
+            StreamWriter sw = new StreamWriter(filePath + Path.DirectorySeparatorChar + enumName + ".cs", false);
         
             sw.WriteLine("public enum " + enumName);
             sw.WriteLine("{");
@@ -55,7 +55,7 @@ namespace Assets.TekkTech.Scripts.Utility
                 }
             });
         
-            StreamWriter sw = new StreamWriter(filePath + "/LanguageTags.cs", false);
+            StreamWriter sw = new StreamWriter(filePath + Path.DirectorySeparatorChar + "LanguageTags.cs", false);
         
             sw.WriteLine("public enum LanguageTags");
             sw.WriteLine("{");

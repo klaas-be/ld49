@@ -72,6 +72,10 @@
         {
             "textTag": "TutorialLevel_Exit",
             "textContent": "Zum Hauptmenü"
+        },
+        {
+            "textTag": "GameUI_CraterScanner",
+            "textContent": "Krater Abtaster"
         }
     ]
 }

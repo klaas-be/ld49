@@ -24,7 +24,7 @@ namespace Assets.TekkTech.Scripts.Language
         public bool setLanguageOnStart = true;
 
         public static readonly string DirectoryPath = Path.DirectorySeparatorChar + "TekkTech" + Path.DirectorySeparatorChar + "Resources" + Path.DirectorySeparatorChar + "LanguageFiles" + Path.DirectorySeparatorChar;
-        public static readonly string TagEnumPath = Path.DirectorySeparatorChar + "TekkTech" + Path.DirectorySeparatorChar + "Scripts" + "Language" + Path.DirectorySeparatorChar;
+        public static readonly string TagEnumPath = Path.DirectorySeparatorChar + "TekkTech" + Path.DirectorySeparatorChar + "Scripts" + Path.DirectorySeparatorChar + "Language" + Path.DirectorySeparatorChar;
 
         private static LanguageFile s_loadedLanguageFile;
 

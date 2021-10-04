@@ -72,6 +72,10 @@
         {
             "textTag": "TutorialLevel_Exit",
             "textContent": "To main menu"
+        },
+        {
+            "textTag": "GameUI_CraterScanner",
+            "textContent": "Crater Scanner"
         }
     ]
 }

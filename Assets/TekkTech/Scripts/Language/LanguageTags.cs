@@ -1,6 +1,7 @@
 public enum LanguageTags
 {
 	None=0,
+	GameUI_CraterScanner=19,
 	MainMenu_Exit=1,
 	MainMenu_HowToPlay=2,
 	MainMenu_NewGame=3,
