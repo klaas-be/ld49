@@ -103,11 +103,11 @@
         },
         {
             "textTag": "Level01Story_Teil2",
-            "textContent": "Fast!\nYou gotta help me cool it down!"
+            "textContent": "Fast!\nWe only got 3 minutes!\nYou gotta help me cool it down!"
         },
         {
             "textTag": "Level01Story_Teil3",
-            "textContent": "The Scanner shows you which Elements sooth the Crater!"
+            "textContent": "The Scanner \nshows you which Elements sooth the Crater!\nWatch the status!"
         },
         {
             "textTag": "StartupCount_3",
@@ -127,7 +127,7 @@
         },
         {
             "textTag": "Level01Story_Teil4",
-            "textContent": "Collect them and use \nthe Machines to craft \nthe right ones for the Crater!"
+            "textContent": "Collect elements and \nuse the Machines to craft \nthe right ones for the Crater!"
         },
         {
             "textTag": "Level01Story_Teil5",
@@ -187,7 +187,7 @@
         },
         {
             "textTag": "Level02Story_Teil4",
-            "textContent": "Hope you \nremembered the recipe from the first planet ;)"
+            "textContent": "This time\nwe got around 4 minutes!"
         },
         {
             "textTag": "GameWon_YouWin",
@@ -200,6 +200,14 @@
         {
             "textTag": "GameLost_Story",
             "textContent": "The Planet exploded and everyone died. :("
+        },
+        {
+            "textTag": "Level02Story_Teil5",
+            "textContent": "Hope you \nremembered the recipe from the first planet ;)"
+        },
+        {
+            "textTag": "Level02Story_Teil6",
+            "textContent": "Good Luck!"
         }
     ]
 }

@@ -227,7 +227,7 @@ public class GameManager : MonoBehaviour
 
         if (isTutorial)
         {
-            CraterScannerUI.SetActive(false);
+            CraterScannerUI.SetActive(true);
             InstabilityUI.SetActive(false);
         }
         else
