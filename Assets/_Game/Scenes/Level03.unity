@@ -6952,11 +6952,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1454018629778935577, guid: 20a062e0af50f4c4184e230fb6946da5, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 3e-45
+      value: -1e-45
       objectReference: {fileID: 0}
     - target: {fileID: 1454018629778935577, guid: 20a062e0af50f4c4184e230fb6946da5, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -1e-45
+      value: 1e-45
       objectReference: {fileID: 0}
     - target: {fileID: 1454018629778935577, guid: 20a062e0af50f4c4184e230fb6946da5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -21625,7 +21625,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4764076451696831162, guid: d83940901edbfdc43a602e7bf895f98a, type: 3}
       propertyPath: repeatConstantly.time
-      value: 18
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 4764076451696831162, guid: d83940901edbfdc43a602e7bf895f98a, type: 3}
       propertyPath: repeatConstantly.e.m_PersistentCalls.m_Calls.Array.data[0].m_Target
