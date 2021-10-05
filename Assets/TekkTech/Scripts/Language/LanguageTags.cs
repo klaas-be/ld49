@@ -35,6 +35,7 @@ public enum LanguageTags
 	PauseMenu_BackToMainMenu=20,
 	PauseMenu_Resume=21,
 	PauseMenu_Title=22,
+	PlayGamePanel_Title=57,
 	SettingsMenu_Language=5,
 	SettingsMenu_Sound=6,
 	SettingsMenu_Title=7,

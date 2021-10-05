@@ -3,7 +3,7 @@
     "entries": [
         {
             "textTag": "MainMenu_NewGame",
-            "textContent": "New Game"
+            "textContent": "Play Game"
         },
         {
             "textTag": "MainMenu_HowToPlay",
@@ -224,6 +224,10 @@
         {
             "textTag": "Level03Story_Teil4",
             "textContent": "Let's do this one last time!"
+        },
+        {
+            "textTag": "PlayGamePanel_Title",
+            "textContent": "Select a planet!"
         }
     ]
 }

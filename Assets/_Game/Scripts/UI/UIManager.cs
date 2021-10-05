@@ -8,15 +8,21 @@ using TMPro;
 public class UIManager : MonoBehaviour
 {
     [SerializeField]
-    int newGame, howToPlay;
+    int howToPlay;
+    [Space(20)]
     [SerializeField]
     GameObject MenuCanvas;
+    [SerializeField]
+    GameObject PlayerGamePanel;
+    [SerializeField]
+    GameObject Level01Button, Level02Button, Level03Button;
     [SerializeField]
     GameObject SettingsPanel;
     [SerializeField]
     GameObject CreditsPanel;
     [SerializeField]
     TextMeshProUGUI currentLanguageTextField;
+
 
     private void Start()
     {
@@ -46,14 +52,31 @@ public class UIManager : MonoBehaviour
         currentLanguageTextField.text = LocalizationManager.instance.currentLanguage.ToString();
     }
 
-
-
-    public void LoadNewGame() {
-        SceneManager.LoadScene(newGame, LoadSceneMode.Single);
+    public void LoadGameFromID(int id) {
+        SceneManager.LoadScene(id, LoadSceneMode.Single);
     }
 
     public void LoadHowToPlay() {
         SceneManager.LoadScene(howToPlay, LoadSceneMode.Single);
+    }
+
+    public void TogglePlayGamePanel()
+    {
+        if (!PlayerGamePanel) return;
+
+        if (PlayerGamePanel.activeSelf == true)
+        {
+            PlayerGamePanel.SetActive(false);
+        }
+        else
+        {
+            PlayerGamePanel.SetActive(true);
+            Level01Button.SetActive(true);
+            Level02Button.SetActive(StateHolder.instance.LevelIdsPlayed[0]);
+            Level03Button.SetActive(StateHolder.instance.LevelIdsPlayed[1]);
+            CreditsPanel.SetActive(false);
+            SettingsPanel.SetActive(false);
+        }
     }
 
     public void ToggleSettings() {
@@ -64,6 +87,7 @@ public class UIManager : MonoBehaviour
         } else {
             SettingsPanel.SetActive(true);
             CreditsPanel.SetActive(false);
+            PlayerGamePanel.SetActive(false);
         }
     }
 
@@ -75,6 +99,7 @@ public class UIManager : MonoBehaviour
         } else {
             CreditsPanel.SetActive(true);
             SettingsPanel.SetActive(false);
+            PlayerGamePanel.SetActive(false);
         }
     }
 

@@ -18087,7 +18087,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
-  m_Intensity: 2
+  m_Intensity: 1.75
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -18096,7 +18096,7 @@ Light:
     m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
-    m_Strength: 1
+    m_Strength: 0.7
     m_Bias: 0.05
     m_NormalBias: 0
     m_NearPlane: 0.2
@@ -19392,11 +19392,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6853953029288539396, guid: f786d23d838666847b15240663ad8181, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.54
       objectReference: {fileID: 0}
     - target: {fileID: 6853953029288539396, guid: f786d23d838666847b15240663ad8181, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.93
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 6853953029288539396, guid: f786d23d838666847b15240663ad8181, type: 3}
       propertyPath: m_LocalRotation.w
@@ -23150,11 +23150,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6853953029288539396, guid: f786d23d838666847b15240663ad8181, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.54
       objectReference: {fileID: 0}
     - target: {fileID: 6853953029288539396, guid: f786d23d838666847b15240663ad8181, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.93
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 6853953029288539396, guid: f786d23d838666847b15240663ad8181, type: 3}
       propertyPath: m_LocalRotation.w
@@ -25342,15 +25342,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1454018629778935577, guid: 20a062e0af50f4c4184e230fb6946da5, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.39854848
+      value: 0.39854845
       objectReference: {fileID: 0}
     - target: {fileID: 1454018629778935577, guid: 20a062e0af50f4c4184e230fb6946da5, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000000027333117
+      value: -5.0347185e-15
       objectReference: {fileID: 0}
     - target: {fileID: 1454018629778935577, guid: 20a062e0af50f4c4184e230fb6946da5, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000000118776695
+      value: 1.4159284e-15
       objectReference: {fileID: 0}
     - target: {fileID: 1454018629778935577, guid: 20a062e0af50f4c4184e230fb6946da5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -28467,11 +28467,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6853953029288539396, guid: f786d23d838666847b15240663ad8181, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.54
       objectReference: {fileID: 0}
     - target: {fileID: 6853953029288539396, guid: f786d23d838666847b15240663ad8181, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.93
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 6853953029288539396, guid: f786d23d838666847b15240663ad8181, type: 3}
       propertyPath: m_LocalRotation.w
@@ -34401,6 +34401,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3709414429618236945, guid: d7f9edd4c7a1cc649a9b79b9c335cfab, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 455121887}
+    - target: {fileID: 3709414429618236945, guid: d7f9edd4c7a1cc649a9b79b9c335cfab, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ResumeGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709414429618236945, guid: d7f9edd4c7a1cc649a9b79b9c335cfab, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIManagerPause, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 3709414429618236946, guid: d7f9edd4c7a1cc649a9b79b9c335cfab, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -34420,6 +34432,18 @@ PrefabInstance:
     - target: {fileID: 3709414429618236946, guid: d7f9edd4c7a1cc649a9b79b9c335cfab, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709414430088577277, guid: d7f9edd4c7a1cc649a9b79b9c335cfab, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 455121887}
+    - target: {fileID: 3709414430088577277, guid: d7f9edd4c7a1cc649a9b79b9c335cfab, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GoToMainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 3709414430088577277, guid: d7f9edd4c7a1cc649a9b79b9c335cfab, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIManagerPause, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3709414430088577278, guid: d7f9edd4c7a1cc649a9b79b9c335cfab, type: 3}
       propertyPath: m_AnchorMax.y
@@ -34893,11 +34917,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6853953029288539396, guid: f786d23d838666847b15240663ad8181, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.54
       objectReference: {fileID: 0}
     - target: {fileID: 6853953029288539396, guid: f786d23d838666847b15240663ad8181, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.93
+      value: 1.8
       objectReference: {fileID: 0}
     - target: {fileID: 6853953029288539396, guid: f786d23d838666847b15240663ad8181, type: 3}
       propertyPath: m_LocalRotation.w

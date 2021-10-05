@@ -3,7 +3,7 @@
     "entries": [
         {
             "textTag": "MainMenu_NewGame",
-            "textContent": "Neues Spiel"
+            "textContent": "Spiel starten"
         },
         {
             "textTag": "MainMenu_HowToPlay",
@@ -224,6 +224,10 @@
         {
             "textTag": "Level02Story_Teil6",
             "textContent": "Viel Erfolg!"
+        },
+        {
+            "textTag": "PlayGamePanel_Title",
+            "textContent": "Wähle einen Planeten!"
         }
     ]
 }
