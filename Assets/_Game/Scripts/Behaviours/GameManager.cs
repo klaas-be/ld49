@@ -50,6 +50,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject WinMenuKeyText;
     [SerializeField] private float timeToContinue = 2f;
     [SerializeField, ReadOnly] private bool canContinue = false;
+    [SerializeField] private int sceneID;
 
     [Space(20), Header("Gameover Menu Settings")]
     [SerializeField] private GameObject GameoverMenu;
@@ -130,6 +131,7 @@ public class GameManager : MonoBehaviour
             case GameState.Win:
                 if (Input.anyKeyDown && canContinue)
                 {
+                    StateHolder.instance.LevelIdsPlayed[sceneID] = true;
                     SetTransition(nextSceneAfterWinID);
                 }
                 break;
@@ -179,43 +181,43 @@ public class GameManager : MonoBehaviour
         if (storyIndex >= languageTagsLevelStory.Count)
         {
             gameState = GameState.StartUp;
-            InvokeRepeating("StartUpTimer", 0f, 1f);
+            startupCounter = 3;
+            StartCoroutine(StartUpTimer());
             return;
         }
-
 
         uiTextSetter.localizedText.languageTag = languageTagsLevelStory[storyIndex];
         uiTextSetter.SetText();
     }
 
-    public void StartUpTimer()
+    public IEnumerator StartUpTimer()
     {
-        switch (startupCounter)
+        while (startupCounter >= 0)
         {
-            case 3:
-                uiTextSetter.localizedText.languageTag = LanguageTags.StartupCount_3;
-                break;
-            case 2:
-                uiTextSetter.localizedText.languageTag = LanguageTags.StartupCount_2;
-                break;
-            case 1:
-                uiTextSetter.localizedText.languageTag = LanguageTags.StartupCount_1;
-                break;
-            case 0:
-                uiTextSetter.localizedText.languageTag = LanguageTags.StartupCount_Go;
-                break;
-            default:
-                break;
+            switch (startupCounter)
+            {
+                case 3:
+                    uiTextSetter.localizedText.languageTag = LanguageTags.StartupCount_3;
+                    break;
+                case 2:
+                    uiTextSetter.localizedText.languageTag = LanguageTags.StartupCount_2;
+                    break;
+                case 1:
+                    uiTextSetter.localizedText.languageTag = LanguageTags.StartupCount_1;
+                    break;
+                case 0:
+                    uiTextSetter.localizedText.languageTag = LanguageTags.StartupCount_Go;
+                    break;
+                default:
+                    break;
+            }
+
+            uiTextSetter.SetText();
+            startupCounter--;
+            yield return new WaitForSeconds(1f);
         }
 
-        uiTextSetter.SetText();
-        startupCounter--;
-
-        if (startupCounter < -1)
-        {
-            SetIngame();
-            CancelInvoke("StartUpTimer");
-        }
+        SetIngame();
     }
 
     public void SetIngame()

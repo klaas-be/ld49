@@ -38,7 +38,9 @@ public class UIManagerPause : MonoBehaviour
         toggleCanvas = true;
     }
 
-    public void GoToMainMenu() {
+    public void GoToMainMenu()
+    {
+        Time.timeScale = 1;
         SceneManager.LoadScene(0, LoadSceneMode.Single);
     }
 }
