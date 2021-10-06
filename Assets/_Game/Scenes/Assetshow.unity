@@ -10183,7 +10183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playSoundSetting: 1
-  LevelIdsPlayed: 0000
+  LevelIdsPlayed: 000000
 --- !u!4 &1195983750
 Transform:
   m_ObjectHideFlags: 0

@@ -10,7 +10,7 @@ public class StateHolder : MonoBehaviour
     public static StateHolder instance;
 
     public bool playSoundSetting = true;
-    public bool[] LevelIdsPlayed = new bool[2];
+    public bool[] LevelIdsPlayed = new bool[3];
 
     private void Awake() {
         if (instance == null) {
